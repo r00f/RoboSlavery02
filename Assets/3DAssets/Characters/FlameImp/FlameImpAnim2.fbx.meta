@@ -1,0 +1,392 @@
+fileFormatVersion: 2
+guid: dda49d3fa5bd8ec488f326b0ee4f1177
+timeCreated: 1490373143
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BodyMesh
+    100002: ChestControl
+    100004: EyeLMesh
+    100006: EyeRMesh
+    100008: //RootNode
+    100010: FootControl
+    100012: HairControl
+    100014: HandLControl
+    100016: HandRControl
+    100018: Head
+    100020: HeadControl
+    100022: Hips
+    100024: ikHandle10
+    100026: ikHandle11
+    100028: ikHandle12
+    100030: ikHandle13
+    100032: ikHandle7
+    100034: ikHandle9
+    100036: joint13
+    100038: joint14
+    100040: joint15
+    100042: joint16
+    100044: joint17
+    100046: joint18
+    100048: joint19
+    100050: joint2
+    100052: joint20
+    100054: joint21
+    100056: joint22
+    100058: joint23
+    100060: joint24
+    100062: joint25
+    100064: LeftArm
+    100066: LeftArmLower
+    100068: LeftHand
+    100070: LeftHandIndex1
+    100072: LeftHandIndex2
+    100074: LeftHandIndex3
+    100076: LeftHandIndex4
+    100078: LeftHandPinky1
+    100080: LeftHandPinky2
+    100082: LeftHandPinky3
+    100084: LeftHandPinky4
+    100086: LeftHandThumb1
+    100088: LeftHandThumb2
+    100090: LeftHandThumb3
+    100092: LeftHandThumb4
+    100094: LeftShoulder
+    100096: Neck
+    100098: Reference
+    100100: RightArm
+    100102: RightArmLower
+    100104: RightHand
+    100106: RightHandIndex1
+    100108: RightHandIndex2
+    100110: RightHandIndex3
+    100112: RightHandIndex4
+    100114: RightHandPinky1
+    100116: RightHandPinky2
+    100118: RightHandPinky3
+    100120: RightHandPinky4
+    100122: RightHandThumb1
+    100124: RightHandThumb2
+    100126: RightHandThumb3
+    100128: RightHandThumb4
+    100130: RightShoulder
+    100132: Spine
+    100134: Spine1
+    100136: TorsoMesh
+    400000: BodyMesh
+    400002: ChestControl
+    400004: EyeLMesh
+    400006: EyeRMesh
+    400008: //RootNode
+    400010: FootControl
+    400012: HairControl
+    400014: HandLControl
+    400016: HandRControl
+    400018: Head
+    400020: HeadControl
+    400022: Hips
+    400024: ikHandle10
+    400026: ikHandle11
+    400028: ikHandle12
+    400030: ikHandle13
+    400032: ikHandle7
+    400034: ikHandle9
+    400036: joint13
+    400038: joint14
+    400040: joint15
+    400042: joint16
+    400044: joint17
+    400046: joint18
+    400048: joint19
+    400050: joint2
+    400052: joint20
+    400054: joint21
+    400056: joint22
+    400058: joint23
+    400060: joint24
+    400062: joint25
+    400064: LeftArm
+    400066: LeftArmLower
+    400068: LeftHand
+    400070: LeftHandIndex1
+    400072: LeftHandIndex2
+    400074: LeftHandIndex3
+    400076: LeftHandIndex4
+    400078: LeftHandPinky1
+    400080: LeftHandPinky2
+    400082: LeftHandPinky3
+    400084: LeftHandPinky4
+    400086: LeftHandThumb1
+    400088: LeftHandThumb2
+    400090: LeftHandThumb3
+    400092: LeftHandThumb4
+    400094: LeftShoulder
+    400096: Neck
+    400098: Reference
+    400100: RightArm
+    400102: RightArmLower
+    400104: RightHand
+    400106: RightHandIndex1
+    400108: RightHandIndex2
+    400110: RightHandIndex3
+    400112: RightHandIndex4
+    400114: RightHandPinky1
+    400116: RightHandPinky2
+    400118: RightHandPinky3
+    400120: RightHandPinky4
+    400122: RightHandThumb1
+    400124: RightHandThumb2
+    400126: RightHandThumb3
+    400128: RightHandThumb4
+    400130: RightShoulder
+    400132: Spine
+    400134: Spine1
+    400136: TorsoMesh
+    2300000: EyeLMesh
+    2300002: EyeRMesh
+    2300004: TorsoMesh
+    3300000: EyeLMesh
+    3300002: EyeRMesh
+    3300004: TorsoMesh
+    4300000: EyeRMesh
+    4300002: EyeLMesh
+    4300004: TorsoMesh
+    4300006: BodyMesh
+    7400000: Idle
+    9500000: //RootNode
+    13700000: BodyMesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Idle
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BodyMesh
+        weight: 1
+      - path: ChestControl
+        weight: 1
+      - path: ChestControl/ikHandle10
+        weight: 1
+      - path: FootControl
+        weight: 1
+      - path: FootControl/ikHandle13
+        weight: 1
+      - path: HairControl
+        weight: 1
+      - path: HairControl/ikHandle9
+        weight: 1
+      - path: HandLControl
+        weight: 1
+      - path: HandLControl/ikHandle7
+        weight: 1
+      - path: HandRControl
+        weight: 1
+      - path: HandRControl/ikHandle12
+        weight: 1
+      - path: HeadControl
+        weight: 1
+      - path: HeadControl/ikHandle11
+        weight: 1
+      - path: Reference
+        weight: 1
+      - path: Reference/Hips
+        weight: 1
+      - path: Reference/Hips/joint2
+        weight: 1
+      - path: Reference/Hips/joint2/joint18
+        weight: 1
+      - path: Reference/Hips/joint2/joint18/joint19
+        weight: 1
+      - path: Reference/Hips/joint2/joint18/joint19/joint20
+        weight: 1
+      - path: Reference/Hips/joint2/joint18/joint19/joint20/joint21
+        weight: 1
+      - path: Reference/Hips/joint2/joint18/joint19/joint20/joint21/joint22
+        weight: 1
+      - path: Reference/Hips/joint2/joint18/joint19/joint20/joint21/joint22/joint23
+        weight: 1
+      - path: Reference/Hips/joint2/joint18/joint19/joint20/joint21/joint22/joint23/joint24
+        weight: 1
+      - path: Reference/Hips/joint2/joint18/joint19/joint20/joint21/joint22/joint23/joint24/joint25
+        weight: 1
+      - path: Reference/Hips/Spine
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/LeftShoulder
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/LeftShoulder/LeftArm
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/LeftShoulder/LeftArm/LeftArmLower
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/LeftShoulder/LeftArm/LeftArmLower/LeftHand
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/LeftShoulder/LeftArm/LeftArmLower/LeftHand/LeftHandIndex1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/LeftShoulder/LeftArm/LeftArmLower/LeftHand/LeftHandIndex1/LeftHandIndex2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/LeftShoulder/LeftArm/LeftArmLower/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/LeftShoulder/LeftArm/LeftArmLower/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3/LeftHandIndex4
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/LeftShoulder/LeftArm/LeftArmLower/LeftHand/LeftHandPinky1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/LeftShoulder/LeftArm/LeftArmLower/LeftHand/LeftHandPinky1/LeftHandPinky2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/LeftShoulder/LeftArm/LeftArmLower/LeftHand/LeftHandPinky1/LeftHandPinky2/LeftHandPinky3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/LeftShoulder/LeftArm/LeftArmLower/LeftHand/LeftHandPinky1/LeftHandPinky2/LeftHandPinky3/LeftHandPinky4
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/LeftShoulder/LeftArm/LeftArmLower/LeftHand/LeftHandThumb1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/LeftShoulder/LeftArm/LeftArmLower/LeftHand/LeftHandThumb1/LeftHandThumb2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/LeftShoulder/LeftArm/LeftArmLower/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/LeftShoulder/LeftArm/LeftArmLower/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3/LeftHandThumb4
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Neck
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Neck/Head
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Neck/Head/EyeLMesh
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Neck/Head/EyeRMesh
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Neck/Head/joint13
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Neck/Head/joint13/joint14
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Neck/Head/joint13/joint14/joint15
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Neck/Head/joint13/joint14/joint15/joint16
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Neck/Head/joint13/joint14/joint15/joint16/joint17
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/RightShoulder
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/RightShoulder/RightArm
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/RightShoulder/RightArm/RightArmLower
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/RightShoulder/RightArm/RightArmLower/RightHand
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/RightShoulder/RightArm/RightArmLower/RightHand/RightHandIndex1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/RightShoulder/RightArm/RightArmLower/RightHand/RightHandIndex1/RightHandIndex2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/RightShoulder/RightArm/RightArmLower/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/RightShoulder/RightArm/RightArmLower/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3/RightHandIndex4
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/RightShoulder/RightArm/RightArmLower/RightHand/RightHandPinky1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/RightShoulder/RightArm/RightArmLower/RightHand/RightHandPinky1/RightHandPinky2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/RightShoulder/RightArm/RightArmLower/RightHand/RightHandPinky1/RightHandPinky2/RightHandPinky3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/RightShoulder/RightArm/RightArmLower/RightHand/RightHandPinky1/RightHandPinky2/RightHandPinky3/RightHandPinky4
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/RightShoulder/RightArm/RightArmLower/RightHand/RightHandThumb1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/RightShoulder/RightArm/RightArmLower/RightHand/RightHandThumb1/RightHandThumb2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/RightShoulder/RightArm/RightArmLower/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/RightShoulder/RightArm/RightArmLower/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3/RightHandThumb4
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/TorsoMesh
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
