@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[RequireComponent(typeof(AudioSource))]
+
 public class LivingEntity : MonoBehaviour {
 
     [SerializeField]
@@ -85,8 +88,8 @@ public class LivingEntity : MonoBehaviour {
 
     public virtual void Initialize()
     {
+        canvas = GameObject.FindGameObjectWithTag("Canvas1").GetComponent<Canvas>();
         audioSource = GetComponent<AudioSource>();
-        canvas = FindObjectOfType<Canvas>();
         rigid = GetComponent<Rigidbody>();
         gameController = FindObjectOfType<GameController>();
         animator = GetComponent<Animator>();
@@ -226,13 +229,16 @@ public class LivingEntity : MonoBehaviour {
         switch (sfxName)
         {
             case "FootStep":
-                audioSource.PlayOneShot(footStepClips[Random.Range(0, footStepClips.Length)], .05f);
+                if(footStepClips.Length > 0)
+                    audioSource.PlayOneShot(footStepClips[Random.Range(0, footStepClips.Length)], .05f);
                 break;
             case "GetHit":
-                audioSource.PlayOneShot(getHitClips[Random.Range(0, getHitClips.Length)], .3f);
+                if (getHitClips.Length > 0)
+                    audioSource.PlayOneShot(getHitClips[Random.Range(0, getHitClips.Length)], .3f);
                 break;
             case "Drill":
-                audioSource.PlayOneShot(drillClips[Random.Range(0, drillClips.Length)], .3f);
+                if (drillClips.Length > 0)
+                    audioSource.PlayOneShot(drillClips[Random.Range(0, drillClips.Length)], .3f);
                 break;
         }
     }

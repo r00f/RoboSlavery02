@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class SteamGolemLogic : PlayerLogic
 {
 
@@ -42,7 +43,6 @@ public class SteamGolemLogic : PlayerLogic
     void Start()
     {
         Initialize();
-
         healthBar = canvas.transform.GetChild(2).GetChild(0).GetComponent<Slider>();
         handLHealthBar = canvas.transform.GetChild(2).GetChild(1).GetComponent<Slider>();
         handRHealthBar = canvas.transform.GetChild(2).GetChild(2).GetComponent<Slider>();
@@ -125,7 +125,7 @@ public class SteamGolemLogic : PlayerLogic
     {
         base.HandleInput();
 
-        if (Input.GetButton("Fire1"))
+        if (rePlayer.GetButton("Right Button"))
         {
             if(!animator.GetBool("Attacking") && (!hitSpheres[0].GetComponent<HandController>().IsDead() || !hitSpheres[1].GetComponent<HandController>().IsDead()))
             {

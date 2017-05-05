@@ -19,10 +19,19 @@ public class GameController : MonoBehaviour {
     void Start () {
 
         Time.timeScale = 1;
-        canvas = FindObjectOfType<Canvas>();
+        canvas = GameObject.FindGameObjectWithTag("Canvas1").GetComponent<Canvas>();
         mainMenu = canvas.transform.GetChild(3).gameObject;
         mainMenu.SetActive(false);
-	}
+
+        Debug.Log("displays connected: " + Display.displays.Length);
+        // Display.displays[0] is the primary, default display and is always ON.
+        // Check if additional displays are available and activate each.
+        if (Display.displays.Length > 1)
+            Display.displays[1].Activate();
+        if (Display.displays.Length > 2)
+            Display.displays[2].Activate();
+
+    }
 	
 	void Update () {
 

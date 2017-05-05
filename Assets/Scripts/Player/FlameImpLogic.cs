@@ -13,7 +13,6 @@ public class FlameImpLogic : PlayerLogic {
     Renderer[] renderers;
     [SerializeField]
     MeshRenderer[] eyes;
-
     SkinnedMeshRenderer skinnedMeshRenderer;
     Light pointLight;
     Collider[] colliders;
@@ -30,7 +29,7 @@ public class FlameImpLogic : PlayerLogic {
     void Start () {
 
         Initialize();
-        healthBar = canvas.transform.GetChild(2).GetChild(3).GetComponent<Slider>();
+        healthBar = canvas.transform.GetChild(0).GetChild(0).GetComponent<Slider>();
         colliders = GetComponentsInChildren<Collider>();
         pointLight = GetComponentInChildren<Light>();
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
@@ -133,7 +132,7 @@ public class FlameImpLogic : PlayerLogic {
 
             if(steamGolem.IsHitSphereEnabled())
             {
-                if (Input.GetButtonDown("Fire1K"))
+                if (rePlayer.GetButtonDown("Bottom Button"))
                 {
                     FireImp();
                 }

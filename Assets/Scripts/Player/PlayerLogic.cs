@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Rewired;
 
 public class PlayerLogic : LivingEntity
 {
@@ -27,7 +28,9 @@ public class PlayerLogic : LivingEntity
 
     #endregion
 
-    #region Private Variables
+    #region Protected Variables
+
+    protected Player rePlayer;
 
     protected float speed;
     protected float direction;
@@ -118,74 +121,59 @@ public class PlayerLogic : LivingEntity
     public override void Initialize()
     {
         base.Initialize();
+        canvas = GameObject.FindGameObjectWithTag("Canvas" + playerNumber).GetComponent<Canvas>();
+        rePlayer = ReInput.players.GetPlayer(playerNumber-1);
         gameObject.tag = "Player" + playerNumber;
         gameCam = GameObject.FindGameObjectWithTag("Cam" + playerNumber).GetComponent<ThirdPersonCamera>();
     }
 
     public virtual void HandleInput()
     {
-        if (playerNumber == 1)
+        //movement
+        horizontalL = rePlayer.GetAxis("Left Horizontal");
+        verticalL = rePlayer.GetAxis("Left Vertical");
+
+        animator.SetFloat("Horizontal", horizontalL);
+        animator.SetFloat("Vertical", verticalL);
+
+        //buttons
+        if (rePlayer.GetButtonDown("L1"))
         {
-            horizontalL = Input.GetAxis("Horizontal");
-            verticalL = Input.GetAxis("Vertical");
-            animator.SetFloat("Horizontal", horizontalL);
-            animator.SetFloat("Vertical", verticalL);
-
-            if (Input.GetButtonDown("L1"))
-            {
-                animator.SetTrigger("L1");
-            }
-
-            if (Input.GetButtonDown("R1"))
-            {
-                animator.SetTrigger("R1");
-            }
-
-            if (Input.GetButtonDown("Fire2"))
-            {
-                AddSubtractHealth(-25);
-                hitSpheres[Random.Range(0, 2)].GetComponent<HandController>().AddSubtractHealth(-25);
-            }
-
-            if (Input.GetButton("Fire3"))
-            {
-                animator.SetBool("SquarePressed", true);
-            }
-
-            else
-            {
-                animator.SetBool("SquarePressed", false);
-            }
+            animator.SetTrigger("L1");
         }
+
+        if (rePlayer.GetButtonDown("R1"))
+        {
+            animator.SetTrigger("R1");
+        }
+
+        if (rePlayer.GetButton("Left Button"))
+        {
+            animator.SetBool("SquarePressed", true);
+        }
+
         else
         {
-            horizontalL = Input.GetAxis("HorizontalK");
-            verticalL = Input.GetAxis("VerticalK");
-            animator.SetFloat("Horizontal", horizontalL);
-            animator.SetFloat("Vertical", verticalL);
+            animator.SetBool("SquarePressed", false);
+        }
 
-            if (Input.GetButtonDown("Fire1K"))
+        if (rePlayer.GetButtonDown("Up Button"))
+        {
+            AddSubtractHealth(-25);
+
+            if(hitSpheres.Length > 0)
+                hitSpheres[Random.Range(0, 2)].GetComponent<HandController>().AddSubtractHealth(-25);
+        }
+
+        if(playerNumber == 2)
+
+        {
+
+            if (rePlayer.GetButtonDown("Bottom Button"))
             {
                 animator.SetTrigger("Punch");
             }
-
-            if (Input.GetButtonDown("Fire2K"))
-            {
-                AddSubtractHealth(-25);
-            }
-
-            if (Input.GetButton("Fire3K"))
-            {
-                animator.SetBool("SquarePressed", true);
-            }
-
-            else
-            {
-                animator.SetBool("SquarePressed", false);
-            }
-
         }
-
 
         animator.SetBool("Strafe", IsTargeting());
         charAngle = 0f;

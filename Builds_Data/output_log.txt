@@ -7,224 +7,136 @@ Direct3D:
     VRAM:     1999 MB
     Driver:   20.19.15.4531
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\UnityProjects\RoboSlavery\Builds_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\UnityProjects\RoboSlavery\Builds_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\UnityProjects\RoboSlavery\Builds_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
-Loading C:\UnityProjects\RoboSlavery\Builds_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
-Platform assembly: C:\UnityProjects\RoboSlavery\Builds_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\UnityProjects\RoboSlavery\Builds_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\UnityProjects\RoboSlavery\Builds_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\UnityProjects\RoboSlavery\Builds_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\UnityProjects\RoboSlavery\Builds_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\UnityProjects\RoboSlavery\Builds_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\UnityProjects\RoboSlavery\Builds_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
-Loading C:\UnityProjects\RoboSlavery\Builds_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-Platform assembly: C:\UnityProjects\RoboSlavery\Builds_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\UnityProjects\RoboSlavery\Builds_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.070 seconds
-Platform assembly: C:\UnityProjects\RoboSlavery\Builds_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\UnityProjects\RoboSlavery\Builds_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Rewired_Core.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Rewired_Core.dll into Unity Child Domain
+Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Rewired_Windows_Lib.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Rewired_Windows_Lib.dll into Unity Child Domain
+- Completed reload, in  0.068 seconds
+Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 5280x1800 at 0,0
 <RI> Initializing input.
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 4.004823 ms
+UnloadTime: 5.145270 ms
+Non platform assembly: data-1266E028 (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-1266E028.dll
+Non platform assembly: data-1267A130 (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-1267A130.dll
+Non platform assembly: data-18DD1020 (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-18DD1020.dll
+Rewired: Searching for compatible XInput library...
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_2
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_1
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_1.dll
+Rewired: Found Xinput1_4.dll.
+Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\System.Xml.dll (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_2
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_1
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_2
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_1
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_1.dll
+displays connected: 2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 3e08 -> priority: 1 
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-RESTART IN 5 SECONDS
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
+  Thread -> id: 998 -> priority: 1 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 18.707994 ms
+UnloadTime: 24.099163 ms
 
-Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 4564.
-Total: 7.645680 ms (FindLiveObjects: 0.421207 ms CreateObjectMapping: 0.152376 ms MarkObjects: 3.041218 ms  DeleteObjects: 4.017850 ms)
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 4926.
+Total: 44.653400 ms (FindLiveObjects: 0.535686 ms CreateObjectMapping: 0.259355 ms MarkObjects: 37.853310 ms  DeleteObjects: 5.994789 ms)
 
-ImpDashesIntoGolem
+displays connected: 2
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-RESTART IN 5 SECONDS
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 11.046129 ms
-
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 4564.
-Total: 13.227960 ms (FindLiveObjects: 0.698722 ms CreateObjectMapping: 0.269619 ms MarkObjects: 4.990930 ms  DeleteObjects: 7.266712 ms)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 18.925112 ms
-
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 4564.
-Total: 12.950048 ms (FindLiveObjects: 0.832150 ms CreateObjectMapping: 0.301200 ms MarkObjects: 4.642358 ms  DeleteObjects: 7.171575 ms)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 17.219360 ms
-
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 4564.
-Total: 13.007289 ms (FindLiveObjects: 0.761488 ms CreateObjectMapping: 0.285015 ms MarkObjects: 5.646229 ms  DeleteObjects: 6.310212 ms)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-RESTART IN 5 SECONDS
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 13.279277 ms
-
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 4564.
-Total: 10.566892 ms (FindLiveObjects: 0.450419 ms CreateObjectMapping: 0.202116 ms MarkObjects: 3.942846 ms  DeleteObjects: 5.970720 ms)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-RESTART IN 5 SECONDS
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 23.211399 ms
-
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 4564.
-Total: 12.693851 ms (FindLiveObjects: 0.725960 ms CreateObjectMapping: 0.276725 ms MarkObjects: 5.121990 ms  DeleteObjects: 6.566411 ms)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-RESTART IN 5 SECONDS
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 19.160784 ms
-
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 4564.
-Total: 10.214373 ms (FindLiveObjects: 0.555030 ms CreateObjectMapping: 0.234881 ms MarkObjects: 4.246810 ms  DeleteObjects: 5.174887 ms)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-RESTART IN 5 SECONDS
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 14.121692 ms
-
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 4564.
-Total: 9.509729 ms (FindLiveObjects: 0.482394 ms CreateObjectMapping: 0.196194 ms MarkObjects: 4.101934 ms  DeleteObjects: 4.726837 ms)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-RESTART IN 5 SECONDS
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 25.147295 ms
-
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 4564.
-Total: 12.957944 ms (FindLiveObjects: 0.663588 ms CreateObjectMapping: 0.271988 ms MarkObjects: 5.645834 ms  DeleteObjects: 6.372979 ms)
-
-ImpDashesIntoGolem
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-RESTART IN 5 SECONDS
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 25.026499 ms
-
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 4564.
-Total: 12.648059 ms (FindLiveObjects: 0.854257 ms CreateObjectMapping: 0.287778 ms MarkObjects: 5.108173 ms  DeleteObjects: 6.393901 ms)
 

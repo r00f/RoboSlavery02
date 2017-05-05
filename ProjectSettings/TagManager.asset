@@ -17,6 +17,8 @@ TagManager:
   - Floor
   - Cam1
   - Cam2
+  - Canvas1
+  - Canvas2
   layers:
   - Default
   - TransparentFX

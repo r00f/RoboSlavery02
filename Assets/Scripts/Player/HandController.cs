@@ -134,7 +134,7 @@ public class HandController : MonoBehaviour {
 
     public void EmitDrillBuildup(float emissionTime)
     {
-        if (drillBuildUpPs)
+        if (drillBuildUpPs && !dead)
         {
             drillstage = 1;
             ParticleSystem.EmissionModule em = drillBuildUpPs.emission;
