@@ -11,13 +11,37 @@ public class GameController : MonoBehaviour {
 
     bool restarting;
     public bool paused;
+    static bool secDisplayActive;
 
     int metal;
 
     #region Mono Methods
 
-    void Start () {
+    void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
+    void OnEnable()
+    {
+        //Tell our 'OnLevelFinishedLoading' function to start listening for a scene change as soon as this script is enabled.
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+    }
+
+    void OnDisable()
+    {
+        //Tell our 'OnLevelFinishedLoading' function to stop listening for a scene change as soon as this script is disabled. Remember to always have an unsubscription for every delegate you subscribe to!
+        SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+    }
+
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    {
+        if (FindObjectsOfType<GameController>().Length > 1)
+        {
+            Destroy(FindObjectsOfType<GameController>()[1]);
+        }
+
+        print("GCSTART");
         Time.timeScale = 1;
         canvas = GameObject.FindGameObjectWithTag("Canvas1").GetComponent<Canvas>();
         mainMenu = canvas.transform.GetChild(3).gameObject;
@@ -26,13 +50,14 @@ public class GameController : MonoBehaviour {
         Debug.Log("displays connected: " + Display.displays.Length);
         // Display.displays[0] is the primary, default display and is always ON.
         // Check if additional displays are available and activate each.
-        if (Display.displays.Length > 1)
+        if (Display.displays.Length > 1 && !secDisplayActive)
+        {
+            print("activateSecondDisplay");
             Display.displays[1].Activate();
-        if (Display.displays.Length > 2)
-            Display.displays[2].Activate();
-
+            secDisplayActive = true;
+        }
     }
-	
+
 	void Update () {
 
         if(Input.GetButtonDown("Cancel"))
