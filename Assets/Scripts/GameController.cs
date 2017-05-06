@@ -9,16 +9,31 @@ public class GameController : MonoBehaviour {
     Canvas canvas;
     GameObject mainMenu;
 
+    [SerializeField]
     bool restarting;
     public bool paused;
     static bool secDisplayActive;
 
+    [SerializeField]
     int metal;
 
     #region Mono Methods
 
     void Start()
     {
+        Time.timeScale = 1;
+        canvas = GameObject.FindGameObjectWithTag("Canvas1").GetComponent<Canvas>();
+        mainMenu = canvas.transform.GetChild(3).gameObject;
+        mainMenu.SetActive(false);
+
+        // Display.displays[0] is the primary, default display and is always ON.
+        // Check if additional displays are available and activate each.
+        if (Display.displays.Length > 1 && !secDisplayActive)
+        {
+            print("activateSecondDisplay");
+            Display.displays[1].Activate();
+            secDisplayActive = true;
+        }
         DontDestroyOnLoad(gameObject);
     }
 
@@ -36,12 +51,7 @@ public class GameController : MonoBehaviour {
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        //if there exists more than one GC, destroy extra GC
-        if (FindObjectsOfType<GameController>().Length > 1)
-        {
-            Destroy(FindObjectsOfType<GameController>()[1]);
-        }
-
+        restarting = false;
         Time.timeScale = 1;
         canvas = GameObject.FindGameObjectWithTag("Canvas1").GetComponent<Canvas>();
         mainMenu = canvas.transform.GetChild(3).gameObject;
@@ -64,7 +74,6 @@ public class GameController : MonoBehaviour {
             PauseGame();
         }
 
-        canvas.transform.GetChild(5).GetComponentInChildren<Text>().text = "Metal: " + metal;
 	}
 
     #endregion
@@ -127,6 +136,11 @@ public class GameController : MonoBehaviour {
     {
         metal += amount;
         //print(metal);
+    }
+
+    public int GetMetalAmount()
+    {
+        return metal;
     }
 
     public IEnumerator RestartSceneTimed(float time)
