@@ -52,6 +52,12 @@ public class Agent : LivingEntity {
 
     #region Methods
 
+    public override void Initialize()
+    {
+        base.Initialize();
+        InstanciateTarget(0);
+    }
+
     public void SetDestination()
 	{
         

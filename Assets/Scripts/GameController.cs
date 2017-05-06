@@ -36,18 +36,17 @@ public class GameController : MonoBehaviour {
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
+        //if there exists more than one GC, destroy extra GC
         if (FindObjectsOfType<GameController>().Length > 1)
         {
             Destroy(FindObjectsOfType<GameController>()[1]);
         }
 
-        print("GCSTART");
         Time.timeScale = 1;
         canvas = GameObject.FindGameObjectWithTag("Canvas1").GetComponent<Canvas>();
         mainMenu = canvas.transform.GetChild(3).gameObject;
         mainMenu.SetActive(false);
 
-        Debug.Log("displays connected: " + Display.displays.Length);
         // Display.displays[0] is the primary, default display and is always ON.
         // Check if additional displays are available and activate each.
         if (Display.displays.Length > 1 && !secDisplayActive)

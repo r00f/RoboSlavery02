@@ -16,11 +16,13 @@ public class TargetLogic : MonoBehaviour {
 
     Camera cam;
 
+    public int canvasNumber;
+
     void Start()
     {
 
         if (cam == null)
-            cam = GameObject.FindGameObjectWithTag("Cam1").GetComponent<Camera>();
+            cam = GameObject.FindGameObjectWithTag("Cam" + canvasNumber).GetComponent<Camera>();
 
     }
 
@@ -29,8 +31,6 @@ public class TargetLogic : MonoBehaviour {
     {
 
         //scale Target with distance to camera
-
-        
 
         if (follow.GetComponent<LivingEntity>().isTargeted)
         {
@@ -67,13 +67,13 @@ public class TargetLogic : MonoBehaviour {
         }
         else 
         {
-
             if (transform.GetChild(0).gameObject.activeSelf)
             {
 
                 //print("disableTarget");
                 for (int i = 0; i < transform.childCount; i++)
                 {
+                    transform.GetChild(i).GetComponent<Image>().color = Color.yellow;
                     transform.GetChild(i).gameObject.SetActive(false);
                 }
 

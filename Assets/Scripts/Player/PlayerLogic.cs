@@ -38,8 +38,10 @@ public class PlayerLogic : LivingEntity
     protected float verticalL;
     protected float charAngle;
 
-    List<Agent> agentsInRange = new List<Agent>();
-    List<Agent> agentsToRemove = new List<Agent>();
+    [SerializeField]
+    List<LivingEntity> entitiesInRange = new List<LivingEntity>();
+    [SerializeField]
+    List<LivingEntity> entitiesToRemove = new List<LivingEntity>();
 
     #endregion
 
@@ -121,7 +123,7 @@ public class PlayerLogic : LivingEntity
     public override void Initialize()
     {
         base.Initialize();
-        canvas = GameObject.FindGameObjectWithTag("Canvas" + playerNumber).GetComponent<Canvas>();
+        InstanciateTarget(playerNumber);
         rePlayer = ReInput.players.GetPlayer(playerNumber-1);
         gameObject.tag = "Player" + playerNumber;
         gameCam = GameObject.FindGameObjectWithTag("Cam" + playerNumber).GetComponent<ThirdPersonCamera>();
@@ -137,6 +139,15 @@ public class PlayerLogic : LivingEntity
         animator.SetFloat("Vertical", verticalL);
 
         //buttons
+        if (rePlayer.GetAxis("L2") > 0.1f)
+        {
+            gameCam.camState = ThirdPersonCamera.CamStates.Target;
+        }
+        else
+        {
+            gameCam.camState = ThirdPersonCamera.CamStates.Behind;
+
+        }
         if (rePlayer.GetButtonDown("L1"))
         {
             animator.SetTrigger("L1");
@@ -208,25 +219,25 @@ public class PlayerLogic : LivingEntity
 
     }
 
-    protected void HandleEnemiesInRange()
+    protected void HandleEntititesInRange()
     {
-        //if enemiesInRage is not empty, set lookAtXForm to nearest enemy
-        if (agentsInRange.Count != 0)
+        //if entitiesInRange is not empty, set lookAtXForm to nearest enemy
+        if (entitiesInRange.Count != 0)
         {
             if (IsTargeting())
             {
-                for (int i = 0; i < agentsInRange.Count; i++)
+                for (int i = 0; i < entitiesInRange.Count; i++)
                 {
                     if (i == 0)
                     {
-                        agentsInRange[i].isTargeted = true;
-                        agentsInRange[i].isTargetLocked = true;
+                        entitiesInRange[i].isTargeted = true;
+                        entitiesInRange[i].isTargetLocked = true;
                     }
 
                     else
                     {
-                        agentsInRange[i].isTargeted = false;
-                        agentsInRange[i].isTargetLocked = false;
+                        entitiesInRange[i].isTargeted = false;
+                        entitiesInRange[i].isTargetLocked = false;
                     }
 
                 }
@@ -236,30 +247,31 @@ public class PlayerLogic : LivingEntity
             {
 
 
-                for (int i = 0; i < agentsInRange.Count; i++)
+                for (int i = 0; i < entitiesInRange.Count; i++)
                 {
                     if (i == 0)
                     {
-                        agentsInRange[i].isTargeted = true;
+                        entitiesInRange[i].isTargeted = true;
+                        entitiesInRange[i].isTargetLocked = false;
                     }
 
                     else
                     {
-                        agentsInRange[i].isTargeted = false;
-                        agentsInRange[i].isTargetLocked = false;
+                        entitiesInRange[i].isTargeted = false;
+                        entitiesInRange[i].isTargetLocked = false;
                     }
 
                 }
 
                 //sort enemiesInRange by distance
-                agentsInRange.Sort(delegate (Agent c1, Agent c2) {
+                entitiesInRange.Sort(delegate (LivingEntity c1, LivingEntity c2) {
                     return Vector3.SqrMagnitude(this.transform.position - c1.transform.position).CompareTo
                                 (Vector3.SqrMagnitude(this.transform.position - c2.transform.position));
                 });
 
             }
 
-            lookAtXForm = agentsInRange[0].transform.position;
+            lookAtXForm = entitiesInRange[0].transform.position;
 
         }
         //else set lookAtXForm to players forward
@@ -269,21 +281,22 @@ public class PlayerLogic : LivingEntity
         }
 
         //foreach Agent in agentsInRange check if he is dead and if it is, add it to agentsToRemove
-        foreach (Agent agent in agentsInRange)
+        foreach (LivingEntity entity in entitiesInRange)
         {
 
-            if (agent.IsDead())
+            if (entity.IsDead())
             {
-                RemoveAgentFromInRangeList(agent);
+                RemoveEntityFromList(entity);
             }
 
         }
 
         //foreach Agent in agentsToRemove remove it from agentsInRange
-        foreach (Agent removeAgent in agentsToRemove)
+        foreach (LivingEntity entity in entitiesToRemove)
         {
-            removeAgent.isTargeted = false;
-            agentsInRange.Remove(removeAgent);
+            entity.isTargeted = false;
+            entity.isTargeted = false;
+            entitiesInRange.Remove(entity);
         }
 
     }
@@ -337,15 +350,15 @@ public class PlayerLogic : LivingEntity
             transInfo.fullPathHash == m_LocomotionPivotLTransId;
     }
 
-    public void RemoveAgentFromInRangeList(Agent agent)
+    public void RemoveEntityFromList(LivingEntity enitity)
     {
-        agentsToRemove.Add(agent);
+        entitiesToRemove.Add(enitity);
     }
 
-    public void AddAgentToInRangeList(Agent agent)
+    public void AddEntityToList(LivingEntity enitity)
     {
-        agentsInRange.Add(agent);
-        agentsToRemove.Clear();
+        entitiesInRange.Add(enitity);
+        entitiesToRemove.Clear();
     }
 
     public bool IsInLocomotion()

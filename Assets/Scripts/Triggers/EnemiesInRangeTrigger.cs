@@ -20,26 +20,16 @@ public class EnemiesInRangeTrigger : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Enemy"))
-        {
-            //print("enemy in range");
 
-            //if an enemy enters this trigger, add it to the enemiesInRange List of the player
-            if(other.GetComponent<Agent>())
-                player.AddAgentToInRangeList(other.GetComponent<Agent>());
-        }
+            if(other.GetComponent<LivingEntity>())
+                player.AddEntityToList(other.GetComponent<LivingEntity>());
 
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Enemy"))
-        {
-            //print("enemy in range");
+            if (other.GetComponent<LivingEntity>())
+                player.RemoveEntityFromList(other.GetComponent<LivingEntity>());
 
-            //if an enemy enters this trigger, add it to the enemiesInRange List of the player
-            if (other.GetComponent<Agent>())
-                player.RemoveAgentFromInRangeList(other.GetComponent<Agent>());
-        }
     }
 }

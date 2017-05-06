@@ -43,9 +43,9 @@ public class SteamGolemLogic : PlayerLogic
     void Start()
     {
         Initialize();
-        healthBar = canvas.transform.GetChild(2).GetChild(0).GetComponent<Slider>();
-        handLHealthBar = canvas.transform.GetChild(2).GetChild(1).GetComponent<Slider>();
-        handRHealthBar = canvas.transform.GetChild(2).GetChild(2).GetComponent<Slider>();
+        healthBar = canvases[0].transform.GetChild(2).GetChild(0).GetComponent<Slider>();
+        handLHealthBar = canvases[0].transform.GetChild(2).GetChild(1).GetComponent<Slider>();
+        handRHealthBar = canvases[0].transform.GetChild(2).GetChild(2).GetComponent<Slider>();
         //Hash IDs
         m_ChargeId = Animator.StringToHash("Base Layer.WhirlWind.WhirlWindCharge");
         m_ChargeLoopId = Animator.StringToHash("Base Layer.WhirlWind.ChargeLoop");
@@ -62,7 +62,7 @@ public class SteamGolemLogic : PlayerLogic
         handLHealthBar.value = hitSpheres[0].GetComponent<HandController>().HealthPercentage();
         handRHealthBar.value = hitSpheres[1].GetComponent<HandController>().HealthPercentage();
 
-        HandleEnemiesInRange();
+        HandleEntititesInRange();
 
         //make sure all Hit Spheres are disabled if we are not in one of the attack substates
         if (!animator.GetBool("Attacking") && IsHitSphereEnabled())

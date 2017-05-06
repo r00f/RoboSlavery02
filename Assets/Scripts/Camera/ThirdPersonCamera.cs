@@ -63,7 +63,6 @@ public class ThirdPersonCamera : MonoBehaviour
     public CamStates camState = CamStates.Behind;
     public bool characterInCamTrigger;
     PlayerLogic player;
-    SteamGolemLogic steamGolem;
 
 
     public enum CamStates
@@ -76,7 +75,6 @@ public class ThirdPersonCamera : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        steamGolem = FindObjectOfType<SteamGolemLogic>();
         player = GameObject.FindGameObjectWithTag("Player" + playerNumber).GetComponent<PlayerLogic>();
         followXForm = player.transform.GetChild(1);
 
@@ -91,77 +89,20 @@ public class ThirdPersonCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        currentCamX = GetComponent<Camera>().rect.x;
-
-        if (playerNumber == 1)
-        {
-
-            if (steamGolem.IsOverheated())
-            {
-                wantedCamX = 0f;
-            }
-            else
-            {
-                wantedCamX = .5f;
-            }
-
-            if(currentCamX != wantedCamX)
-            {
-                GetComponent<Camera>().rect = new Rect(Mathf.Lerp(currentCamX, wantedCamX, Time.deltaTime * camSizeLerpTime), 0f, 1f, 1.91f);
-            }
-
-        }
-
-        else
-        {
-            if (steamGolem.IsOverheated())
-            {
-                wantedCamX = -.99f;
-            }
-            else
-            {
-                wantedCamX = -0.5f;
-            }
-
-            if (currentCamX != wantedCamX)
-            {
-                GetComponent<Camera>().rect = new Rect(Mathf.Lerp(currentCamX, wantedCamX, Time.deltaTime * camSizeLerpTime), 0f, 1f, 1.91f);
-            }
-
-            if (currentCamX <= -.98f)
-            {
-                GetComponent<Camera>().enabled = false;
-            }
-            else
-            {
-                GetComponent<Camera>().enabled = true;
-            }
-
-        }
-        */
         letterBoxTopAnim.SetBool("WideScreen", wideScreen);
         letterBoxBottomAnim.SetBool("WideScreen", wideScreen);
-
     }
 
     void LateUpdate()
     {
         Vector3 characterOffset = followXForm.position + new Vector3(0, distanceUp, 0);
 
+
         if(characterInCamTrigger)
         {
             camState = CamStates.Fixed;
         }
 
-        else if(Input.GetAxis("Target") > 0.1f)
-        {
-            camState = CamStates.Target;
-        }
-        else
-        {
-            camState = CamStates.Behind;
-        }
 
         switch (camState)
         {

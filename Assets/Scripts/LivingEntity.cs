@@ -36,7 +36,7 @@ public class LivingEntity : MonoBehaviour {
     protected ParticleSystem[] particleSystems;
     protected GameController gameController;
     protected Rigidbody rigid;
-    protected Canvas canvas;
+    protected List<Canvas> canvases = new List<Canvas>();
     protected AudioSource audioSource;
 
     public bool isTargeted;
@@ -86,9 +86,46 @@ public class LivingEntity : MonoBehaviour {
 
     }
 
+    public virtual void InstanciateTarget(int playerNumber)
+    {
+
+        switch (playerNumber)
+        {
+            case 0:
+                //spawn enemy Targets in both Canvases
+                int i = 0;
+                foreach (Canvas canvas in canvases)
+                {
+                    i++;
+
+                    GameObject enemytTargetGO = Instantiate<GameObject>(targetGO, transform.position, Quaternion.identity, canvas.transform);
+                    enemytTargetGO.GetComponent<TargetLogic>().SetTarget(transform);
+                    enemytTargetGO.GetComponent<TargetLogic>().canvasNumber = i;
+                }
+                break;
+
+            case 1:
+                //spawn player 1 Target in player 2 Canvas
+                GameObject player1TargetGO = Instantiate<GameObject>(targetGO, transform.position, Quaternion.identity, canvases[1].transform);
+                player1TargetGO.GetComponent<TargetLogic>().SetTarget(transform);
+                player1TargetGO.GetComponent<TargetLogic>().canvasNumber = 2;
+                break;
+
+            case 2:
+                //spawn player 2 Target in player 1 Canvas
+                GameObject player2TargetGO = Instantiate<GameObject>(targetGO, transform.position, Quaternion.identity, canvases[0].transform);
+                player2TargetGO.GetComponent<TargetLogic>().SetTarget(transform);
+                player2TargetGO.GetComponent<TargetLogic>().canvasNumber = 1;
+                break;
+
+        }
+
+    }
+
     public virtual void Initialize()
     {
-        canvas = GameObject.FindGameObjectWithTag("Canvas1").GetComponent<Canvas>();
+        canvases.Add(GameObject.FindGameObjectWithTag("Canvas1").GetComponent<Canvas>());
+        canvases.Add(GameObject.FindGameObjectWithTag("Canvas2").GetComponent<Canvas>());
         audioSource = GetComponent<AudioSource>();
         rigid = GetComponent<Rigidbody>();
         gameController = FindObjectOfType<GameController>();
@@ -108,12 +145,6 @@ public class LivingEntity : MonoBehaviour {
         }
             
         currentHealth = maxHealth;
-
-        //Instanciate targetGOinstance in Canvas
-
-        GameObject targetGOinstance = Instantiate<GameObject>(targetGO, transform.position, Quaternion.identity, canvas.transform);
-        targetGOinstance.GetComponent<TargetLogic>().SetTarget(transform);
-
         //Hash IDs
         m_LocomotionId = Animator.StringToHash("Base Layer.Locomotion");
         m_LocomotionPivotLId = Animator.StringToHash("Base Layer.LocomotionPivotL");
@@ -142,7 +173,7 @@ public class LivingEntity : MonoBehaviour {
             //print("die");
             GetComponent<CapsuleCollider>().enabled = false;
             GetComponent<Rigidbody>().isKinematic = true;
-       
+            DisableAllHitSpheres();
             animator.enabled = false;
 
             foreach (Collider col in ragdollColliders)

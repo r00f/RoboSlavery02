@@ -29,7 +29,7 @@ public class FlameImpLogic : PlayerLogic {
     void Start () {
 
         Initialize();
-        healthBar = canvas.transform.GetChild(0).GetChild(0).GetComponent<Slider>();
+        healthBar = canvases[1].transform.GetChild(0).GetChild(0).GetComponent<Slider>();
         colliders = GetComponentsInChildren<Collider>();
         pointLight = GetComponentInChildren<Light>();
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
@@ -43,7 +43,7 @@ public class FlameImpLogic : PlayerLogic {
         //Update Animator / Call Die() if currentHealth is <= 0
         HandleVariables();
 
-        HandleEnemiesInRange();
+        HandleEntititesInRange();
 
         if(!dead)
         {
