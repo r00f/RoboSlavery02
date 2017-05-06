@@ -8,7 +8,7 @@ public class InstanciateGC : MonoBehaviour {
     GameController gameController;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 
         if (!FindObjectOfType<GameController>())
             Instantiate(gameController);

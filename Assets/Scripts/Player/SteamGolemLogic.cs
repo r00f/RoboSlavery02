@@ -281,6 +281,8 @@ public class SteamGolemLogic : PlayerLogic
     public void SwitchOverheat()
     {
         overheatMode = !overheatMode;
+        RemoveEntityFromList(FindObjectOfType<FlameImpLogic>());
+        FindObjectOfType<FlameImpLogic>().RemoveEntityFromList(FindObjectOfType<SteamGolemLogic>());
     }
 
     #endregion
