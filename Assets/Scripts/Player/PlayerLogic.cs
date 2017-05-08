@@ -21,16 +21,14 @@ public class PlayerLogic : LivingEntity
     protected float rotationDegreePerSecond = 120f;
     [SerializeField]
     protected float StrafeRotateSpeed = 5;
-    [SerializeField]
-    protected Vector3 lookAtXForm;
-    [SerializeField]
-    protected ThirdPersonCamera gameCam;
 
     #endregion
 
     #region Protected Variables
 
-    protected Player rePlayer;
+    protected Vector3 lookAtXForm;
+    protected ThirdPersonCamera gameCam;
+    public Player rePlayer;
 
     protected float speed;
     protected float direction;
@@ -139,6 +137,10 @@ public class PlayerLogic : LivingEntity
         animator.SetFloat("Vertical", verticalL);
 
         //buttons
+        if (rePlayer.GetButtonDown("Start"))
+        {
+            gameController.PauseGame();
+        }
         if (rePlayer.GetAxis("L2") > 0.1f)
         {
             gameCam.camState = ThirdPersonCamera.CamStates.Target;

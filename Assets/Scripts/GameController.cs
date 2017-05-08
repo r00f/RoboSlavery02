@@ -34,6 +34,7 @@ public class GameController : MonoBehaviour {
             Display.displays[1].Activate();
             secDisplayActive = true;
         }
+
         DontDestroyOnLoad(gameObject);
     }
 
@@ -66,15 +67,6 @@ public class GameController : MonoBehaviour {
             secDisplayActive = true;
         }
     }
-
-	void Update () {
-
-        if(Input.GetButtonDown("Cancel"))
-        {
-            PauseGame();
-        }
-
-	}
 
     #endregion
 

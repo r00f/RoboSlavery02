@@ -10,8 +10,6 @@ public class SteamGolemLogic : PlayerLogic
     #region SerializeFields
 
     [SerializeField]
-    bool overheatMode;
-    [SerializeField]
     Material body02Mat;
     [SerializeField]
     float overheatDOT = 2;
@@ -21,11 +19,16 @@ public class SteamGolemLogic : PlayerLogic
     float overheatLerpDuration = 5;
     [SerializeField]
     Color overheatColor;
+    [SerializeField]
+    List<GameObject> leftArms = new List<GameObject>();
+    [SerializeField]
+    List<GameObject> rightArms = new List<GameObject>();
 
     #endregion
 
     #region Private Variables
 
+    bool overheatMode;
     Slider handLHealthBar;
     Slider handRHealthBar;
 
@@ -59,6 +62,8 @@ public class SteamGolemLogic : PlayerLogic
         HandleOverheating();
         //update healthBar
         healthBar.value = currentHealth / maxHealth;
+        //handle which arms are being displayed
+        HandleArmDisplay();
         handLHealthBar.value = hitSpheres[0].GetComponent<HandController>().HealthPercentage();
         handRHealthBar.value = hitSpheres[1].GetComponent<HandController>().HealthPercentage();
 
@@ -283,6 +288,67 @@ public class SteamGolemLogic : PlayerLogic
         overheatMode = !overheatMode;
         RemoveEntityFromList(FindObjectOfType<FlameImpLogic>());
         FindObjectOfType<FlameImpLogic>().RemoveEntityFromList(FindObjectOfType<SteamGolemLogic>());
+    }
+
+    public void HandleArmDisplay()
+    {
+        //if both arms are destoryed 
+        if (!leftArms[0].gameObject.activeSelf && !rightArms[0].gameObject.activeSelf)
+        {
+            //if imp targets golem
+            if (isTargetLocked)
+            {
+                //if imp does not use Right stick HorizontalAxis display left HoloArm
+                if(FindObjectOfType<FlameImpLogic>().rePlayer.GetAxis("Right Horizontal") == 0f)
+                {
+                    if (!leftArms[1].gameObject.activeSelf && !rightArms[1].gameObject.activeSelf)
+                    {
+                        leftArms[1].gameObject.SetActive(true);
+                    }
+                }
+                //else Switch between HoloArms
+                else
+                {
+                    if(FindObjectOfType<FlameImpLogic>().rePlayer.GetAxis("Right Horizontal") > 0.8f)
+                    {
+                        leftArms[1].gameObject.SetActive(false);
+                        rightArms[1].gameObject.SetActive(true);
+                    }
+                    else if(FindObjectOfType<FlameImpLogic>().rePlayer.GetAxis("Right Horizontal") < -0.8f)
+                    {
+                        leftArms[1].gameObject.SetActive(true);
+                        rightArms[1].gameObject.SetActive(false);
+                    }
+
+                }
+                    
+            }
+            //else disable both holoarms
+            else
+            {
+                leftArms[1].gameObject.SetActive(false);
+                rightArms[1].gameObject.SetActive(false);
+            }
+        }
+
+        //if only left arm is destroyed and Imp targets Golem, display HoloArm
+        else if (!leftArms[0].gameObject.activeSelf)
+        {
+            if(isTargetLocked)
+                leftArms[1].gameObject.SetActive(true);
+            else
+                leftArms[1].gameObject.SetActive(false);
+        }
+
+        //if only right arm is destroyed and Imp targets Golem, display HoloArm
+
+        else if (!rightArms[0].gameObject.activeSelf)
+        {
+            if (isTargetLocked)
+                rightArms[1].gameObject.SetActive(true);
+            else
+                rightArms[1].gameObject.SetActive(false);
+        }
     }
 
     #endregion
