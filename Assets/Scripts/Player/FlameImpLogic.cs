@@ -125,6 +125,12 @@ public class FlameImpLogic : PlayerLogic {
 
     public override void HandleInput()
     {
+
+        if(rePlayer.GetButton("Right Button"))
+        {
+            steamGolem.RepairArm();
+        }
+
         if (fused)
         {
             animator.SetFloat("Angle", 0f); animator.SetFloat("Direction", 0f);

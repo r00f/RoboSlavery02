@@ -33,8 +33,7 @@ public class HandController : MonoBehaviour {
         {
             player = GetComponentInParent<SteamGolemLogic>();
         }
-        currentHealth = maxHealth;
-
+        RestoreHealthToFull();
         sparkPs = transform.GetChild(0).GetComponent<ParticleSystem>();
         drillPs = transform.GetChild(1).GetComponent<ParticleSystem>();
         drillPs2 = transform.GetChild(1).GetChild(0).GetComponent<ParticleSystem>();
@@ -178,6 +177,16 @@ public class HandController : MonoBehaviour {
         }
 
 
+    }
+
+    public void SetDead(bool deadBool)
+    {
+        dead = deadBool;
+    }
+
+    public void RestoreHealthToFull()
+    {
+        currentHealth = maxHealth;
     }
 
     IEnumerator StopEmission(float stopTime, ParticleSystem.EmissionModule emissionModule, ParticleSystem.EmissionModule emissionModule2)

@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour {
     static bool secDisplayActive;
 
     [SerializeField]
-    int metal;
+    float metal;
 
     #region Mono Methods
 
@@ -124,13 +124,13 @@ public class GameController : MonoBehaviour {
         Application.Quit();
     }
 
-    public void AddMetal(int amount)
+    public void AddSubstractMetal(float amount)
     {
         metal += amount;
         //print(metal);
     }
 
-    public int GetMetalAmount()
+    public float GetMetalAmount()
     {
         return metal;
     }

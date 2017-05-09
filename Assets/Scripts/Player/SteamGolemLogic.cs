@@ -351,6 +351,18 @@ public class SteamGolemLogic : PlayerLogic
         }
     }
 
-    #endregion
+    public void RepairArm()
+    {
+        //if left HoloArm is active
+       if(leftArms[1].gameObject.activeSelf)
+        {
+            leftArms[1].GetComponent<HoloArmLogic>().RepairArm();
+        }
+       else if (rightArms[1].gameObject.activeSelf)
+        {
+            rightArms[1].GetComponent<HoloArmLogic>().RepairArm();
+        }
+    }
 
+    #endregion
 }
