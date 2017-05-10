@@ -19,7 +19,7 @@ public class HoloArmLogic : MonoBehaviour {
 
     public void RepairArm()
     {
-        if (currentRepair < repairCost)
+        if (currentRepair < repairCost && gameController)
         {
             if(gameController.GetMetalAmount() > 0)
             {
@@ -39,7 +39,6 @@ public class HoloArmLogic : MonoBehaviour {
             currentRepair = 0;
             gameObject.SetActive(false);
             print("ArmRepaired");
-
         }
     }
 

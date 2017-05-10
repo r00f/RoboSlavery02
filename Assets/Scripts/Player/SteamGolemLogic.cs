@@ -23,11 +23,17 @@ public class SteamGolemLogic : PlayerLogic
     List<GameObject> leftArms = new List<GameObject>();
     [SerializeField]
     List<GameObject> rightArms = new List<GameObject>();
+    [SerializeField]
+    GameObject flameBeamPrefab;
+    [SerializeField]
+    float repBeamTime;
 
     #endregion
 
     #region Private Variables
 
+    float curRepBeamTime;
+    FlameImpLogic flameImp;
     bool overheatMode;
     Slider handLHealthBar;
     Slider handRHealthBar;
@@ -46,6 +52,7 @@ public class SteamGolemLogic : PlayerLogic
     void Start()
     {
         Initialize();
+        flameImp = FindObjectOfType<FlameImpLogic>();
         healthBar = canvases[0].transform.GetChild(2).GetChild(0).GetComponent<Slider>();
         handLHealthBar = canvases[0].transform.GetChild(2).GetChild(1).GetComponent<Slider>();
         handRHealthBar = canvases[0].transform.GetChild(2).GetChild(2).GetComponent<Slider>();
@@ -356,10 +363,26 @@ public class SteamGolemLogic : PlayerLogic
         //if left HoloArm is active
        if(leftArms[1].gameObject.activeSelf)
         {
+            curRepBeamTime -= Time.deltaTime * 30;
+            if (curRepBeamTime <= 0)
+            {
+                GameObject repairBeam = Instantiate(flameBeamPrefab, flameImp.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+                repairBeam.GetComponent<RepairBeamLogic>().target = leftArms[1].transform;
+                curRepBeamTime = repBeamTime;
+            }
+
             leftArms[1].GetComponent<HoloArmLogic>().RepairArm();
         }
        else if (rightArms[1].gameObject.activeSelf)
         {
+            curRepBeamTime -= Time.deltaTime * 30;
+            if (curRepBeamTime <= 0)
+            {
+                GameObject repairBeam = Instantiate(flameBeamPrefab, flameImp.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+                repairBeam.GetComponent<RepairBeamLogic>().target = rightArms[1].transform;
+                curRepBeamTime = repBeamTime;
+            }
+
             rightArms[1].GetComponent<HoloArmLogic>().RepairArm();
         }
     }

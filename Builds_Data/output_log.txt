@@ -33,13 +33,13 @@ desktop: 1920x1080 60Hz; virtual: 5280x1800 at 0,0
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 3.550450 ms
-Non platform assembly: data-13B51010 (this message is harmless)
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-13B51010.dll
-Non platform assembly: data-13A656D8 (this message is harmless)
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-13A656D8.dll
-Non platform assembly: data-04E22020 (this message is harmless)
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-04E22020.dll
+UnloadTime: 2.034973 ms
+Non platform assembly: data-12D66020 (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-12D66020.dll
+Non platform assembly: data-12EDBE68 (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-12EDBE68.dll
+Non platform assembly: data-1811D020 (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-1811D020.dll
 Rewired: Searching for compatible XInput library...
 Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
 Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3.dll
@@ -129,4 +129,16 @@ activateSecondDisplay
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1e9c -> priority: 1 
+  Thread -> id: 260c -> priority: 1 
+ArmRepaired
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ArmRepaired
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ArmRepaired
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+

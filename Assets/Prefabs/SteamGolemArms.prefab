@@ -355,6 +355,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4435671396239730}
+  - component: {fileID: 114242085367181122}
   m_Layer: 0
   m_Name: RightArmDrillHolo
   m_TagString: Untagged
@@ -932,6 +933,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4085049590767816}
+  - component: {fileID: 114095248112931724}
   m_Layer: 0
   m_Name: LeftArmDrillHolo
   m_TagString: Untagged
@@ -3495,6 +3497,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 500
+--- !u!114 &114095248112931724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1686811310475152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8129c3ae583e42b47b4c8698d2d28813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repairCost: 100
+  realArm: {fileID: 1903338063913648}
 --- !u!114 &114147359387496294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3556,6 +3571,9 @@ MonoBehaviour:
   rightArms:
   - {fileID: 1123644748387772}
   - {fileID: 1293052527408316}
+  flameBeamPrefab: {fileID: 1262282314246716, guid: 831ef33a1847d474aa78b6ec7de37f62,
+    type: 2}
+  repBeamTime: 3
 --- !u!114 &114206250521014338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3572,6 +3590,19 @@ MonoBehaviour:
   drillstage: 1
   maxHealth: 100
   currentHealth: 0
+--- !u!114 &114242085367181122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1293052527408316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8129c3ae583e42b47b4c8698d2d28813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repairCost: 100
+  realArm: {fileID: 1123644748387772}
 --- !u!114 &114298908292231138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -25038,7 +25069,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 764943381
+  randomSeed: -618679237
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -35400,7 +35431,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2071789192
+  randomSeed: -958503928
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -37977,7 +38008,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 535015674
+  randomSeed: -54150690
   InitialModule:
     serializedVersion: 3
     enabled: 1
