@@ -23,9 +23,9 @@ public class HoloArmLogic : MonoBehaviour {
         {
             if(gameController.GetMetalAmount() > 0)
             {
-                gameController.AddSubstractMetal(-Time.deltaTime * 10);
-                currentRepair += Time.deltaTime * 10;
-                currentRepairCost -= Time.deltaTime * 10;
+                gameController.AddSubstractMetal(-Time.deltaTime * 20);
+                currentRepair += Time.deltaTime * 20;
+                currentRepairCost -= Time.deltaTime * 20;
             }
 
         }

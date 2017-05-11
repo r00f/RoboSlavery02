@@ -14,6 +14,9 @@ public class RepairPanelLogic : MonoBehaviour {
     [SerializeField]
     float scaleMultiplier;
 
+    [SerializeField]
+    Image circleSlider;
+
     Slider slider;
     Text repairCostText;
 
@@ -26,10 +29,10 @@ public class RepairPanelLogic : MonoBehaviour {
     void Start()
     {
         repairCostText = GetComponentInChildren<Text>();
-        slider = GetComponentInChildren<Slider>();
+        //slider = GetComponentInChildren<Slider>();
         
         holoArm = follow.GetComponent<HoloArmLogic>();
-        slider.maxValue = holoArm.repairCost;
+        //slider.maxValue = holoArm.repairCost;
         if (cam == null)
             cam = GameObject.FindGameObjectWithTag("Cam" + canvasNumber).GetComponent<Camera>();
 
@@ -37,7 +40,8 @@ public class RepairPanelLogic : MonoBehaviour {
     void Update()
     {
         repairCostText.text = "" + (int)holoArm.CurrentRepairCost();
-        slider.value = holoArm.CurrentRepair();
+        circleSlider.fillAmount =  holoArm.CurrentRepair() / holoArm.repairCost;
+        //slider.value = holoArm.CurrentRepair();
     }
 
     void LateUpdate()
