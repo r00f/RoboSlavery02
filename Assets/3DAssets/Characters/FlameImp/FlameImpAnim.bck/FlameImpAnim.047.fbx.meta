@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e8a102afcad65474595484b5099e910c
-timeCreated: 1490721927
+guid: 301fa61474d01394f8e96407fb68e502
+timeCreated: 1494578816
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -166,6 +166,10 @@ ModelImporter:
     7400012: FireballLeft
     7400014: FireBallRight
     7400016: DashForward
+    7400018: StrafeRight
+    7400020: StrafeLeft
+    7400022: Take 002
+    7400024: Take 003
     9500000: //RootNode
     13700000: BodyMesh
   materials:
