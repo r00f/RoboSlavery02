@@ -2578,8 +2578,8 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 0.6413793, b: 0, a: 1}
-  m_Intensity: 1
-  m_Range: 2.72
+  m_Intensity: 2
+  m_Range: 5
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -2631,8 +2631,8 @@ MonoBehaviour:
   directionSpeed: 3
   rotationDegreePerSecond: 120
   StrafeRotateSpeed: 5
-  lookAtXForm: {x: 0, y: 0, z: 0}
-  gameCam: {fileID: 0}
+  entitiesInRange: []
+  entitiesToRemove: []
   projectile: {fileID: 1705855259900808, guid: 52877f8bbc2ad7346a17dd038c22ee29, type: 2}
   impProjectile: {fileID: 1705855259900808, guid: 94b0a9f1ad27b2d4a8a851e7927af6d6,
     type: 2}

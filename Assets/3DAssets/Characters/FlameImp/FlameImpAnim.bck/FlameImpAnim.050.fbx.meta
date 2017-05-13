@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 1e8ad99952a73494ba6b3bd0377f8608
-timeCreated: 1494578815
+guid: d0130e53dd917e54c923389f2d109bc2
+timeCreated: 1494586160
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -170,6 +170,8 @@ ModelImporter:
     7400020: StrafeLeft
     7400022: StrafeForward
     7400024: StrafeBackward
+    7400026: DashRight
+    7400028: DashLeft
     9500000: //RootNode
     13700000: BodyMesh
   materials:

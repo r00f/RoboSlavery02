@@ -135,6 +135,16 @@ public class PlayerLogic : LivingEntity
 
         animator.SetFloat("Horizontal", horizontalL);
         animator.SetFloat("Vertical", verticalL);
+        animator.SetFloat("L2", rePlayer.GetAxis("L2"));
+        animator.SetFloat("R2", rePlayer.GetAxis("R2"));
+
+
+        animator.SetBool("Right Button", rePlayer.GetButton("Right Button"));
+        animator.SetBool("Left Button", rePlayer.GetButton("Left Button"));
+        animator.SetBool("Up Button", rePlayer.GetButton("Up Button"));
+        animator.SetBool("Bottom Button", rePlayer.GetButton("Bottom Button"));
+
+        
 
         //buttons
         if (rePlayer.GetButtonDown("Start"))
@@ -143,13 +153,16 @@ public class PlayerLogic : LivingEntity
         }
         if (rePlayer.GetAxis("L2") > 0.1f)
         {
+            animator.SetBool("Strafe", true);
             gameCam.camState = ThirdPersonCamera.CamStates.Target;
         }
         else
         {
+            animator.SetBool("Strafe", false);
             gameCam.camState = ThirdPersonCamera.CamStates.Behind;
 
         }
+
         if (rePlayer.GetButtonDown("L1"))
         {
             animator.SetTrigger("L1");
@@ -158,16 +171,6 @@ public class PlayerLogic : LivingEntity
         if (rePlayer.GetButtonDown("R1"))
         {
             animator.SetTrigger("R1");
-        }
-
-        if (rePlayer.GetButton("Left Button"))
-        {
-            animator.SetBool("SquarePressed", true);
-        }
-
-        else
-        {
-            animator.SetBool("SquarePressed", false);
         }
 
         if (rePlayer.GetButtonDown("Up Button"))
@@ -181,14 +184,13 @@ public class PlayerLogic : LivingEntity
         if(playerNumber == 2)
 
         {
-
             if (rePlayer.GetButtonDown("Bottom Button"))
             {
                 animator.SetTrigger("Punch");
             }
         }
 
-        animator.SetBool("Strafe", IsTargeting());
+
         charAngle = 0f;
         direction = 0f;
 

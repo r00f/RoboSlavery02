@@ -18,6 +18,8 @@ public class FlameImpLogic : PlayerLogic {
     Collider[] colliders;
     GameObject carryProjectile;
     SteamGolemLogic steamGolem;
+    float pointLightIntensity;
+    float pointLightFlickerTime;
 
     public bool fused;
     public bool launched;
@@ -34,6 +36,7 @@ public class FlameImpLogic : PlayerLogic {
         pointLight = GetComponentInChildren<Light>();
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         renderers = GetComponentsInChildren<Renderer>();
+        pointLightIntensity = pointLight.intensity;
         steamGolem = FindObjectOfType<SteamGolemLogic>();
 
     }
@@ -51,7 +54,9 @@ public class FlameImpLogic : PlayerLogic {
         }
 
         healthBar.value = currentHealth / maxHealth;
-        pointLight.intensity = currentHealth / maxHealth;
+            
+        if(pointLightFlickerTime == 0)
+         pointLight.intensity = currentHealth / maxHealth * pointLightIntensity + Random.Range(-0.2f, 0.2f);
 
     }
 
@@ -59,6 +64,15 @@ public class FlameImpLogic : PlayerLogic {
     {
         if (!dead)
         {
+            if (pointLightFlickerTime >= Random.Range(3,8))
+            {
+                pointLightFlickerTime++;
+
+            }
+            else
+            {
+                pointLightFlickerTime = 0;
+            }
             if(fused)
             {
                 rigid.position = steamGolem.GetComponent<Rigidbody>().position;
