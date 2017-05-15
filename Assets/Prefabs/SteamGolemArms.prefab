@@ -3631,6 +3631,7 @@ MonoBehaviour:
   StrafeRotateSpeed: 10
   entitiesInRange: []
   entitiesToRemove: []
+  jumpPower: 5
   body02Mat: {fileID: 2100000, guid: d9c2f23deedfdc64faddaa0e5c2d5169, type: 2}
   overheatDOT: -15
   overheatSpeedMultiplier: 1.5
@@ -3645,6 +3646,7 @@ MonoBehaviour:
   flameBeamPrefab: {fileID: 1262282314246716, guid: 831ef33a1847d474aa78b6ec7de37f62,
     type: 2}
   repBeamTime: 3
+  grounded: 0
 --- !u!114 &114206250521014338
 MonoBehaviour:
   m_ObjectHideFlags: 1

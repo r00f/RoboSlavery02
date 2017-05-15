@@ -755,7 +755,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400918, guid: b460e52a92a2e0d45aa99fb7854511e2, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 30119045}
-  m_LocalRotation: {x: -0.25348917, y: 0.664274, z: -0.6254599, w: -0.3213771}
+  m_LocalRotation: {x: -0.2534892, y: 0.66427404, z: -0.62545997, w: -0.32137713}
   m_LocalPosition: {x: -0.2879319, y: 0.25990787, z: -0.114216134}
   m_LocalScale: {x: 3.2488368, y: 3.2488368, z: 3.2488368}
   m_Children:
@@ -2861,6 +2861,11 @@ Prefab:
     - target: {fileID: 1990410531018010, guid: f753010bcdd7fe341b28429d3a5c1a0e, type: 2}
       propertyPath: m_Name
       value: SteamGolem
+      objectReference: {fileID: 0}
+    - target: {fileID: 114153599630347936, guid: f753010bcdd7fe341b28429d3a5c1a0e,
+        type: 2}
+      propertyPath: maxHealth
+      value: 1000000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f753010bcdd7fe341b28429d3a5c1a0e, type: 2}
@@ -29978,11 +29983,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4542532492091906, guid: 36a8c5869da192146951b759631212ec, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 76.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4542532492091906, guid: 36a8c5869da192146951b759631212ec, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 4.72
+      value: -1.34
       objectReference: {fileID: 0}
     - target: {fileID: 4542532492091906, guid: 36a8c5869da192146951b759631212ec, type: 2}
       propertyPath: m_LocalRotation.x
@@ -30007,6 +30012,11 @@ Prefab:
     - target: {fileID: 1644692495556328, guid: 36a8c5869da192146951b759631212ec, type: 2}
       propertyPath: m_Name
       value: FlameImp
+      objectReference: {fileID: 0}
+    - target: {fileID: 95796557051941908, guid: 36a8c5869da192146951b759631212ec,
+        type: 2}
+      propertyPath: m_ApplyRootMotion
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36a8c5869da192146951b759631212ec, type: 2}

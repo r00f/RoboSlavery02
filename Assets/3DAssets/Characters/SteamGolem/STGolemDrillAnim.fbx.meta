@@ -1712,6 +1712,7 @@ ModelImporter:
     7400032: StrafeForward
     7400034: StrafeBackWards
     7400036: Block
+    7400038: DashForward
     9500000: //RootNode
     13700000: Arms_LArm_LArm_LArmLower_LDrill_Drill_group71_group68_pCylinder100
     13700002: Arms_LArm_LArm_LArmLower_LDrill_Drill_group71_group68_pCylinder101

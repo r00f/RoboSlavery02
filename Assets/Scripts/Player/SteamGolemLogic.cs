@@ -10,6 +10,8 @@ public class SteamGolemLogic : PlayerLogic
     #region SerializeFields
 
     [SerializeField]
+    float jumpPower;
+    [SerializeField]
     Material body02Mat;
     [SerializeField]
     float overheatDOT = 2;
@@ -32,6 +34,10 @@ public class SteamGolemLogic : PlayerLogic
 
     #region Private Variables
 
+    float groundCheckDistance = 0.2f;
+    [SerializeField]
+    bool grounded;
+    Vector3 groundNormal;
     float curRepBeamTime;
     FlameImpLogic flameImp;
     bool overheatMode;
@@ -63,6 +69,8 @@ public class SteamGolemLogic : PlayerLogic
 
     void Update()
     {
+        //check if golem is grounded
+        CheckGroundStatus();
         //Update Animator / Call Die() if currentHealth is <= 0
         HandleVariables();
         //handle ColorLerping / Speedincrease if in overheat-Mode
@@ -136,6 +144,14 @@ public class SteamGolemLogic : PlayerLogic
     public override void HandleInput()
     {
         base.HandleInput();
+
+        animator.SetBool("Grounded", grounded);
+        animator.SetBool("OverheatMode", overheatMode);
+
+        if (!grounded)
+        {
+            animator.SetFloat("YVelocity", rigid.velocity.y);
+        }
 
         if (rePlayer.GetButton("Right Button"))
         {
@@ -385,6 +401,46 @@ public class SteamGolemLogic : PlayerLogic
 
             rightArms[1].GetComponent<HoloArmLogic>().RepairArm();
         }
+    }
+
+    public void Dash()
+    {
+        animator.SetTrigger("Dash");
+    }
+
+    void CheckGroundStatus()
+    {
+        RaycastHit hitInfo;
+#if UNITY_EDITOR
+        // helper to visualise the ground check ray in the scene view
+        Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * groundCheckDistance));
+#endif
+        // 0.1f is a small offset to start the ray from inside the character
+        // it is also good to note that the transform position in the sample assets is at the base of the character
+        if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, groundCheckDistance))
+        {
+            groundNormal = hitInfo.normal;
+            grounded = true;
+            animator.applyRootMotion = true;
+        }
+        else
+        {
+            grounded = false;
+            groundNormal = Vector3.up;
+            animator.applyRootMotion = false;
+        }
+    }
+
+    public void Jump()
+    {
+        if(grounded)
+        {
+            // jump!
+            rigid.velocity = new Vector3(rigid.velocity.x, jumpPower, rigid.velocity.z);
+            grounded = false;
+            animator.applyRootMotion = false;
+        }
+
     }
 
     #endregion

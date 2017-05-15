@@ -145,10 +145,16 @@ public class FlameImpLogic : PlayerLogic {
             steamGolem.RepairArm();
         }
 
+
+
         if (fused)
         {
             animator.SetFloat("Angle", 0f); animator.SetFloat("Direction", 0f);
             //Handle Fused Input
+            if(rePlayer.GetButtonDown("Bottom Button"))
+            {
+                steamGolem.Jump();
+            }
 
             if(steamGolem.IsHitSphereEnabled())
             {
@@ -156,6 +162,11 @@ public class FlameImpLogic : PlayerLogic {
                 {
                     FireImp();
                 }
+            }
+
+            if (rePlayer.GetButtonDown("Left Button"))
+            {
+                steamGolem.Dash();
             }
         }
         else
