@@ -10,8 +10,6 @@ public class SteamGolemLogic : PlayerLogic
     #region SerializeFields
 
     [SerializeField]
-    float jumpPower;
-    [SerializeField]
     Material body02Mat;
     [SerializeField]
     float overheatDOT = 2;
@@ -30,14 +28,13 @@ public class SteamGolemLogic : PlayerLogic
     [SerializeField]
     float repBeamTime;
 
+    [SerializeField]
+    Vector3 forward;
+
     #endregion
 
     #region Private Variables
 
-    float groundCheckDistance = 0.2f;
-    [SerializeField]
-    bool grounded;
-    Vector3 groundNormal;
     float curRepBeamTime;
     FlameImpLogic flameImp;
     bool overheatMode;
@@ -69,8 +66,7 @@ public class SteamGolemLogic : PlayerLogic
 
     void Update()
     {
-        //check if golem is grounded
-        CheckGroundStatus();
+        forward = transform.forward;
         //Update Animator / Call Die() if currentHealth is <= 0
         HandleVariables();
         //handle ColorLerping / Speedincrease if in overheat-Mode
@@ -408,37 +404,20 @@ public class SteamGolemLogic : PlayerLogic
         animator.SetTrigger("Dash");
     }
 
-    void CheckGroundStatus()
-    {
-        RaycastHit hitInfo;
-#if UNITY_EDITOR
-        // helper to visualise the ground check ray in the scene view
-        Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * groundCheckDistance));
-#endif
-        // 0.1f is a small offset to start the ray from inside the character
-        // it is also good to note that the transform position in the sample assets is at the base of the character
-        if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, groundCheckDistance))
-        {
-            groundNormal = hitInfo.normal;
-            grounded = true;
-            animator.applyRootMotion = true;
-        }
-        else
-        {
-            grounded = false;
-            groundNormal = Vector3.up;
-            animator.applyRootMotion = false;
-        }
-    }
+
 
     public void Jump()
     {
         if(grounded)
         {
             // jump!
-            rigid.velocity = new Vector3(rigid.velocity.x, jumpPower, rigid.velocity.z);
             grounded = false;
             animator.applyRootMotion = false;
+            //rigid.AddExplosionForce(jumpPower, transform.position - transform.forward * 2, 10, 1);
+            rigid.velocity = new Vector3(transform.forward.x * jumpPower, jumpPower, transform.forward.z * jumpPower);
+            //rigid.AddForce(transform.forward * 2000);
+            print(rigid.velocity);
+            
         }
 
     }

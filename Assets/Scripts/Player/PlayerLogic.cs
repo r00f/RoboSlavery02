@@ -10,6 +10,8 @@ public class PlayerLogic : LivingEntity
     #region Serialize Fields
 
     [SerializeField]
+    protected float jumpPower;
+    [SerializeField]
     protected int playerNumber;
     [SerializeField]
     protected float directionDampTime = .25f;
@@ -40,6 +42,11 @@ public class PlayerLogic : LivingEntity
     List<LivingEntity> entitiesInRange = new List<LivingEntity>();
     [SerializeField]
     List<LivingEntity> entitiesToRemove = new List<LivingEntity>();
+
+    protected float groundCheckDistance = 0.2f;
+    [SerializeField]
+    protected bool grounded;
+    protected Vector3 groundNormal;
 
     #endregion
 
@@ -129,6 +136,10 @@ public class PlayerLogic : LivingEntity
 
     public virtual void HandleInput()
     {
+
+        //check if golem is grounded
+        CheckGroundStatus();
+
         //movement
         horizontalL = rePlayer.GetAxis("Left Horizontal");
         verticalL = rePlayer.GetAxis("Left Vertical");
@@ -138,13 +149,24 @@ public class PlayerLogic : LivingEntity
         animator.SetFloat("L2", rePlayer.GetAxis("L2"));
         animator.SetFloat("R2", rePlayer.GetAxis("R2"));
 
+        if(grounded)
+        {
+            animator.SetBool("Right Button", rePlayer.GetButton("Right Button"));
+            animator.SetBool("Left Button", rePlayer.GetButton("Left Button"));
+            animator.SetBool("Up Button", rePlayer.GetButton("Up Button"));
+            animator.SetBool("Bottom Button", rePlayer.GetButton("Bottom Button"));
+        }
+        else
+        {
+            animator.SetBool("Right Button", false);
+            animator.SetBool("Left Button", false);
+            animator.SetBool("Up Button", false);
+            animator.SetBool("Bottom Button", false);
 
-        animator.SetBool("Right Button", rePlayer.GetButton("Right Button"));
-        animator.SetBool("Left Button", rePlayer.GetButton("Left Button"));
-        animator.SetBool("Up Button", rePlayer.GetButton("Up Button"));
-        animator.SetBool("Bottom Button", rePlayer.GetButton("Bottom Button"));
+        }
 
-        
+
+
 
         //buttons
         if (rePlayer.GetButtonDown("Start"))
@@ -374,6 +396,29 @@ public class PlayerLogic : LivingEntity
     {
         base.Die();
         gameController.RestartScene(5f);
+    }
+
+    void CheckGroundStatus()
+    {
+        RaycastHit hitInfo;
+#if UNITY_EDITOR
+        // helper to visualise the ground check ray in the scene view
+        Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * groundCheckDistance));
+#endif
+        // 0.1f is a small offset to start the ray from inside the character
+        // it is also good to note that the transform position in the sample assets is at the base of the character
+        if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, groundCheckDistance))
+        {
+            groundNormal = hitInfo.normal;
+            grounded = true;
+            animator.applyRootMotion = true;
+        }
+        else
+        {
+            grounded = false;
+            groundNormal = Vector3.up;
+            animator.applyRootMotion = false;
+        }
     }
 
     #endregion

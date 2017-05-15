@@ -62,7 +62,16 @@ public class FlameImpLogic : PlayerLogic {
 
     void FixedUpdate()
     {
-        if (!dead)
+
+        if (fused)
+        {
+            if (rePlayer.GetButtonDown("Bottom Button") && steamGolem.IsInChargeUp())
+            {
+                steamGolem.Jump();
+            }
+        }
+
+            if (!dead)
         {
             if (pointLightFlickerTime >= Random.Range(3,8))
             {
@@ -151,7 +160,7 @@ public class FlameImpLogic : PlayerLogic {
         {
             animator.SetFloat("Angle", 0f); animator.SetFloat("Direction", 0f);
             //Handle Fused Input
-            if(rePlayer.GetButtonDown("Bottom Button"))
+            if(rePlayer.GetButtonDown("Bottom Button") && steamGolem.IsInChargeUp())
             {
                 steamGolem.Jump();
             }

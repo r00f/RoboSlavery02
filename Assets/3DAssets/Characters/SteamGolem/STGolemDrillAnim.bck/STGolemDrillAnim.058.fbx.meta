@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: df342223382605b4ebbf1d879878a0fb
-timeCreated: 1489844693
+guid: a6b4046bde06d794c8dc5dbcfab89a8e
+timeCreated: 1494862720
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -1708,6 +1708,8 @@ ModelImporter:
     7400024: StrafeL
     7400026: StrafeForward
     7400028: StrafeBackWards
+    7400030: Block
+    7400032: DashForward
     9500000: //RootNode
     13700000: Arms_LArm_LArm_LArmLower_LDrill_Drill_group71_group68_pCylinder100
     13700002: Arms_LArm_LArm_LArmLower_LDrill_Drill_group71_group68_pCylinder101

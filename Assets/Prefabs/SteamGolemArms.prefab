@@ -3306,7 +3306,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1990410531018010}
   serializedVersion: 2
-  m_Mass: 100
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -3603,7 +3603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab8727403069d54488f0263370afd22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 500
+  maxHealth: 1000000
   currentHealth: 0
   animator: {fileID: 0}
   hitSpheres:
@@ -3623,6 +3623,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b442c4625c5853c4b89b76b1b231fb2f, type: 3}
   isTargeted: 0
   isTargetLocked: 0
+  jumpPower: 6
   playerNumber: 1
   directionDampTime: 0.1
   speedDampTime: 0.05
@@ -3631,7 +3632,7 @@ MonoBehaviour:
   StrafeRotateSpeed: 10
   entitiesInRange: []
   entitiesToRemove: []
-  jumpPower: 5
+  grounded: 0
   body02Mat: {fileID: 2100000, guid: d9c2f23deedfdc64faddaa0e5c2d5169, type: 2}
   overheatDOT: -15
   overheatSpeedMultiplier: 1.5
@@ -3646,7 +3647,7 @@ MonoBehaviour:
   flameBeamPrefab: {fileID: 1262282314246716, guid: 831ef33a1847d474aa78b6ec7de37f62,
     type: 2}
   repBeamTime: 3
-  grounded: 0
+  forward: {x: 0, y: 0, z: 0}
 --- !u!114 &114206250521014338
 MonoBehaviour:
   m_ObjectHideFlags: 1
