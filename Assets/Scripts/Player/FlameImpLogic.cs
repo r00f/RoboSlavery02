@@ -189,11 +189,15 @@ public class FlameImpLogic : PlayerLogic {
                 if (rePlayer.GetButtonDown("R2"))
                 {
                     //eject Imp
+                    FireImp();
+                    /*
                     transform.position = steamGolem.transform.position + steamGolem.transform.forward * 2;
                     transform.rotation = steamGolem.transform.rotation;
                     SwitchColliders();
                     SwitchRenderers();
+                    */
                 }
+
             }
             else if (steamGolem.IsHeavyPunch())
             {
@@ -203,10 +207,13 @@ public class FlameImpLogic : PlayerLogic {
                 }
                 if (rePlayer.GetButtonDown("R2"))
                 {
+                    FireImp();
+                    /*
                     transform.position = steamGolem.transform.position + steamGolem.transform.forward * 2;
                     transform.rotation = steamGolem.transform.rotation;
                     SwitchColliders();
                     SwitchRenderers();
+                    */
                 }
             }
             else if (steamGolem.IsSpinning())

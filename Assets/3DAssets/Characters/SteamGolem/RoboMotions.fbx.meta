@@ -1256,12 +1256,14 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Run' has import animation warnings that might
-      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
-      retargeting quality.\n\t'RightLEg' has translation animation that will be discarded.\n\nClip
-      'Punch2' has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'LeftLEg'
-      has translation animation that will be discarded.\n"
+    animationImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
+      does not match position in animation file\nRoboMotions\nClip 'Run' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'RightLEg' has translation
+      animation that will be discarded.\n\nClip 'Punch2' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'LeftLEg' has translation animation that
+      will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
@@ -1360,8 +1362,8 @@ ModelImporter:
     - serializedVersion: 16
       name: PunchL
       takeName: Punch
-      firstFrame: 10
-      lastFrame: 30
+      firstFrame: 0
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1381,7 +1383,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.42145535
+      - time: 0.32719308
         functionName: EnableHitSphere
         data: L
         objectReferenceParameter: {fileID: 11500000, guid: 9f27903dd6e2f8843aeaa2874359f7ed,
@@ -1389,7 +1391,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.66874915
+      - time: 0.83268356
         functionName: DisableAllHitSpheres
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 9f27903dd6e2f8843aeaa2874359f7ed,
@@ -1462,8 +1464,8 @@ ModelImporter:
     - serializedVersion: 16
       name: PunchR
       takeName: Punch
-      firstFrame: 10
-      lastFrame: 30
+      firstFrame: 0
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1483,7 +1485,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.42192757
+      - time: 0.3235669
         functionName: EnableHitSphere
         data: R
         objectReferenceParameter: {fileID: 11500000, guid: 9f27903dd6e2f8843aeaa2874359f7ed,

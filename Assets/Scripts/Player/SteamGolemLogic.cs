@@ -52,6 +52,8 @@ public class SteamGolemLogic : PlayerLogic
     //  int h_PunchR;
     int h_PunchL;
     int m_Spin;
+    int m_AnyRPunchTransId;
+    int m_RPunchAnyTransId;
 
 
     #endregion
@@ -77,8 +79,6 @@ public class SteamGolemLogic : PlayerLogic
 
     void Update()
     {
-        print("LEFT" + LeftPunch());
-        print("RIGHT" + LeftPunch());
         //Update Animator / Call Die() if currentHealth is <= 0
         HandleVariables();
         //handle ColorLerping / Speedincrease if in overheat-Mode
@@ -115,26 +115,25 @@ public class SteamGolemLogic : PlayerLogic
 
         }
 
-        if (IsHitSphereEnabled() && ChainedAction == "Explosion")
+
+        if (LeftPunch())
         {
-            print("Explooosion");
-
-
-
-            if (stateInfo.fullPathHash == m_PunchL)
+            if (IsHitSphereEnabled() && ChainedAction == "Explosion")
             {
                 print("Instantiate Explosion at hitSpheres[0]");
                 Instantiate(explosion, hitSpheres[0].transform.position, Quaternion.identity);
             }
-
-            else
+            ChainedAction = "";
+        }
+        else if(RightPunch())
+        {
+            if (IsHitSphereEnabled() && ChainedAction == "Explosion")
             {
                 print("Instantiate Explosion at hitSpheres[1]");
                 Instantiate(explosion, hitSpheres[1].transform.position, Quaternion.identity);
             }
-  
-
             ChainedAction = "";
+
         }
         if (IsHitSphereEnabled() && ChainedAction == "Big Bang")
         {
