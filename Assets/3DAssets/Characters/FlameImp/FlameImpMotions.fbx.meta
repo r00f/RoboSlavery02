@@ -57,6 +57,29 @@ ModelImporter:
     100098: RightShoulder
     100100: Spine
     100102: Spine1
+    100104: ArmL
+    100106: ArmLIK
+    100108: ArmR
+    100110: ArmRIK
+    100112: BodyMesh
+    100114: Chest
+    100116: ChestIK
+    100118: EyeLMesh
+    100120: EyeRMesh
+    100122: Hair
+    100124: HairIK
+    100126: Head 1
+    100128: HeadIK
+    100130: Reference
+    100132: RunLeftShort
+    100134: RunLeftWide
+    100136: RunRightShort
+    100138: RunRightWide
+    100140: Tail1
+    100142: Tail2
+    100144: TailIK1
+    100146: TailIK2
+    100148: TorsoMesh
     400000: //RootNode
     400002: Head
     400004: Hips
@@ -109,6 +132,29 @@ ModelImporter:
     400098: RightShoulder
     400100: Spine
     400102: Spine1
+    400104: ArmL
+    400106: ArmLIK
+    400108: ArmR
+    400110: ArmRIK
+    400112: BodyMesh
+    400114: Chest
+    400116: ChestIK
+    400118: EyeLMesh
+    400120: EyeRMesh
+    400122: Hair
+    400124: HairIK
+    400126: Head 1
+    400128: HeadIK
+    400130: Reference
+    400132: RunLeftShort
+    400134: RunLeftWide
+    400136: RunRightShort
+    400138: RunRightWide
+    400140: Tail1
+    400142: Tail2
+    400144: TailIK1
+    400146: TailIK2
+    400148: TorsoMesh
     7400000: Idle
     9500000: //RootNode
   materials:
