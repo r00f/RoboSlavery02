@@ -17,6 +17,6 @@ public class MetalPanelLogic : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        GetComponentInChildren<Text>().text = "Metal: " + gameController.GetMetalAmount();
+        GetComponentInChildren<Text>().text = "Metal: " + (int)gameController.GetMetalAmount();
     }
 }

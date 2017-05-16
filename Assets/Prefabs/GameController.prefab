@@ -51,4 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72165da1187194e4d8fd79fcd30ba59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  restarting: 0
   paused: 0
+  metal: 1000

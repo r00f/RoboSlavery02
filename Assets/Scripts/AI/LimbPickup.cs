@@ -23,7 +23,7 @@ public class LimbPickup : MonoBehaviour {
         if (other.collider.GetComponent<FlameImpLogic>())
         {
             //other.collider.GetComponent<LivingEntity>().AddSubtractHealth(20f);
-            gameController.AddMetal(100);
+            gameController.AddSubstractMetal(100);
             Destroy(gameObject);
         }
 

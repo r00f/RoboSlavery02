@@ -40,7 +40,15 @@ public class TargetLogic : MonoBehaviour {
             {
                 for (int i = 0; i < transform.childCount; i++)
                 {
-                    transform.GetChild(i).GetComponent<Image>().color = Color.red;
+                    if(follow.GetComponent<PlayerLogic>())
+                    {
+                        transform.GetChild(i).GetComponent<Image>().color = Color.green;
+                    }
+                    else
+                    {
+                        transform.GetChild(i).GetComponent<Image>().color = Color.red;
+                    }
+                    
                 }
 
             }

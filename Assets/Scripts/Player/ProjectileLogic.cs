@@ -29,15 +29,6 @@ public class ProjectileLogic : MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-
-	}
-
-    void FixedUpdate()
-    {
-    }
-
     void OnCollisionEnter(Collision other)
     {
         if(isLaunchedImp)
