@@ -10,6 +10,8 @@ public class PlayerLogic : LivingEntity
     #region Serialize Fields
 
     [SerializeField]
+    protected float groundCheckDistance;
+    [SerializeField]
     protected float jumpPower;
     [SerializeField]
     protected int playerNumber;
@@ -43,7 +45,7 @@ public class PlayerLogic : LivingEntity
     [SerializeField]
     List<LivingEntity> entitiesToRemove = new List<LivingEntity>();
 
-    protected float groundCheckDistance = 0.2f;
+
     [SerializeField]
     protected bool grounded;
     protected Vector3 groundNormal;
@@ -407,11 +409,16 @@ public class PlayerLogic : LivingEntity
 #endif
         // 0.1f is a small offset to start the ray from inside the character
         // it is also good to note that the transform position in the sample assets is at the base of the character
-        if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, groundCheckDistance))
+        if (Physics.Raycast(transform.position + (Vector3.up * 0.5f), Vector3.down, out hitInfo, groundCheckDistance))
         {
-            groundNormal = hitInfo.normal;
-            grounded = true;
-            animator.applyRootMotion = true;
+            if(hitInfo.transform.tag == "Floor")
+            {
+                groundNormal = hitInfo.normal;
+                grounded = true;
+                animator.applyRootMotion = true;
+
+            }
+
         }
         else
         {

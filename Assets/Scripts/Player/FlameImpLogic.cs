@@ -69,6 +69,12 @@ public class FlameImpLogic : PlayerLogic {
             {
                 steamGolem.Jump();
             }
+
+            if (rePlayer.GetButton("Bottom Button"))
+            {
+                steamGolem.Hover();
+            }
+
         }
 
             if (!dead)

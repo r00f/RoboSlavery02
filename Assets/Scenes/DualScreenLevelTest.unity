@@ -185,9 +185,10 @@ GameObject:
   - component: {fileID: 9821352}
   - component: {fileID: 9821354}
   - component: {fileID: 9821353}
+  - component: {fileID: 9821355}
   m_Layer: 0
   m_Name: pCube2
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -244,6 +245,20 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 9821351}
+  m_Mesh: {fileID: 4300718, guid: b460e52a92a2e0d45aa99fb7854511e2, type: 3}
+--- !u!64 &9821355
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 9821351}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300718, guid: b460e52a92a2e0d45aa99fb7854511e2, type: 3}
 --- !u!1 &11133623
 GameObject:
@@ -1383,7 +1398,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &68395267
 Transform:
   m_ObjectHideFlags: 0
@@ -2861,6 +2876,21 @@ Prefab:
     - target: {fileID: 1990410531018010, guid: f753010bcdd7fe341b28429d3a5c1a0e, type: 2}
       propertyPath: m_Name
       value: SteamGolem
+      objectReference: {fileID: 0}
+    - target: {fileID: 114153599630347936, guid: f753010bcdd7fe341b28429d3a5c1a0e,
+        type: 2}
+      propertyPath: jumpPower
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 54653316511157840, guid: f753010bcdd7fe341b28429d3a5c1a0e,
+        type: 2}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114153599630347936, guid: f753010bcdd7fe341b28429d3a5c1a0e,
+        type: 2}
+      propertyPath: groundCheckDistance
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f753010bcdd7fe341b28429d3a5c1a0e, type: 2}
@@ -5893,9 +5923,10 @@ GameObject:
   - component: {fileID: 393848103}
   - component: {fileID: 393848105}
   - component: {fileID: 393848104}
+  - component: {fileID: 393848106}
   m_Layer: 0
   m_Name: pCube10
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5952,6 +5983,20 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 393848102}
+  m_Mesh: {fileID: 4300522, guid: b460e52a92a2e0d45aa99fb7854511e2, type: 3}
+--- !u!64 &393848106
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 393848102}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300522, guid: b460e52a92a2e0d45aa99fb7854511e2, type: 3}
 --- !u!1 &396178623
 GameObject:
@@ -8665,7 +8710,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &567460341
 Transform:
   m_ObjectHideFlags: 0
@@ -30008,16 +30053,6 @@ Prefab:
       propertyPath: m_Name
       value: FlameImp
       objectReference: {fileID: 0}
-    - target: {fileID: 95796557051941908, guid: 36a8c5869da192146951b759631212ec,
-        type: 2}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 54009225588881934, guid: 36a8c5869da192146951b759631212ec,
-        type: 2}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36a8c5869da192146951b759631212ec, type: 2}
   m_IsPrefabParent: 0
@@ -34339,7 +34374,7 @@ GameObject:
   - component: {fileID: 1839871536}
   m_Layer: 0
   m_Name: pCube3
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34351,7 +34386,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1839871532}
   m_LocalRotation: {x: 0.0033652487, y: 0.5997752, z: 0.0048891557, w: 0.8001465}
-  m_LocalPosition: {x: -1.1139221, y: 1.2808025, z: 1.5310143}
+  m_LocalPosition: {x: -1.11, y: 1.12, z: 1.53}
   m_LocalScale: {x: 266.0301, y: 266.0301, z: 266.0301}
   m_Children: []
   m_Father: {fileID: 1426409340}

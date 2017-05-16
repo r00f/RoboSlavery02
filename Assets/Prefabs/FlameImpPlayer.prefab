@@ -1753,7 +1753,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1644692495556328}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 76.4, z: 4.72}
+  m_LocalPosition: {x: 0, y: 0, z: -1.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4088838363184938}
@@ -2625,6 +2625,8 @@ MonoBehaviour:
   drillClips: []
   isTargeted: 0
   isTargetLocked: 0
+  groundCheckDistance: 0.6
+  jumpPower: 0
   playerNumber: 2
   directionDampTime: 0.25
   speedDampTime: 0.05
@@ -2633,6 +2635,7 @@ MonoBehaviour:
   StrafeRotateSpeed: 5
   entitiesInRange: []
   entitiesToRemove: []
+  grounded: 0
   projectile: {fileID: 1705855259900808, guid: 52877f8bbc2ad7346a17dd038c22ee29, type: 2}
   impProjectile: {fileID: 1705855259900808, guid: 94b0a9f1ad27b2d4a8a851e7927af6d6,
     type: 2}

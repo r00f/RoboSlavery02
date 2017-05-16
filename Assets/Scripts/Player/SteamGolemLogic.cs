@@ -27,10 +27,6 @@ public class SteamGolemLogic : PlayerLogic
     GameObject flameBeamPrefab;
     [SerializeField]
     float repBeamTime;
-
-    [SerializeField]
-    Vector3 forward;
-
     #endregion
 
     #region Private Variables
@@ -66,7 +62,6 @@ public class SteamGolemLogic : PlayerLogic
 
     void Update()
     {
-        forward = transform.forward;
         //Update Animator / Call Die() if currentHealth is <= 0
         HandleVariables();
         //handle ColorLerping / Speedincrease if in overheat-Mode
@@ -404,22 +399,34 @@ public class SteamGolemLogic : PlayerLogic
         animator.SetTrigger("Dash");
     }
 
+    public void Hover()
+    {
+        if(!grounded && rigid.velocity.y <= 0)
+        {
+            rigid.AddForce(new Vector3(0, 1000, 0));
+        }
+
+    }
 
 
     public void Jump()
     {
-        if(grounded)
+        if (grounded)
         {
             // jump!
             grounded = false;
             animator.applyRootMotion = false;
-            //rigid.AddExplosionForce(jumpPower, transform.position - transform.forward * 2, 10, 1);
-            rigid.velocity = new Vector3(transform.forward.x * jumpPower, jumpPower, transform.forward.z * jumpPower);
+            rigid.velocity = new Vector3(0, jumpPower, 0);
+            StartCoroutine(PropellForward());
             //rigid.AddForce(transform.forward * 2000);
-            print(rigid.velocity);
-            
         }
 
+    }
+
+    IEnumerator PropellForward()
+    {
+        yield return new WaitForSeconds(0.05f);
+        rigid.AddForce(transform.forward * 10000);
     }
 
     #endregion
