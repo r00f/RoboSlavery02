@@ -21,8 +21,13 @@ public class FlameImpLogic : PlayerLogic {
     float pointLightIntensity;
     float pointLightFlickerTime;
 
+    public Machine ReferenceMachine
+    {
+        get; set;
+    }
     public bool fused;
     public bool launched;
+    public bool controllingMachine;
 
     int m_DashId;
     int m_IdleDashTransId;
@@ -99,6 +104,12 @@ public class FlameImpLogic : PlayerLogic {
 
                 }
             }
+            else if (controllingMachine)
+            {
+                rigid.position = ReferenceMachine.transform.position;
+                rigid.MoveRotation(steamGolem.transform.rotation);
+
+            }
             else if (launched)
             {
                 rigid.position = carryProjectile.transform.position;
@@ -166,31 +177,80 @@ public class FlameImpLogic : PlayerLogic {
         {
             animator.SetFloat("Angle", 0f); animator.SetFloat("Direction", 0f);
             //Handle Fused Input
-            if(rePlayer.GetButtonDown("Bottom Button") && steamGolem.IsInChargeUp())
-            {
-                steamGolem.Jump();
-            }
 
-            if(steamGolem.IsHitSphereEnabled())
+            if (steamGolem.IsPunching())
             {
                 if (rePlayer.GetButtonDown("Bottom Button"))
                 {
-                    FireImp();
+                    steamGolem.ChainedAction = "Explosion";
+
+                    //explosive punch - alternately release imp
+                }
+                if (rePlayer.GetButtonDown("R2"))
+                {
+                    transform.position = steamGolem.transform.position + steamGolem.transform.forward * 2;
+                    transform.rotation = steamGolem.transform.rotation;
+                    SwitchColliders();
+                    SwitchRenderers();
+                }
+            }
+            else if (steamGolem.IsHeavyPunch())
+            {
+                if (rePlayer.GetButtonDown("Bottom Button"))
+                {
+                    steamGolem.ChainedAction = "Big Bang";
+                }
+                if (rePlayer.GetButtonDown("R2"))
+                {
+                    transform.position = steamGolem.transform.position + steamGolem.transform.forward * 2;
+                    transform.rotation = steamGolem.transform.rotation;
+                    SwitchColliders();
+                    SwitchRenderers();
+                }
+            }
+            else if (steamGolem.IsSpinning())
+            {
+                if (rePlayer.GetButtonDown("Bottom Button"))
+                {
+                    steamGolem.ActiveFlameThrower();
                 }
             }
 
+        }
+        else if (controllingMachine && ReferenceMachine != null)
+        {
+            print("Im here");
             if (rePlayer.GetButtonDown("Left Button"))
             {
-                steamGolem.Dash();
+
+                ReferenceMachine.LeftButton();
             }
+            if (rePlayer.GetButtonDown("Bottom Button"))
+            {
+                print("Bottom pressed");
+                ReferenceMachine.BottomButton();
+            }
+            if (rePlayer.GetButtonDown("Up Button"))
+            {
+                ReferenceMachine.TopButton();
+            }
+            if (rePlayer.GetButtonDown("Right Button"))
+            {
+
+                ReferenceMachine.RightButton();
+            }
+            ReferenceMachine.Axis_HR = rePlayer.GetAxis("Right Horizontal");
+            ReferenceMachine.Axis_HL = rePlayer.GetAxis("Left Horizontal");
+            ReferenceMachine.Axis_VR = rePlayer.GetAxis("Right Vertical");
+            ReferenceMachine.Axis_VL = rePlayer.GetAxis("Left Vertical");
         }
         else
         {
             base.HandleInput();
         }
-    }
+}
 
-    public void FireProjectile()
+public void FireProjectile()
     {
 
         Instantiate(projectile, transform.position + new Vector3(transform.forward.x, 1, transform.forward.z), transform.rotation);

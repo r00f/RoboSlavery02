@@ -10,6 +10,8 @@ public class SteamGolemLogic : PlayerLogic
     #region SerializeFields
 
     [SerializeField]
+    GameObject explosion;
+    [SerializeField]
     Material body02Mat;
     [SerializeField]
     float overheatDOT = 2;
@@ -31,6 +33,7 @@ public class SteamGolemLogic : PlayerLogic
 
     #region Private Variables
 
+    public string ChainedAction { get; set; }
     float curRepBeamTime;
     FlameImpLogic flameImp;
     bool overheatMode;
@@ -43,6 +46,11 @@ public class SteamGolemLogic : PlayerLogic
     //HashTags
     int m_ChargeId;
     int m_ChargeLoopId;
+    int m_PunchL;
+    int m_PunchR;
+    //  int h_PunchR;
+    int h_PunchL;
+    int m_Spin;
 
     #endregion
 
@@ -57,7 +65,12 @@ public class SteamGolemLogic : PlayerLogic
         handRHealthBar = canvases[0].transform.GetChild(2).GetChild(2).GetComponent<Slider>();
         //Hash IDs
         m_ChargeId = Animator.StringToHash("Base Layer.WhirlWind.WhirlWindCharge");
+        m_PunchL = Animator.StringToHash("PunchSequence.PunchL");
+        m_PunchR = Animator.StringToHash("PunchSequence.PunchR");
+        h_PunchL = Animator.StringToHash("PunchSequence.Punch2L");
+        m_Spin = Animator.StringToHash("Base layer.WhirlWindRelease");
         m_ChargeLoopId = Animator.StringToHash("Base Layer.WhirlWind.ChargeLoop");
+        ChainedAction = "";
     }
 
     void Update()
@@ -122,6 +135,17 @@ public class SteamGolemLogic : PlayerLogic
                 Vector3 eulerAngleVelocity = new Vector3(0, angle, 0);
                 Quaternion deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime * StrafeRotateSpeed);
                 rigid.MoveRotation(rigid.rotation * deltaRotation);
+            }
+            if (base.transInfo.anyState && IsPunching() && ChainedAction == "Explosion")
+            {
+                print("Explooosion");
+                //    Instantiate.gameObject.explosio
+                ChainedAction = "";
+            }
+            if (base.transInfo.anyState && IsHeavyPunch() && ChainedAction == "Big Bang")
+            {
+                print("Kaboom");
+                ChainedAction = "";
             }
 
         }
@@ -279,6 +303,8 @@ public class SteamGolemLogic : PlayerLogic
 
     }
 
+    #region Statechecks
+
     public bool IsInChargeUp()
     {
         return stateInfo.fullPathHash == m_ChargeId || stateInfo.fullPathHash == m_ChargeLoopId;
@@ -296,6 +322,29 @@ public class SteamGolemLogic : PlayerLogic
     {
         return overheatMode;
     }
+
+    public bool IsPunching()
+    {
+        return stateInfo.fullPathHash == m_PunchL || stateInfo.fullPathHash == m_PunchR;
+    }
+
+    public bool IsHeavyPunch()
+    {
+        return stateInfo.fullPathHash == h_PunchL;
+    }
+
+    public void ActiveFlameThrower()
+    {
+        //FlameThrowerlogic
+    }
+
+    public bool IsSpinning()
+    {
+        return stateInfo.fullPathHash == m_Spin;
+
+    }
+
+    #endregion
 
     public void SwitchOverheat()
     {
@@ -407,6 +456,7 @@ public class SteamGolemLogic : PlayerLogic
         }
 
     }
+
 
 
     public void Jump()
