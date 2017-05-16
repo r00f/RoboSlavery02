@@ -48,6 +48,7 @@ public class FlameImpLogic : PlayerLogic {
 	
 	void Update () {
 
+        //print(IsDashing());
         //Update Animator / Call Die() if currentHealth is <= 0
         HandleVariables();
 
@@ -183,11 +184,11 @@ public class FlameImpLogic : PlayerLogic {
                 if (rePlayer.GetButtonDown("Bottom Button"))
                 {
                     steamGolem.ChainedAction = "Explosion";
-
                     //explosive punch - alternately release imp
                 }
                 if (rePlayer.GetButtonDown("R2"))
                 {
+                    //eject Imp
                     transform.position = steamGolem.transform.position + steamGolem.transform.forward * 2;
                     transform.rotation = steamGolem.transform.rotation;
                     SwitchColliders();

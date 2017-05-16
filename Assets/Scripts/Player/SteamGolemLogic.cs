@@ -12,6 +12,8 @@ public class SteamGolemLogic : PlayerLogic
     [SerializeField]
     GameObject explosion;
     [SerializeField]
+    GameObject explosionBig;
+    [SerializeField]
     Material body02Mat;
     [SerializeField]
     float overheatDOT = 2;
@@ -32,8 +34,7 @@ public class SteamGolemLogic : PlayerLogic
     #endregion
 
     #region Private Variables
-
-    public string ChainedAction { get; set; }
+    public string ChainedAction;
     float curRepBeamTime;
     FlameImpLogic flameImp;
     bool overheatMode;
@@ -52,6 +53,7 @@ public class SteamGolemLogic : PlayerLogic
     int h_PunchL;
     int m_Spin;
 
+
     #endregion
 
     #region Mono Methods
@@ -65,9 +67,9 @@ public class SteamGolemLogic : PlayerLogic
         handRHealthBar = canvases[0].transform.GetChild(2).GetChild(2).GetComponent<Slider>();
         //Hash IDs
         m_ChargeId = Animator.StringToHash("Base Layer.WhirlWind.WhirlWindCharge");
-        m_PunchL = Animator.StringToHash("PunchSequence.PunchL");
-        m_PunchR = Animator.StringToHash("PunchSequence.PunchR");
-        h_PunchL = Animator.StringToHash("PunchSequence.Punch2L");
+        m_PunchL = Animator.StringToHash("Base Layer.PunchSequence.PunchL");
+        m_PunchR = Animator.StringToHash("Base Layer.PunchSequence.PunchR");
+        h_PunchL = Animator.StringToHash("Base Layer.PunchSequence.Punch2L");
         m_Spin = Animator.StringToHash("Base layer.WhirlWindRelease");
         m_ChargeLoopId = Animator.StringToHash("Base Layer.WhirlWind.ChargeLoop");
         ChainedAction = "";
@@ -75,6 +77,8 @@ public class SteamGolemLogic : PlayerLogic
 
     void Update()
     {
+        print("LEFT" + LeftPunch());
+        print("RIGHT" + LeftPunch());
         //Update Animator / Call Die() if currentHealth is <= 0
         HandleVariables();
         //handle ColorLerping / Speedincrease if in overheat-Mode
@@ -111,6 +115,34 @@ public class SteamGolemLogic : PlayerLogic
 
         }
 
+        if (IsHitSphereEnabled() && ChainedAction == "Explosion")
+        {
+            print("Explooosion");
+
+
+
+            if (stateInfo.fullPathHash == m_PunchL)
+            {
+                print("Instantiate Explosion at hitSpheres[0]");
+                Instantiate(explosion, hitSpheres[0].transform.position, Quaternion.identity);
+            }
+
+            else
+            {
+                print("Instantiate Explosion at hitSpheres[1]");
+                Instantiate(explosion, hitSpheres[1].transform.position, Quaternion.identity);
+            }
+  
+
+            ChainedAction = "";
+        }
+        if (IsHitSphereEnabled() && ChainedAction == "Big Bang")
+        {
+            print("Kaboom");
+            Instantiate(explosionBig, hitSpheres[0].transform.position, Quaternion.identity);
+            ChainedAction = "";
+        }
+
     }
 
     void FixedUpdate()
@@ -136,17 +168,7 @@ public class SteamGolemLogic : PlayerLogic
                 Quaternion deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime * StrafeRotateSpeed);
                 rigid.MoveRotation(rigid.rotation * deltaRotation);
             }
-            if (base.transInfo.anyState && IsPunching() && ChainedAction == "Explosion")
-            {
-                print("Explooosion");
-                //    Instantiate.gameObject.explosio
-                ChainedAction = "";
-            }
-            if (base.transInfo.anyState && IsHeavyPunch() && ChainedAction == "Big Bang")
-            {
-                print("Kaboom");
-                ChainedAction = "";
-            }
+
 
         }
 
@@ -155,6 +177,61 @@ public class SteamGolemLogic : PlayerLogic
     #endregion
 
     #region Methods
+
+    #region Statechecks
+
+    public bool IsInChargeUp()
+    {
+
+        return stateInfo.fullPathHash == m_ChargeId || stateInfo.fullPathHash == m_ChargeLoopId;
+
+    }
+
+    public bool IsHitSphereEnabled()
+    {
+        if (hitSpheres.Length != 0)
+            return hitSpheres[0].enabled || hitSpheres[1].enabled;
+        else
+            return false;
+    }
+
+    public bool IsOverheated()
+    {
+        return overheatMode;
+    }
+
+    public bool IsPunching()
+    {
+        return stateInfo.fullPathHash == m_PunchL || stateInfo.fullPathHash == m_PunchR;
+    }
+
+    public bool LeftPunch()
+    {
+        return stateInfo.fullPathHash == m_PunchL;
+    }
+
+    public bool RightPunch()
+    {
+        return stateInfo.fullPathHash == m_PunchR;
+    }
+
+    public bool IsHeavyPunch()
+    {
+        return stateInfo.fullPathHash == h_PunchL;
+    }
+
+    public void ActiveFlameThrower()
+    {
+        //FlameThrowerlogic
+    }
+
+    public bool IsSpinning()
+    {
+        return stateInfo.fullPathHash == m_Spin;
+
+    }
+
+    #endregion
 
     public override void HandleInput()
     {
@@ -302,49 +379,6 @@ public class SteamGolemLogic : PlayerLogic
         }
 
     }
-
-    #region Statechecks
-
-    public bool IsInChargeUp()
-    {
-        return stateInfo.fullPathHash == m_ChargeId || stateInfo.fullPathHash == m_ChargeLoopId;
-    }
-
-    public bool IsHitSphereEnabled()
-    {
-        if (hitSpheres.Length != 0)
-            return hitSpheres[0].enabled || hitSpheres[1].enabled;
-        else
-            return false;
-    }
-
-    public bool IsOverheated()
-    {
-        return overheatMode;
-    }
-
-    public bool IsPunching()
-    {
-        return stateInfo.fullPathHash == m_PunchL || stateInfo.fullPathHash == m_PunchR;
-    }
-
-    public bool IsHeavyPunch()
-    {
-        return stateInfo.fullPathHash == h_PunchL;
-    }
-
-    public void ActiveFlameThrower()
-    {
-        //FlameThrowerlogic
-    }
-
-    public bool IsSpinning()
-    {
-        return stateInfo.fullPathHash == m_Spin;
-
-    }
-
-    #endregion
 
     public void SwitchOverheat()
     {
