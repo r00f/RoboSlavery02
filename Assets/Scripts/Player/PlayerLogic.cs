@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Rewired;
 
-public class PlayerLogic : LivingEntity
+[RequireComponent(typeof(Animator))]
+public class PlayerLogic : LivingEntity 
 {
 
     #region Serialize Fields
@@ -21,6 +22,8 @@ public class PlayerLogic : LivingEntity
     protected float rotationDegreePerSecond = 120f;
     [SerializeField]
     protected float StrafeRotateSpeed = 5;
+    [SerializeField]
+    protected float DualTimerdown = 0.1f;
 
     #endregion
 
@@ -35,6 +38,8 @@ public class PlayerLogic : LivingEntity
     protected float horizontalL;
     protected float verticalL;
     protected float charAngle;
+
+    //protected PlayerState MyState;
 
     [SerializeField]
     List<LivingEntity> entitiesInRange = new List<LivingEntity>();
@@ -125,6 +130,7 @@ public class PlayerLogic : LivingEntity
         rePlayer = ReInput.players.GetPlayer(playerNumber-1);
         gameObject.tag = "Player" + playerNumber;
         gameCam = GameObject.FindGameObjectWithTag("Cam" + playerNumber).GetComponent<ThirdPersonCamera>();
+      //  MyState = new PlayerState(this, false, false);
     }
 
     public virtual void HandleInput()
@@ -144,20 +150,48 @@ public class PlayerLogic : LivingEntity
         if (rePlayer.GetAxis("L2") > 0.1f)
         {
             gameCam.camState = ThirdPersonCamera.CamStates.Target;
+            
         }
         else
         {
             gameCam.camState = ThirdPersonCamera.CamStates.Behind;
 
         }
-        if (rePlayer.GetButtonDown("L1"))
+        if (rePlayer.GetButton("L1"))
         {
-            animator.SetTrigger("L1");
+            if (DualTimerdown >= 0)
+            {
+                DualTimerdown -= Time.deltaTime;
+                if (rePlayer.GetButton("R1"))
+                {
+                    animator.SetTrigger("Punch");
+                    DualTimerdown = 0.1f;
+
+                }
+                //  if(animator.)
+            }
+            else {
+                animator.SetTrigger("L1");
+                DualTimerdown = 0.1f;
+            }
         }
 
-        if (rePlayer.GetButtonDown("R1"))
+        if (rePlayer.GetButton("R1"))
         {
-            animator.SetTrigger("R1");
+            if (DualTimerdown >= 0)
+            {
+                DualTimerdown -= Time.deltaTime;
+                if (rePlayer.GetButton("L1"))
+                {
+                    animator.SetTrigger("Punch");
+                    DualTimerdown = 0.1f;
+                }
+
+            }
+            else {
+                animator.SetTrigger("R1");
+                DualTimerdown = 0.1f;
+            }
         }
 
         if (rePlayer.GetButton("Left Button"))
@@ -377,3 +411,24 @@ public class PlayerLogic : LivingEntity
     #endregion
 
 }
+#region Statemashine
+
+//public struct PlayerState
+//{
+//   public AnimatorStateInfo AnimationState { get; set; }
+/*   public bool Fused { get; set; }
+    public bool Targeting { get; set; }
+    PlayerLogic reference;
+
+   public PlayerState(PlayerLogic inReference, bool inFuse, bool inTargetin)
+    {
+        reference = inReference;
+        AnimationState = reference.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
+        Fused = inFuse;
+        Targeting = inTargetin;
+
+    }
+}*/
+#endregion
+
+

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FlameImpLogic : PlayerLogic {
+public class FlameImpLogic : PlayerLogic
+{
 
     [SerializeField]
     GameObject projectile;
@@ -21,6 +22,9 @@ public class FlameImpLogic : PlayerLogic {
 
     public bool fused;
     public bool launched;
+    public bool controllingMachine;
+
+    public Machine ReferenceMachine;
 
     int m_DashId;
     int m_IdleDashTransId;
@@ -73,6 +77,12 @@ public class FlameImpLogic : PlayerLogic {
             else if (launched)
             {
                 rigid.position = carryProjectile.transform.position;
+            }
+            else if (controllingMachine)
+            {
+                rigid.position = ReferenceMachine.transform.position;
+                rigid.MoveRotation(steamGolem.transform.rotation);
+
             }
             else
             {
@@ -130,19 +140,90 @@ public class FlameImpLogic : PlayerLogic {
             animator.SetFloat("Angle", 0f); animator.SetFloat("Direction", 0f);
             //Handle Fused Input
 
-            if(steamGolem.IsHitSphereEnabled())
+            if (steamGolem.IsPunching())
             {
                 if (rePlayer.GetButtonDown("Bottom Button"))
                 {
-                    FireImp();
+                    steamGolem.ChainedAction = "Explosion";
+
+                    //explosive punch - alternately release imp
+                }
+                if (rePlayer.GetButtonDown("R2"))
+                {
+                    transform.position = steamGolem.transform.position + steamGolem.transform.forward * 2;
+                    transform.rotation = steamGolem.transform.rotation;
+                    SwitchColliders();
+                    SwitchRenderers();
                 }
             }
-        }
-        else
+            else if (steamGolem.IsHeavyPunch())
+            {
+                if (rePlayer.GetButtonDown("Bottom Button"))
+                {
+                    steamGolem.ChainedAction = "Big Bang";
+                }
+                if (rePlayer.GetButtonDown("R2"))
+                {
+                    transform.position = steamGolem.transform.position + steamGolem.transform.forward * 2;
+                    transform.rotation = steamGolem.transform.rotation;
+                    SwitchColliders();
+                    SwitchRenderers();
+                }
+            }
+            else if (steamGolem.IsSpinning())
+            {
+                if (rePlayer.GetButtonDown("Bottom Button"))
+                {
+                    steamGolem.ActiveFlameThrower();
+                }
+            }
+            else if (steamGolem.IsInChargeUp())
+            {
+                if (rePlayer.GetButtonDown("Bottom Buttom"))
+                {
+                    steamGolem.ReleaseJump();
+                }
+            }
+            if (rePlayer.GetButtonDown("Left Button") && !steamGolem.IsInChargeUp())
+                {
+
+
+                    steamGolem.DashWhileFused(rePlayer.GetAxis("Right Horizontal"));
+
+                }
+
+            }
+        else if (controllingMachine && ReferenceMachine != null)
         {
-            base.HandleInput();
+            print("Im here");
+            if(rePlayer.GetButtonDown("Left Button")){
+
+                ReferenceMachine.LeftButton();
+            }
+            if (rePlayer.GetButtonDown("Bottom Button"))
+            {
+                print("Bottom pressed");
+                ReferenceMachine.BottomButton();
+            }
+            if (rePlayer.GetButtonDown("Up Button"))
+            {
+                ReferenceMachine.TopButton();
+            }
+            if (rePlayer.GetButtonDown("Right Button"))
+            {
+
+                ReferenceMachine.RightButton();
+            }
+            ReferenceMachine.Axis_HR = rePlayer.GetAxis("Right Horizontal");
+            ReferenceMachine.Axis_HL = rePlayer.GetAxis("Left Horizontal");
+            ReferenceMachine.Axis_VR = rePlayer.GetAxis("Right Vertical");
+            ReferenceMachine.Axis_VL = rePlayer.GetAxis("Left Vertical");
         }
-    }
+            else
+            {
+                base.HandleInput();
+            }
+        }
 
     public void FireProjectile()
     {
