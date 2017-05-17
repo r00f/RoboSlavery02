@@ -2429,7 +2429,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!54 &54157803994705280
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -2645,6 +2645,7 @@ MonoBehaviour:
   - {fileID: 23775934605687318}
   fused: 0
   launched: 0
+  controllingMachine: 0
 --- !u!114 &114244365399701152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2670,6 +2671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerHurtCapsule: 0
   isGolemHurtCapsule: 0
+  explosion: {fileID: 0}
 --- !u!114 &114620975661910658
 MonoBehaviour:
   m_ObjectHideFlags: 1

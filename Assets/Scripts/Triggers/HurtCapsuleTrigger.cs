@@ -12,9 +12,12 @@ public class HurtCapsuleTrigger : MonoBehaviour {
     bool isPlayerHurtCapsule;
     [SerializeField]
     bool isGolemHurtCapsule;
+    [SerializeField]
+    GameObject explosion;
 
     void Start()
     {
+
         livingEntity = GetComponentInParent<LivingEntity>();
 
         if(GetComponentInParent<PlayerLogic>())
@@ -37,6 +40,14 @@ public class HurtCapsuleTrigger : MonoBehaviour {
         if (other.CompareTag("EnemyHitBox") && isPlayerHurtCapsule)
         {
             livingEntity.AddSubtractHealth(-10);
+        }
+
+        if (other.GetComponent<FlameImpLogic>() && isGolemHurtCapsule)
+        {
+            if (other.GetComponent<FlameImpLogic>().IsDashing())
+            {
+                Instantiate(explosion, transform.position + new Vector3(0, .9f, 0), Quaternion.identity);
+            }
         }
 
     }

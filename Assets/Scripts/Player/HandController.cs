@@ -13,6 +13,7 @@ public class HandController : MonoBehaviour {
     ParticleSystem drillPs;
     ParticleSystem drillPs2;
     ParticleSystem drillBuildUpPs;
+    ParticleSystem flameThrowerPs;
     public int drillstage = 1;
     SteamGolemLogic player;
     bool dead;
@@ -38,6 +39,7 @@ public class HandController : MonoBehaviour {
         drillPs = transform.GetChild(1).GetComponent<ParticleSystem>();
         drillPs2 = transform.GetChild(1).GetChild(0).GetComponent<ParticleSystem>();
         drillBuildUpPs = transform.GetChild(2).GetComponent<ParticleSystem>();
+        flameThrowerPs = transform.GetChild(3).GetComponent<ParticleSystem>();
     }
 
     void Update()
@@ -144,6 +146,18 @@ public class HandController : MonoBehaviour {
 
     }
 
+    public void EmitFlameThrower(bool emission)
+    {
+        if (flameThrowerPs && !dead)
+        {
+            ParticleSystem.EmissionModule em = flameThrowerPs.emission;
+            em.enabled = emission;
+        }
+
+    }
+
+
+
     public float HealthPercentage()
     {
         return healthPercentage;
@@ -175,8 +189,6 @@ public class HandController : MonoBehaviour {
             drillstage = 2;
             EmitDrill(5f, drillstage);
         }
-
-
     }
 
     public void SetDead(bool deadBool)

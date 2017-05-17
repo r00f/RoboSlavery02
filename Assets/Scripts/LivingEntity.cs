@@ -14,7 +14,7 @@ public class LivingEntity : MonoBehaviour {
     [SerializeField]
     protected Animator animator;
     [SerializeField]
-    protected SphereCollider[] hitSpheres;
+    public SphereCollider[] hitSpheres;
     [SerializeField]
     protected float movementSpeed = 1;
     [SerializeField]

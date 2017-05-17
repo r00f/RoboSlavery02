@@ -49,11 +49,9 @@ public class SteamGolemLogic : PlayerLogic
     int m_ChargeLoopId;
     int m_PunchL;
     int m_PunchR;
-    //  int h_PunchR;
-    int h_PunchL;
     int m_Spin;
-    int m_AnyRPunchTransId;
-    int m_RPunchAnyTransId;
+    int m_HeavyPunchL;
+    int m_HeavyPunchR;
 
 
     #endregion
@@ -68,11 +66,12 @@ public class SteamGolemLogic : PlayerLogic
         handLHealthBar = canvases[0].transform.GetChild(2).GetChild(1).GetComponent<Slider>();
         handRHealthBar = canvases[0].transform.GetChild(2).GetChild(2).GetComponent<Slider>();
         //Hash IDs
-        m_ChargeId = Animator.StringToHash("Base Layer.WhirlWind.WhirlWindCharge");
         m_PunchL = Animator.StringToHash("Base Layer.PunchSequence.PunchL");
         m_PunchR = Animator.StringToHash("Base Layer.PunchSequence.PunchR");
-        h_PunchL = Animator.StringToHash("Base Layer.PunchSequence.Punch2L");
-        m_Spin = Animator.StringToHash("Base layer.WhirlWindRelease");
+        m_HeavyPunchL = Animator.StringToHash("Base Layer.PunchSequence.Punch2L");
+        m_HeavyPunchR = Animator.StringToHash("Base Layer.PunchSequence.Punch2R");
+        m_ChargeId = Animator.StringToHash("Base Layer.WhirlWind.WhirlWindCharge");
+        m_Spin = Animator.StringToHash("Base Layer.WhirlWind.WhirlWindRelease");
         m_ChargeLoopId = Animator.StringToHash("Base Layer.WhirlWind.ChargeLoop");
         ChainedAction = "";
     }
@@ -216,7 +215,7 @@ public class SteamGolemLogic : PlayerLogic
 
     public bool IsHeavyPunch()
     {
-        return stateInfo.fullPathHash == h_PunchL;
+        return stateInfo.fullPathHash == m_HeavyPunchL || stateInfo.fullPathHash == m_HeavyPunchR;
     }
 
     public void ActiveFlameThrower()
@@ -227,7 +226,6 @@ public class SteamGolemLogic : PlayerLogic
     public bool IsSpinning()
     {
         return stateInfo.fullPathHash == m_Spin;
-
     }
 
     #endregion
@@ -489,8 +487,6 @@ public class SteamGolemLogic : PlayerLogic
         }
 
     }
-
-
 
     public void Jump()
     {

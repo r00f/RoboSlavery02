@@ -181,6 +181,11 @@ public class FlameImpLogic : PlayerLogic {
 
             if (steamGolem.IsPunching())
             {
+                foreach (SphereCollider sphereCol in steamGolem.hitSpheres)
+                {
+                    sphereCol.GetComponent<HandController>().EmitFlameThrower(false);
+
+                }
                 if (rePlayer.GetButtonDown("Bottom Button"))
                 {
                     steamGolem.ChainedAction = "Explosion";
@@ -201,10 +206,17 @@ public class FlameImpLogic : PlayerLogic {
             }
             else if (steamGolem.IsHeavyPunch())
             {
+
+                foreach (SphereCollider sphereCol in steamGolem.hitSpheres)
+                {
+                    sphereCol.GetComponent<HandController>().EmitFlameThrower(rePlayer.GetButton("Bottom Button"));
+                }
+                /*
                 if (rePlayer.GetButtonDown("Bottom Button"))
                 {
                     steamGolem.ChainedAction = "Big Bang";
                 }
+                */
                 if (rePlayer.GetButtonDown("R2"))
                 {
                     FireImp();
@@ -218,12 +230,18 @@ public class FlameImpLogic : PlayerLogic {
             }
             else if (steamGolem.IsSpinning())
             {
-                if (rePlayer.GetButtonDown("Bottom Button"))
+                foreach (SphereCollider sphereCol in steamGolem.hitSpheres)
                 {
-                    steamGolem.ActiveFlameThrower();
+                    sphereCol.GetComponent<HandController>().EmitFlameThrower(rePlayer.GetButton("Bottom Button"));
                 }
             }
-
+            else
+            {
+                foreach (SphereCollider sphereCol in steamGolem.hitSpheres)
+                {
+                    sphereCol.GetComponent<HandController>().EmitFlameThrower(false);
+                }
+            }
         }
         else if (controllingMachine && ReferenceMachine != null)
         {

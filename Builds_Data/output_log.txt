@@ -25,7 +25,7 @@ Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Rewired_Co
 Loading C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Rewired_Core.dll into Unity Child Domain
 Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Rewired_Windows_Lib.dll (this message is harmless)
 Loading C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Rewired_Windows_Lib.dll into Unity Child Domain
-- Completed reload, in  0.165 seconds
+- Completed reload, in  0.068 seconds
 Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 5280x1800 at 0,0
@@ -33,13 +33,13 @@ desktop: 1920x1080 60Hz; virtual: 5280x1800 at 0,0
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 5.169753 ms
-Non platform assembly: data-13D239C0 (this message is harmless)
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-13D239C0.dll
-Non platform assembly: data-13D7D900 (this message is harmless)
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-13D7D900.dll
-Non platform assembly: data-15213020 (this message is harmless)
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-15213020.dll
+UnloadTime: 5.594119 ms
+Non platform assembly: data-110A0318 (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-110A0318.dll
+Non platform assembly: data-111AD550 (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-111AD550.dll
+Non platform assembly: data-044D3020 (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-044D3020.dll
 Rewired: Searching for compatible XInput library...
 Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
 Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3.dll
@@ -129,10 +129,39 @@ activateSecondDisplay
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2a5c -> priority: 1 
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 22.043695 ms
+  Thread -> id: 10f8 -> priority: 1 
+IndexOutOfRangeException: Array index is out of range.
+  at LivingEntity.EnableHitSphere (System.String side) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
 
-Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 5909.
-Total: 62.477200 ms (FindLiveObjects: 0.758725 ms CreateObjectMapping: 0.436602 ms MarkObjects: 51.917023 ms  DeleteObjects: 9.342743 ms)
+IndexOutOfRangeException: Array index is out of range.
+  at LivingEntity.EnableHitSphere (System.String side) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at LivingEntity.EnableHitSphere (System.String side) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at LivingEntity.EnableHitSphere (System.String side) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at LivingEntity.EnableHitSphere (System.String side) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at LivingEntity.EnableHitSphere (System.String side) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at LivingEntity.EnableHitSphere (System.String side) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
 

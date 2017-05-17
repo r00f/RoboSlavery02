@@ -409,7 +409,7 @@ public class PlayerLogic : LivingEntity
 #endif
         // 0.1f is a small offset to start the ray from inside the character
         // it is also good to note that the transform position in the sample assets is at the base of the character
-        if (Physics.Raycast(transform.position + (Vector3.up * 0.5f), Vector3.down, out hitInfo, groundCheckDistance))
+        if (Physics.Raycast(transform.position + (Vector3.up * 0.2f), Vector3.down, out hitInfo, groundCheckDistance))
         {
             if(hitInfo.transform.tag == "Floor")
             {
