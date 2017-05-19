@@ -2613,6 +2613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4243c3e7d32383547a3c5b378c547203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grounded: 0
+  groundCheckDistance: 0.3
   maxHealth: 300
   currentHealth: 0
   animator: {fileID: 0}
@@ -2625,7 +2627,6 @@ MonoBehaviour:
   drillClips: []
   isTargeted: 0
   isTargetLocked: 0
-  groundCheckDistance: 0.7
   jumpPower: 0
   playerNumber: 2
   directionDampTime: 0.25
@@ -2635,7 +2636,6 @@ MonoBehaviour:
   StrafeRotateSpeed: 5
   entitiesInRange: []
   entitiesToRemove: []
-  grounded: 0
   projectile: {fileID: 1705855259900808, guid: 52877f8bbc2ad7346a17dd038c22ee29, type: 2}
   impProjectile: {fileID: 1705855259900808, guid: 94b0a9f1ad27b2d4a8a851e7927af6d6,
     type: 2}

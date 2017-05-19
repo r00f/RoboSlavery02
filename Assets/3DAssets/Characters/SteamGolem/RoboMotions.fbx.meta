@@ -1259,10 +1259,13 @@ ModelImporter:
     animationImportWarnings: "\nClip 'Run' has import animation warnings that might
       lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
       retargeting quality.\n\t'RightLEg' has translation animation that will be discarded.\n\nClip
-      'StrafeForward' has import animation warnings that might lower retargeting quality:\nNote:
+      'Punch2' has import animation warnings that might lower retargeting quality:\nNote:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'RightLEg'
-      has translation animation that will be discarded.\n\nClip 'StrafeBackWards'
-      has import animation warnings that might lower retargeting quality:\nNote: Activate
+      has translation animation that will be discarded.\n\nClip 'StrafeForward' has
+      import animation warnings that might lower retargeting quality:\nNote: Activate
+      translation DOF on avatar to improve retargeting quality.\n\t'RightLEg' has
+      translation animation that will be discarded.\n\nClip 'StrafeBackWards' has
+      import animation warnings that might lower retargeting quality:\nNote: Activate
       translation DOF on avatar to improve retargeting quality.\n\t'LeftLEg' has translation
       animation that will be discarded.\n\t'RightLEg' has translation animation that
       will be discarded.\n"
@@ -3009,7 +3012,7 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
-      loopBlendPositionY: 0
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1

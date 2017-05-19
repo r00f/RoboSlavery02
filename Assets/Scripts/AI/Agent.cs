@@ -61,7 +61,9 @@ public class Agent : LivingEntity {
         else if(!stopped)
         {
             //print("stopAgent");
-            agent.Stop();
+            if(agent.enabled)
+                agent.Stop();
+
             stopped = true;
         }
 

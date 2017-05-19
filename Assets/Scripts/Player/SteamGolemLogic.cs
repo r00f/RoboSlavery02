@@ -10,6 +10,8 @@ public class SteamGolemLogic : PlayerLogic
     #region SerializeFields
 
     [SerializeField]
+    float hoverForce;
+    [SerializeField]
     GameObject explosion;
     [SerializeField]
     GameObject explosionBig;
@@ -40,6 +42,7 @@ public class SteamGolemLogic : PlayerLogic
     bool overheatMode;
     Slider handLHealthBar;
     Slider handRHealthBar;
+    List<ParticleSystem> footFlameParticleSystems = new List<ParticleSystem>();
 
     bool onetime;
     float t;
@@ -61,7 +64,12 @@ public class SteamGolemLogic : PlayerLogic
     void Start()
     {
         Initialize();
-        flameImp = FindObjectOfType<FlameImpLogic>();
+        foreach(ParticleSystem ps in particleSystems)
+        {
+            if (ps.CompareTag("FootFlame"))
+                footFlameParticleSystems.Add(ps);
+        }
+        
         healthBar = canvases[0].transform.GetChild(2).GetChild(0).GetComponent<Slider>();
         handLHealthBar = canvases[0].transform.GetChild(2).GetChild(1).GetComponent<Slider>();
         handRHealthBar = canvases[0].transform.GetChild(2).GetChild(2).GetComponent<Slider>();
@@ -91,6 +99,11 @@ public class SteamGolemLogic : PlayerLogic
 
         HandleEntititesInRange();
 
+        if(IsDashOutTransition())
+        {
+            SwitchSteamParticles("Steam");
+        }
+
         //make sure all Hit Spheres are disabled if we are not in one of the attack substates
         if (!animator.GetBool("Attacking") && IsHitSphereEnabled())
         {
@@ -112,33 +125,6 @@ public class SteamGolemLogic : PlayerLogic
                 ragdollColliders[randInt].GetComponent<Rigidbody>().AddExplosionForce(3000, ragdollColliders[randInt].transform.position - Vector3.up, 10);
             }
 
-        }
-
-
-        if (LeftPunch())
-        {
-            if (IsHitSphereEnabled() && ChainedAction == "Explosion")
-            {
-                print("Instantiate Explosion at hitSpheres[0]");
-                Instantiate(explosion, hitSpheres[0].transform.position, Quaternion.identity);
-            }
-            ChainedAction = "";
-        }
-        else if(RightPunch())
-        {
-            if (IsHitSphereEnabled() && ChainedAction == "Explosion")
-            {
-                print("Instantiate Explosion at hitSpheres[1]");
-                Instantiate(explosion, hitSpheres[1].transform.position, Quaternion.identity);
-            }
-            ChainedAction = "";
-
-        }
-        if (IsHitSphereEnabled() && ChainedAction == "Big Bang")
-        {
-            print("Kaboom");
-            Instantiate(explosionBig, hitSpheres[0].transform.position, Quaternion.identity);
-            ChainedAction = "";
         }
 
     }
@@ -218,11 +204,6 @@ public class SteamGolemLogic : PlayerLogic
         return baseStateInfo.fullPathHash == m_HeavyPunchL || baseStateInfo.fullPathHash == m_HeavyPunchR;
     }
 
-    public void ActiveFlameThrower()
-    {
-        //FlameThrowerlogic
-    }
-
     public bool IsSpinning()
     {
         return baseStateInfo.fullPathHash == m_Spin;
@@ -269,6 +250,32 @@ public class SteamGolemLogic : PlayerLogic
                 movementSpeed = 0.8f * overheatSpeedMultiplier;
         }
 
+        if (LeftPunch())
+        {
+            if (IsHitSphereEnabled() && ChainedAction == "Explosion")
+            {
+                print("Instantiate Explosion at hitSpheres[0]");
+                Instantiate(explosion, hitSpheres[0].transform.position, Quaternion.identity);
+            }
+            ChainedAction = "";
+        }
+        else if (RightPunch())
+        {
+            if (IsHitSphereEnabled() && ChainedAction == "Explosion")
+            {
+                print("Instantiate Explosion at hitSpheres[1]");
+                Instantiate(explosion, hitSpheres[1].transform.position, Quaternion.identity);
+            }
+            ChainedAction = "";
+
+        }
+        if (IsHitSphereEnabled() && ChainedAction == "Big Bang")
+        {
+            print("Kaboom");
+            Instantiate(explosionBig, hitSpheres[0].transform.position, Quaternion.identity);
+            ChainedAction = "";
+        }
+
     }
 
     public override void AddSubtractHealth(float healthAmount)
@@ -291,29 +298,29 @@ public class SteamGolemLogic : PlayerLogic
         if (overheatMode)
         {
             AddSubtractHealth(Time.deltaTime * overheatDOT);
+
             if (!onetime)
             {
                 t = 0;
                 attackSpeed *= overheatSpeedMultiplier;
                 movementSpeed *= overheatSpeedMultiplier;
-
                 foreach (ParticleSystem p in particleSystems)
                 {
                     if (p.CompareTag("Steam"))
                     {
+                        ParticleSystem.MainModule main = p.main;
                         ParticleSystem.EmissionModule em = p.emission;
-                        em.enabled = false;
-                    }
-
-                    else if (p.CompareTag("AfterBurner"))
-                    {
-                        ParticleSystem.EmissionModule em = p.emission;
-                        em.enabled = true;
+                        main.simulationSpeed = 6;
+                        main.startSpeed = 0.5f;
+                        main.startSizeMultiplier = 0.6f;
+                        main.startLifetime = 2f;
+                        em.rateOverTime = 10;
                     }
 
                 }
-
+                Instantiate(explosionBig, transform.position + new Vector3(0, .9f, 0), Quaternion.identity);
                 onetime = true;
+
             }
 
             if (body02Mat.GetColor("_EmissionColor") != overheatColor)
@@ -341,22 +348,22 @@ public class SteamGolemLogic : PlayerLogic
             {
                 t = 0;
                 attackSpeed /= overheatSpeedMultiplier;
+                movementSpeed /= overheatSpeedMultiplier;
+                SwitchSteamParticles("Steam");
                 foreach (ParticleSystem p in particleSystems)
                 {
                     if (p.CompareTag("Steam"))
                     {
+                        ParticleSystem.MainModule main = p.main;
                         ParticleSystem.EmissionModule em = p.emission;
-                        em.enabled = true;
-                    }
-                    else if (p.CompareTag("AfterBurner"))
-                    {
-                        ParticleSystem.EmissionModule em = p.emission;
-                        em.enabled = false;
+                        main.simulationSpeed = 4;
+                        main.startSizeMultiplier = 0.4f;
+                        main.startSpeed = .1f;
+                        main.startLifetime = 8f;
+                        em.rateOverTime = 2;
                     }
 
                 }
-
-                movementSpeed /= overheatSpeedMultiplier;
                 onetime = false;
             }
 
@@ -382,6 +389,30 @@ public class SteamGolemLogic : PlayerLogic
         overheatMode = !overheatMode;
         RemoveEntityFromList(FindObjectOfType<FlameImpLogic>());
         FindObjectOfType<FlameImpLogic>().RemoveEntityFromList(FindObjectOfType<SteamGolemLogic>());
+    }
+
+    public void SwitchSteamParticles(string patricleTag)
+    {
+        foreach (ParticleSystem p in particleSystems)
+        {
+
+            if (p.CompareTag("AfterBurner") || p.CompareTag("Steam"))
+            {
+
+                if (p.CompareTag(patricleTag))
+                {
+                    ParticleSystem.EmissionModule em = p.emission;
+                    em.enabled = true;
+                }
+
+                else
+                {
+                    ParticleSystem.EmissionModule em = p.emission;
+                    em.enabled = false;
+                }
+            }
+        }
+
     }
 
     public void HandleArmDisplay()
@@ -476,6 +507,7 @@ public class SteamGolemLogic : PlayerLogic
 
     public void Dash()
     {
+        SwitchSteamParticles("AfterBurner");
         animator.SetTrigger("Dash");
     }
 
@@ -483,7 +515,7 @@ public class SteamGolemLogic : PlayerLogic
     {
         if(!grounded && rigid.velocity.y <= 0)
         {
-            rigid.AddForce(new Vector3(0, 1000, 0));
+            rigid.AddForce(new Vector3(transform.forward.x * hoverForce/3, hoverForce, transform.forward.z * hoverForce/3));
         }
 
     }
@@ -498,6 +530,15 @@ public class SteamGolemLogic : PlayerLogic
             StartCoroutine(PropellForward());
         }
 
+    }
+
+    public void EmitFootFlameParticles(bool emit)
+    {
+        foreach (ParticleSystem ps in footFlameParticleSystems)
+        {
+            ParticleSystem.EmissionModule em = ps.emission;
+            em.enabled = emit;
+        }
     }
 
     IEnumerator PropellForward()
