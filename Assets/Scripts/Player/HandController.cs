@@ -53,15 +53,24 @@ public class HandController : MonoBehaviour {
 
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") && transform.GetComponentInParent<PlayerLogic>())
         {
-            EmitSparks(0.2f);
-            if(other.GetComponent<Rigidbody>())
-                other.GetComponent<Rigidbody>().AddExplosionForce(handForce, transform.position, 10);
-        }
 
+            EmitSparks(0.2f);
+            if (other.GetComponent<Rigidbody>() && other.GetComponent<Agent>())
+            {
+                if(other.GetComponent<Agent>().GetHit() && !other.GetComponent<Agent>().knockedUp)
+                {
+                    other.GetComponent<Rigidbody>().AddExplosionForce(handForce, transform.position, 1, 0.6f, ForceMode.Impulse);
+                    print("PushBAck");
+                    other.GetComponent<Agent>().knockedUp = true;
+                }
+
+            }
+
+        }
     }
 
     #endregion

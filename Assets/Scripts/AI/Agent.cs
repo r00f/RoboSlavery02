@@ -8,9 +8,13 @@ public class Agent : LivingEntity {
 	public NavMeshAgent		agent;
     public bool inHitRange;
     public bool inAggroRange;
+    public bool knockedUp;
+    [SerializeField]
+    Transform laserBeamTransform;
+    [SerializeField]
+    GameObject laserBeamPrefab;
 
     protected Locomotion locomotion;
-	protected Object particleClone;
 
     [SerializeField]
     Transform goal;
@@ -28,16 +32,31 @@ public class Agent : LivingEntity {
         agent = GetComponent<NavMeshAgent>();
 		agent.updateRotation = false;
 		locomotion = new Locomotion(animator);
-		particleClone = null;
 	}
 
     void Update()
     {
+
         if(!dead)
         {
-            SetDestination();
             SetupAgentLocomotion();
             HandleVariables();
+
+            if (GetHit())
+            {
+                animator.ResetTrigger("Punch");
+                print("AgentGetHit");
+                agent.enabled = false;
+                rigid.isKinematic = false;
+
+            }
+            else if(grounded)
+            {
+                knockedUp = false;
+                rigid.isKinematic = true;
+                agent.enabled = true;
+                SetDestination();
+            }
         }
         else if(!stopped)
         {
@@ -48,9 +67,25 @@ public class Agent : LivingEntity {
 
     }
 
+    void OnParticleCollision(GameObject other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            print("ParticleEnemyCollision");
+            AddSubtractHealth(-2f);
+        }
+    }
+
+
     #endregion
 
     #region Methods
+
+    public override void Die()
+    {
+        knockedUp = false;
+        base.Die();
+    }
 
     public override void Initialize()
     {
@@ -60,8 +95,6 @@ public class Agent : LivingEntity {
 
     public void SetDestination()
 	{
-        
-
         if(inAggroRange)
         {
             if (!inHitRange && !dead)
@@ -70,7 +103,7 @@ public class Agent : LivingEntity {
 
                 if (stopped)
                 {
-                    //print("resumeAgent");
+                    print("resumeAgent");
                     agent.Resume();
                     stopped = false;
                 }
@@ -81,7 +114,10 @@ public class Agent : LivingEntity {
             else
             {
                 if (!dead)
+                {
                     animator.SetTrigger("Punch");
+                }
+                    
             }
 
         }
@@ -97,30 +133,27 @@ public class Agent : LivingEntity {
 
     }
 
+    public void InstanciateLaserBeam()
+    {
+        GameObject laserGO = Instantiate(laserBeamPrefab, laserBeamTransform.position, laserBeamTransform.parent.parent.rotation, laserBeamTransform.parent.parent);
+        laserGO.GetComponent<LaserLogic>().target = goal;
+        laserGO.GetComponent<LaserLogic>().agent = this;
+    }
+
     protected void SetupAgentLocomotion()
 	{
 		if (AgentDone())
 		{
 			locomotion.Do(0, 0);
-			if (particleClone != null)
-			{
-				GameObject.Destroy(particleClone);
-				particleClone = null;
-			}
 		}
 		else
 		{
+
 			float speed = agent.desiredVelocity.magnitude;
 
 			Vector3 velocity = Quaternion.Inverse(transform.rotation) * agent.desiredVelocity;
 
 			float angle = Mathf.Atan2(velocity.x, velocity.z) * 180.0f / 3.14159f;
-
-            /*
-            print("angle: " + angle);
-            print("velocity: " + velocity);
-            print("desiredVelocity: " + agent.desiredVelocity);
-            */
 
 			locomotion.Do(speed, angle);
 		}
@@ -142,13 +175,15 @@ public class Agent : LivingEntity {
 
 	protected bool AgentStopping()
 	{
-        return agent.remainingDistance <= agent.stoppingDistance;
+        if (agent.enabled)
+            return agent.remainingDistance <= agent.stoppingDistance;
+        else
+            return false;
 	}
 
     public void SetGoal(Transform inGoal)
     {
         goal = inGoal;
-
     }
 
     #endregion

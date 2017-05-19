@@ -181,7 +181,7 @@ public class SteamGolemLogic : PlayerLogic
     public bool IsInChargeUp()
     {
 
-        return stateInfo.fullPathHash == m_ChargeId || stateInfo.fullPathHash == m_ChargeLoopId;
+        return baseStateInfo.fullPathHash == m_ChargeId || baseStateInfo.fullPathHash == m_ChargeLoopId;
 
     }
 
@@ -200,22 +200,22 @@ public class SteamGolemLogic : PlayerLogic
 
     public bool IsPunching()
     {
-        return stateInfo.fullPathHash == m_PunchL || stateInfo.fullPathHash == m_PunchR;
+        return baseStateInfo.fullPathHash == m_PunchL || baseStateInfo.fullPathHash == m_PunchR;
     }
 
     public bool LeftPunch()
     {
-        return stateInfo.fullPathHash == m_PunchL;
+        return baseStateInfo.fullPathHash == m_PunchL;
     }
 
     public bool RightPunch()
     {
-        return stateInfo.fullPathHash == m_PunchR;
+        return baseStateInfo.fullPathHash == m_PunchR;
     }
 
     public bool IsHeavyPunch()
     {
-        return stateInfo.fullPathHash == m_HeavyPunchL || stateInfo.fullPathHash == m_HeavyPunchR;
+        return baseStateInfo.fullPathHash == m_HeavyPunchL || baseStateInfo.fullPathHash == m_HeavyPunchR;
     }
 
     public void ActiveFlameThrower()
@@ -225,7 +225,7 @@ public class SteamGolemLogic : PlayerLogic
 
     public bool IsSpinning()
     {
-        return stateInfo.fullPathHash == m_Spin;
+        return baseStateInfo.fullPathHash == m_Spin;
     }
 
     #endregion
@@ -242,7 +242,7 @@ public class SteamGolemLogic : PlayerLogic
             animator.SetFloat("YVelocity", rigid.velocity.y);
         }
 
-        if (rePlayer.GetButton("Right Button"))
+        if (rePlayer.GetButton("R2"))
         {
             if(!animator.GetBool("Attacking") && (!hitSpheres[0].GetComponent<HandController>().IsDead() || !hitSpheres[1].GetComponent<HandController>().IsDead()))
             {
@@ -493,11 +493,9 @@ public class SteamGolemLogic : PlayerLogic
         if (grounded)
         {
             // jump!
-            grounded = false;
             animator.applyRootMotion = false;
             rigid.velocity = new Vector3(0, jumpPower, 0);
             StartCoroutine(PropellForward());
-            //rigid.AddForce(transform.forward * 2000);
         }
 
     }

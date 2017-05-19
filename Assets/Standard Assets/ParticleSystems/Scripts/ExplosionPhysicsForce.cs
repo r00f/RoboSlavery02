@@ -3,36 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace UnityStandardAssets.Effects
+public class ExplosionPhysicsForce : MonoBehaviour
 {
-    public class ExplosionPhysicsForce : MonoBehaviour
+    public float explosionForce = 4;
+    [SerializeField]
+    float radius = 1;
+
+    private IEnumerator Start()
     {
-        public float explosionForce = 4;
-        [SerializeField]
-        float radius = 1;
+        // wait one frame because some explosions instantiate debris which should then
+        // be pushed by physics force
+        yield return null;
 
-        private IEnumerator Start()
+        float multiplier = 1;
+
+        float r = radius;
+        var cols = Physics.OverlapSphere(transform.position, r);
+        var rigidbodies = new List<Rigidbody>();
+        foreach (var col in cols)
         {
-            // wait one frame because some explosions instantiate debris which should then
-            // be pushed by physics force
-            yield return null;
-
-            float multiplier = 1;
-
-            float r = radius;
-            var cols = Physics.OverlapSphere(transform.position, r);
-            var rigidbodies = new List<Rigidbody>();
-            foreach (var col in cols)
+            if (col.attachedRigidbody != null && !rigidbodies.Contains(col.attachedRigidbody))
             {
-                if (col.attachedRigidbody != null && !rigidbodies.Contains(col.attachedRigidbody))
-                {
-                    rigidbodies.Add(col.attachedRigidbody);
-                }
+                rigidbodies.Add(col.attachedRigidbody);
             }
-            foreach (var rb in rigidbodies)
-            {
-                rb.AddExplosionForce(explosionForce*multiplier, transform.position, r, 1*multiplier, ForceMode.Impulse);
-            }
+        }
+        foreach (var rb in rigidbodies)
+        {
+            rb.AddExplosionForce(explosionForce * multiplier, transform.position, r, 0, ForceMode.Impulse);
         }
     }
 }

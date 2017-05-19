@@ -16,8 +16,11 @@ public class HitRangeTrigger : MonoBehaviour {
     {
         if (other.GetComponent<PlayerLogic>())
         {
-            if(!other.GetComponent<PlayerLogic>().IsDead())
+            if(!other.GetComponent<PlayerLogic>().IsDead() && !agent.GetHit())
+            {
                 agent.inHitRange = true;
+            }
+                
             else
                 agent.inHitRange = false;
         }

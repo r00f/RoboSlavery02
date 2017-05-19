@@ -7,6 +7,12 @@ using UnityEngine;
 
 public class LivingEntity : MonoBehaviour {
 
+    #region SerializeFields
+
+    [SerializeField]
+    public bool grounded;
+    [SerializeField]
+    protected float groundCheckDistance;
     [SerializeField]
     protected int maxHealth = 100;
     [SerializeField]
@@ -29,9 +35,17 @@ public class LivingEntity : MonoBehaviour {
     [SerializeField]
     protected AudioClip[] drillClips;
 
+    #endregion
+
+    #region Protected Variables
+
+    protected Vector3 groundNormal;
+
     protected bool dead;
-    protected AnimatorStateInfo stateInfo;
-    protected AnimatorTransitionInfo transInfo;
+    protected AnimatorStateInfo baseStateInfo;
+    protected AnimatorStateInfo upperBodyStateInfo;
+    protected AnimatorTransitionInfo baseTransInfo;
+    protected AnimatorTransitionInfo upperBodyTransInfo;
     protected Collider[] ragdollColliders;
     protected ParticleSystem[] particleSystems;
     protected GameController gameController;
@@ -42,13 +56,75 @@ public class LivingEntity : MonoBehaviour {
     public bool isTargeted;
     public bool isTargetLocked;
 
+    protected int m_GetHitId;
+    protected int m_NothingGetHitTransId;
+    protected int m_GetHitNothingTransId;
     protected int m_LocomotionId;
     protected int m_LocomotionPivotRId;
     protected int m_LocomotionPivotLId;
     protected int m_LocomotionPivotRTransId;
     protected int m_LocomotionPivotLTransId;
 
+    #endregion
+
     #region Methods
+
+    public virtual void Initialize()
+    {
+        canvases.Add(GameObject.FindGameObjectWithTag("Canvas1").GetComponent<Canvas>());
+        canvases.Add(GameObject.FindGameObjectWithTag("Canvas2").GetComponent<Canvas>());
+        audioSource = GetComponent<AudioSource>();
+        rigid = GetComponent<Rigidbody>();
+        gameController = FindObjectOfType<GameController>();
+        animator = GetComponent<Animator>();
+        particleSystems = GetComponentsInChildren<ParticleSystem>();
+
+        if (transform.GetChild(0).GetComponentInChildren<Collider>())
+        {
+            ragdollColliders = transform.GetChild(0).GetComponentsInChildren<Collider>();
+
+            foreach (Collider col in ragdollColliders)
+            {
+                col.enabled = false;
+                col.GetComponent<Rigidbody>().isKinematic = true;
+            }
+
+        }
+
+        currentHealth = maxHealth;
+
+        //Hash IDs
+        m_GetHitId = Animator.StringToHash("Upper Body.GetHit");
+        m_NothingGetHitTransId = Animator.StringToHash("Upper Body.Nothing -> Upper Body.GetHit");
+        m_GetHitNothingTransId = Animator.StringToHash("Upper Body.GetHit -> Upper Body.Nothing");
+        m_LocomotionId = Animator.StringToHash("Base Layer.Locomotion");
+        m_LocomotionPivotLId = Animator.StringToHash("Base Layer.LocomotionPivotL");
+        m_LocomotionPivotRId = Animator.StringToHash("Base Layer.LocomotionPivotR");
+        m_LocomotionPivotLTransId = Animator.StringToHash("Base Layer.Locomotion -> Base Layer.LocomotionPivotL");
+        m_LocomotionPivotRTransId = Animator.StringToHash("Base Layer.Locomotion -> Base Layer.LocomotionPivotR");
+    }
+
+    public void HandleVariables()
+    {
+        CheckGroundStatus();
+        baseStateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        baseTransInfo = animator.GetAnimatorTransitionInfo(0);
+
+        if (animator.layerCount > 1)
+        {
+            upperBodyStateInfo = animator.GetCurrentAnimatorStateInfo(1);
+            upperBodyTransInfo = animator.GetAnimatorTransitionInfo(1);
+        }
+
+
+        animator.SetFloat("MovementSpeed", movementSpeed);
+        animator.SetFloat("AttackSpeed", attackSpeed);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
 
     public virtual void AddSubtractHealth(float healthAmount)
     {
@@ -122,48 +198,42 @@ public class LivingEntity : MonoBehaviour {
 
     }
 
-    public virtual void Initialize()
+    public bool GetHit()
     {
-        canvases.Add(GameObject.FindGameObjectWithTag("Canvas1").GetComponent<Canvas>());
-        canvases.Add(GameObject.FindGameObjectWithTag("Canvas2").GetComponent<Canvas>());
-        audioSource = GetComponent<AudioSource>();
-        rigid = GetComponent<Rigidbody>();
-        gameController = FindObjectOfType<GameController>();
-        animator = GetComponent<Animator>();
-        particleSystems = GetComponentsInChildren<ParticleSystem>();
-
-        if(transform.GetChild(0).GetComponentInChildren<Collider>())
-        {
-            ragdollColliders = transform.GetChild(0).GetComponentsInChildren<Collider>();
-
-            foreach (Collider col in ragdollColliders)
-            {
-                col.enabled = false;
-                col.GetComponent<Rigidbody>().isKinematic = true;
-            }
-
-        }
-            
-        currentHealth = maxHealth;
-        //Hash IDs
-        m_LocomotionId = Animator.StringToHash("Base Layer.Locomotion");
-        m_LocomotionPivotLId = Animator.StringToHash("Base Layer.LocomotionPivotL");
-        m_LocomotionPivotRId = Animator.StringToHash("Base Layer.LocomotionPivotR");
-        m_LocomotionPivotLTransId = Animator.StringToHash("Base Layer.Locomotion -> Base Layer.LocomotionPivotL");
-        m_LocomotionPivotRTransId = Animator.StringToHash("Base Layer.Locomotion -> Base Layer.LocomotionPivotR");
+        return upperBodyStateInfo.fullPathHash == m_GetHitId || upperBodyTransInfo.fullPathHash == m_NothingGetHitTransId;
     }
 
-    public void HandleVariables()
+    public bool GetHitNothingTrans()
     {
-        stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        transInfo = animator.GetAnimatorTransitionInfo(0);
-        animator.SetFloat("MovementSpeed", movementSpeed);
-        animator.SetFloat("AttackSpeed", attackSpeed);
+        return upperBodyTransInfo.fullPathHash == m_GetHitNothingTransId;
+    }
 
-        if (currentHealth <= 0)
+    void CheckGroundStatus()
+    {
+        RaycastHit hitInfo;
+
+        if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, groundCheckDistance))
         {
-            Die();
+            if (hitInfo.transform.tag == "Floor")
+            {
+                groundNormal = hitInfo.normal;
+                animator.applyRootMotion = true;
+                grounded = true;
+
+            }
         }
+        else
+        {
+            groundNormal = Vector3.up;
+            animator.applyRootMotion = false;
+            grounded = false;
+        }
+
+    }
+
+    public bool IsInLocomotion()
+    {
+        return baseStateInfo.fullPathHash == m_LocomotionId;
     }
 
     public virtual void Die()
@@ -197,33 +267,38 @@ public class LivingEntity : MonoBehaviour {
 
     public virtual void EnableHitSphere(string side)
     {
-        if (side == "L")
+        if(hitSpheres.Length > 0)
         {
-            hitSpheres[0].enabled = true;
-            hitSpheres[0].GetComponent<HandController>().EmitDrill(.15f, 1);
-            hitSpheres[0].GetComponent<HandController>().drillstage = 1;
-            //flameimp timing 
+            if (side == "L")
+            {
+                hitSpheres[0].enabled = true;
+                hitSpheres[0].GetComponent<HandController>().EmitDrill(.15f, 1);
+                hitSpheres[0].GetComponent<HandController>().drillstage = 1;
+                //flameimp timing 
+
+            }
+
+            else if (side == "R")
+            {
+                hitSpheres[1].enabled = true;
+                hitSpheres[1].GetComponent<HandController>().EmitDrill(.15f, 1);
+                hitSpheres[1].GetComponent<HandController>().drillstage = 1;
+            }
+
+            else if (side == "Both")
+            {
+                hitSpheres[1].enabled = true;
+                hitSpheres[1].GetComponent<HandController>().EmitSparks(0.3f);
+                hitSpheres[1].GetComponent<HandController>().EmitDrill(0.3f, hitSpheres[1].GetComponent<HandController>().drillstage);
+                hitSpheres[0].enabled = true;
+                hitSpheres[0].GetComponent<HandController>().EmitSparks(0.3f);
+                hitSpheres[0].GetComponent<HandController>().EmitDrill(0.3f, hitSpheres[0].GetComponent<HandController>().drillstage);
+            }
+
+            PlaySFX("Drill", 0.95f, 1.05f);
 
         }
 
-        else if (side == "R")
-        {
-            hitSpheres[1].enabled = true;
-            hitSpheres[1].GetComponent<HandController>().EmitDrill(.15f, 1);
-            hitSpheres[1].GetComponent<HandController>().drillstage = 1;
-        }
-
-        else if (side == "Both")
-        {
-            hitSpheres[1].enabled = true;
-            hitSpheres[1].GetComponent<HandController>().EmitSparks(0.3f);
-            hitSpheres[1].GetComponent<HandController>().EmitDrill(0.3f, hitSpheres[1].GetComponent<HandController>().drillstage);
-            hitSpheres[0].enabled = true;
-            hitSpheres[0].GetComponent<HandController>().EmitSparks(0.3f);
-            hitSpheres[0].GetComponent<HandController>().EmitDrill(0.3f, hitSpheres[0].GetComponent<HandController>().drillstage);
-        }
-
-        PlaySFX("Drill", 0.95f, 1.05f);   
     }
 
     public void EmitDrillBuildup()

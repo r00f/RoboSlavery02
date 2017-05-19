@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198055360519312138}
   - component: {fileID: 199558267888259402}
   - component: {fileID: 114498385266878498}
-  - component: {fileID: 114234294555888518}
+  - component: {fileID: 114285509777601148}
   m_Layer: 0
   m_Name: ExplosionBig
   m_TagString: Untagged
@@ -43,7 +43,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114234294555888518
+--- !u!114 &114285509777601148
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -51,10 +51,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1836462675323446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ac1691131a8c844dafe8b6ace6a172a, type: 3}
+  m_Script: {fileID: 11500000, guid: 42f16b373f5b2ab44b72766ab91d1c34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionForce: 20
+  explosionForce: 800
   radius: 1
 --- !u!114 &114498385266878498
 MonoBehaviour:

@@ -19,6 +19,7 @@ TagManager:
   - Cam2
   - Canvas1
   - Canvas2
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - 
   - 
   - Wall
-  - 
+  - Player
   - 
   - 
   - 

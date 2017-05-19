@@ -1256,13 +1256,15 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
-      does not match position in animation file\nRoboMotions\nClip 'Run' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'RightLEg' has translation
-      animation that will be discarded.\n\nClip 'Punch2' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'LeftLEg' has translation animation that
+    animationImportWarnings: "\nClip 'Run' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'RightLEg' has translation animation that will be discarded.\n\nClip
+      'StrafeForward' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'RightLEg'
+      has translation animation that will be discarded.\n\nClip 'StrafeBackWards'
+      has import animation warnings that might lower retargeting quality:\nNote: Activate
+      translation DOF on avatar to improve retargeting quality.\n\t'LeftLEg' has translation
+      animation that will be discarded.\n\t'RightLEg' has translation animation that
       will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
@@ -1566,8 +1568,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Punch2
       takeName: Punch2
-      firstFrame: 5
-      lastFrame: 30
+      firstFrame: 0
+      lastFrame: 45
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

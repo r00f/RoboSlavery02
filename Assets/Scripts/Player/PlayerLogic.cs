@@ -8,9 +8,6 @@ public class PlayerLogic : LivingEntity
 {
 
     #region Serialize Fields
-
-    [SerializeField]
-    protected float groundCheckDistance;
     [SerializeField]
     protected float jumpPower;
     [SerializeField]
@@ -44,11 +41,6 @@ public class PlayerLogic : LivingEntity
     List<LivingEntity> entitiesInRange = new List<LivingEntity>();
     [SerializeField]
     List<LivingEntity> entitiesToRemove = new List<LivingEntity>();
-
-
-    [SerializeField]
-    protected bool grounded;
-    protected Vector3 groundNormal;
 
     #endregion
 
@@ -123,6 +115,15 @@ public class PlayerLogic : LivingEntity
 
     }
 
+    void OnParticleCollision(GameObject other)
+    {
+        if(other.CompareTag("Enemy"))
+        {
+            print("ParticlePlayerCollision");
+            AddSubtractHealth(-2f);
+        }
+    }
+
     #endregion
 
     #region Methods
@@ -138,10 +139,6 @@ public class PlayerLogic : LivingEntity
 
     public virtual void HandleInput()
     {
-
-        //check if golem is grounded
-        CheckGroundStatus();
-
         //movement
         horizontalL = rePlayer.GetAxis("Left Horizontal");
         verticalL = rePlayer.GetAxis("Left Vertical");
@@ -157,6 +154,8 @@ public class PlayerLogic : LivingEntity
             animator.SetBool("Left Button", rePlayer.GetButton("Left Button"));
             animator.SetBool("Up Button", rePlayer.GetButton("Up Button"));
             animator.SetBool("Bottom Button", rePlayer.GetButton("Bottom Button"));
+            animator.SetBool("L1", rePlayer.GetButton("L1"));
+            animator.SetBool("R1", rePlayer.GetButton("R1"));
         }
         else
         {
@@ -164,11 +163,9 @@ public class PlayerLogic : LivingEntity
             animator.SetBool("Left Button", false);
             animator.SetBool("Up Button", false);
             animator.SetBool("Bottom Button", false);
-
+            animator.SetBool("L1", false);
+            animator.SetBool("R1", false);
         }
-
-
-
 
         //buttons
         if (rePlayer.GetButtonDown("Start"))
@@ -184,18 +181,9 @@ public class PlayerLogic : LivingEntity
         {
             animator.SetBool("Strafe", false);
             gameCam.camState = ThirdPersonCamera.CamStates.Behind;
-
         }
 
-        if (rePlayer.GetButtonDown("L1"))
-        {
-            animator.SetTrigger("L1");
-        }
 
-        if (rePlayer.GetButtonDown("R1"))
-        {
-            animator.SetTrigger("R1");
-        }
 
         if (rePlayer.GetButtonDown("Up Button"))
         {
@@ -372,10 +360,10 @@ public class PlayerLogic : LivingEntity
     {
 
         return
-            stateInfo.fullPathHash == m_LocomotionPivotRId ||
-            stateInfo.fullPathHash == m_LocomotionPivotLId ||
-            transInfo.fullPathHash == m_LocomotionPivotRTransId ||
-            transInfo.fullPathHash == m_LocomotionPivotLTransId;
+            baseStateInfo.fullPathHash == m_LocomotionPivotRId ||
+            baseStateInfo.fullPathHash == m_LocomotionPivotLId ||
+            baseTransInfo.fullPathHash == m_LocomotionPivotRTransId ||
+            baseTransInfo.fullPathHash == m_LocomotionPivotLTransId;
     }
 
     public void RemoveEntityFromList(LivingEntity enitity)
@@ -389,43 +377,10 @@ public class PlayerLogic : LivingEntity
         entitiesToRemove.Clear();
     }
 
-    public bool IsInLocomotion()
-    {
-        return stateInfo.fullPathHash == m_LocomotionId;
-    }
-
     public override void Die()
     {
         base.Die();
         gameController.RestartScene(5f);
-    }
-
-    void CheckGroundStatus()
-    {
-        RaycastHit hitInfo;
-#if UNITY_EDITOR
-        // helper to visualise the ground check ray in the scene view
-        Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * groundCheckDistance));
-#endif
-        // 0.1f is a small offset to start the ray from inside the character
-        // it is also good to note that the transform position in the sample assets is at the base of the character
-        if (Physics.Raycast(transform.position + (Vector3.up * 0.2f), Vector3.down, out hitInfo, groundCheckDistance))
-        {
-            if(hitInfo.transform.tag == "Floor")
-            {
-                groundNormal = hitInfo.normal;
-                grounded = true;
-                animator.applyRootMotion = true;
-
-            }
-
-        }
-        else
-        {
-            grounded = false;
-            groundNormal = Vector3.up;
-            animator.applyRootMotion = false;
-        }
     }
 
     #endregion

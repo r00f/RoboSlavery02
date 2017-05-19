@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4484730128437258}
   - component: {fileID: 33933175969294978}
   - component: {fileID: 23706262048859964}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LLeg3_LLeg_LegUpper_pCylinder5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4794553092132602}
   - component: {fileID: 199594305742144608}
   - component: {fileID: 198237147075002434}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AfterBurnerPS (3)
   m_TagString: AfterBurner
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 136511222937052766}
   - component: {fileID: 54914663200473576}
   - component: {fileID: 144417410081135134}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 4400190393028462}
   - component: {fileID: 199309651671973316}
   - component: {fileID: 198688581034420834}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AfterBurnerPS (4)
   m_TagString: AfterBurner
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4612625292365746}
   - component: {fileID: 198677105430088930}
   - component: {fileID: 199261333357371794}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System (4)
   m_TagString: Steam
   m_Icon: {fileID: 0}
@@ -107,9 +107,9 @@ GameObject:
   - component: {fileID: 4844368163195866}
   - component: {fileID: 199222826842494436}
   - component: {fileID: 198301773927001148}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AfterBurnerPSR
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 4811187424755764}
   - component: {fileID: 65748379826001614}
   - component: {fileID: 54762115046677926}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 4402494911495010}
   - component: {fileID: 33327497884695214}
   - component: {fileID: 23355386004413808}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Torso_Upper_Holo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 4789897311296494}
   - component: {fileID: 33806716035506664}
   - component: {fileID: 23914416213354620}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LLeg2_LLeg_group52_pCylinder6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4772585789861704}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightArmDrill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 4711754260352086}
   - component: {fileID: 33190229259111212}
   - component: {fileID: 23714590339463094}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LArm2_LArm_LArmLower_LDrill_Drill_group71_group61_pCylinder57
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 4145734466267138}
   - component: {fileID: 198666933738198670}
   - component: {fileID: 199202377503672848}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Drill_Buildup (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4315448854617470}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Jaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4724911307341186}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightHand
   m_TagString: PlayerHitBox
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 4831113922265062}
   - component: {fileID: 33037707228383170}
   - component: {fileID: 23533787782429440}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LLeg2_LLeg_LegUpper_pCylinder5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 199235147645789522}
   - component: {fileID: 198747498335374274}
   - component: {fileID: 114060574491669562}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DrillPS3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 4155755008884022}
   - component: {fileID: 33940894551950470}
   - component: {fileID: 23318836007065876}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LLeg3_group75_pCube60
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 4501724845808704}
   - component: {fileID: 33218355519730972}
   - component: {fileID: 23346429635026978}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightArmMainHolo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4197241285103154}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftHand
   m_TagString: PlayerHitBox
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 54644940208038826}
   - component: {fileID: 114601505834358820}
   - component: {fileID: 144537662197971350}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftHand
   m_TagString: PlayerHitBox
   m_Icon: {fileID: 0}
@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 4130503248203644}
   - component: {fileID: 33083041536735710}
   - component: {fileID: 23021253265928134}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4435671396239730}
   - component: {fileID: 114242085367181122}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightArmDrillHolo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 4274074621110790}
   - component: {fileID: 64228652148607226}
   - component: {fileID: 114147359387496294}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SightCone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 199852059583830416}
   - component: {fileID: 198115819264481280}
   - component: {fileID: 114298908292231138}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DrillPS3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 4982568252518896}
   - component: {fileID: 33125585887006460}
   - component: {fileID: 23599014107917028}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 54859599000777186}
   - component: {fileID: 114206250521014338}
   - component: {fileID: 144596003838061102}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightHand
   m_TagString: PlayerHitBox
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 4273506955587082}
   - component: {fileID: 199813263254062354}
   - component: {fileID: 198725760623375814}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AfterBurnerPS (5)
   m_TagString: AfterBurner
   m_Icon: {fileID: 0}
@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 135001008736142504}
   - component: {fileID: 54049536735734048}
   - component: {fileID: 144188571807752680}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 4081964508564518}
   - component: {fileID: 198980106523292732}
   - component: {fileID: 199854723289039944}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System (7)
   m_TagString: Steam
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 136384306093071444}
   - component: {fileID: 54864058540666100}
   - component: {fileID: 144357934508283982}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,7 +529,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4503868737373102}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,7 +546,7 @@ GameObject:
   - component: {fileID: 4171564081354160}
   - component: {fileID: 198055134799810358}
   - component: {fileID: 199323976681343484}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Drill_Buildup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 4686564431966806}
   - component: {fileID: 33049932593407004}
   - component: {fileID: 23465147973565064}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightHandVisuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 4336191314933302}
   - component: {fileID: 199448429441443424}
   - component: {fileID: 198441329520288856}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AfterBurnerPS (2)
   m_TagString: AfterBurner
   m_Icon: {fileID: 0}
@@ -612,7 +612,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4782100199619694}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: joint20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,7 +627,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4522686093793760}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AfterBurnerParticleSystems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -644,7 +644,7 @@ GameObject:
   - component: {fileID: 4633880007057046}
   - component: {fileID: 33070267308226130}
   - component: {fileID: 23776909109946936}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftHandVisuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -661,9 +661,9 @@ GameObject:
   - component: {fileID: 4393431565601346}
   - component: {fileID: 199041880410331018}
   - component: {fileID: 198025529992226288}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AfterBurnerPSL
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -679,7 +679,7 @@ GameObject:
   - component: {fileID: 136485996170807368}
   - component: {fileID: 54609363625818544}
   - component: {fileID: 144867058572003190}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,7 +695,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4014742704503786}
   - component: {fileID: 95597116553104642}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SteamGolemParented
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -712,7 +712,7 @@ GameObject:
   - component: {fileID: 4109291702099430}
   - component: {fileID: 136591760978449144}
   - component: {fileID: 114381117387505314}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HurtCapsuleTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -727,7 +727,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4840925755599322}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: joint17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -744,7 +744,7 @@ GameObject:
   - component: {fileID: 4192233148718334}
   - component: {fileID: 33986719900926484}
   - component: {fileID: 23811856386762624}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LLeg2_group75_pCube60
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -761,7 +761,7 @@ GameObject:
   - component: {fileID: 4509896628697848}
   - component: {fileID: 33848214906543010}
   - component: {fileID: 23220274578154902}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LArm2_LArm_LArmLower_pTorus1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -778,7 +778,7 @@ GameObject:
   - component: {fileID: 4968395880590808}
   - component: {fileID: 33173388106897782}
   - component: {fileID: 23002093234646084}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftArmMainHolo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -793,7 +793,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4435541039998508}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: joint11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -810,7 +810,7 @@ GameObject:
   - component: {fileID: 4408226629544248}
   - component: {fileID: 198362756054263004}
   - component: {fileID: 199044682359095494}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System (6)
   m_TagString: Steam
   m_Icon: {fileID: 0}
@@ -825,7 +825,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4256320313509140}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -840,7 +840,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4770270905856404}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftHandMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -855,7 +855,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4648995368775692}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SteamParticleSystems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -870,7 +870,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4740015239108332}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftFootMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -885,7 +885,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4549282298732060}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -900,7 +900,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4827448357956796}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightHandMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -917,7 +917,7 @@ GameObject:
   - component: {fileID: 4365546966050738}
   - component: {fileID: 198605379727662880}
   - component: {fileID: 199486318075120730}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -934,7 +934,7 @@ GameObject:
   - component: {fileID: 4663609238193656}
   - component: {fileID: 33932806783979170}
   - component: {fileID: 23285454935331428}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LArm3_LArm_LArmLower_LDrill_Drill_group71_group61_pCylinder57
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -952,7 +952,7 @@ GameObject:
   - component: {fileID: 136438719196352172}
   - component: {fileID: 54657018146434744}
   - component: {fileID: 144364412593249940}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -969,7 +969,7 @@ GameObject:
   - component: {fileID: 4521056919099222}
   - component: {fileID: 198585004982629194}
   - component: {fileID: 199418128744996854}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System (5)
   m_TagString: Steam
   m_Icon: {fileID: 0}
@@ -985,7 +985,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4085049590767816}
   - component: {fileID: 114095248112931724}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftArmDrillHolo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1000,7 +1000,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4915519574611888}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CamFollow
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1017,7 +1017,7 @@ GameObject:
   - component: {fileID: 4652977501574470}
   - component: {fileID: 33254618664720418}
   - component: {fileID: 23888857891024156}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UpperArmL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1034,7 +1034,7 @@ GameObject:
   - component: {fileID: 4428447597291200}
   - component: {fileID: 198188200394652348}
   - component: {fileID: 199689204344535890}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1052,7 +1052,7 @@ GameObject:
   - component: {fileID: 136282568889140204}
   - component: {fileID: 54981458764565798}
   - component: {fileID: 144886986631294692}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftLEg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1069,7 +1069,7 @@ GameObject:
   - component: {fileID: 4174257814939982}
   - component: {fileID: 198757635915344200}
   - component: {fileID: 199516008390316194}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1086,7 +1086,7 @@ GameObject:
   - component: {fileID: 4850774359856988}
   - component: {fileID: 198902382614224402}
   - component: {fileID: 199016334031729214}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sparks (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1101,7 +1101,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4744966957327782}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1119,7 +1119,7 @@ GameObject:
   - component: {fileID: 136570867918487420}
   - component: {fileID: 54348172375045466}
   - component: {fileID: 144625060309521324}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightLEg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1137,7 +1137,7 @@ GameObject:
   - component: {fileID: 136370257939056376}
   - component: {fileID: 54044244057088610}
   - component: {fileID: 144302644284292508}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1154,7 +1154,7 @@ GameObject:
   - component: {fileID: 4891021386526336}
   - component: {fileID: 33827371439703124}
   - component: {fileID: 23828722249321108}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LLeg3_LLeg_group52_pCylinder6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1172,7 +1172,7 @@ GameObject:
   - component: {fileID: 65954204880706798}
   - component: {fileID: 54523029776660928}
   - component: {fileID: 144382058646120420}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1189,7 +1189,7 @@ GameObject:
   - component: {fileID: 4158174521020152}
   - component: {fileID: 33076822815661298}
   - component: {fileID: 23044801781814120}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LArm3_LArm_pSphere1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1204,7 +1204,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4125247477733420}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightFootMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1219,7 +1219,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4937018084520530}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftArmDrill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1236,7 +1236,7 @@ GameObject:
   - component: {fileID: 4008880593759302}
   - component: {fileID: 33189663409332842}
   - component: {fileID: 23443832913983732}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UpperArmR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1251,7 +1251,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4870916670369178}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1266,7 +1266,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4025760129516998}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1283,7 +1283,7 @@ GameObject:
   - component: {fileID: 4093701241604562}
   - component: {fileID: 33294430556968802}
   - component: {fileID: 23155799527466984}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Torso_Lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1301,7 +1301,7 @@ GameObject:
   - component: {fileID: 136889641263233470}
   - component: {fileID: 54336349614421642}
   - component: {fileID: 144751110800844770}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1321,7 +1321,7 @@ GameObject:
   - component: {fileID: 136443420356685022}
   - component: {fileID: 114153599630347936}
   - component: {fileID: 82141215910920176}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SteamGolemArms
   m_TagString: Player1
   m_Icon: {fileID: 0}
@@ -3665,7 +3665,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab8727403069d54488f0263370afd22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000000
+  groundCheckDistance: 1
+  maxHealth: 300
   currentHealth: 0
   animator: {fileID: 0}
   hitSpheres:
@@ -3685,7 +3686,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b442c4625c5853c4b89b76b1b231fb2f, type: 3}
   isTargeted: 0
   isTargetLocked: 0
-  groundCheckDistance: 0.3
   jumpPower: 7
   playerNumber: 1
   directionDampTime: 0.1
@@ -3695,12 +3695,11 @@ MonoBehaviour:
   StrafeRotateSpeed: 10
   entitiesInRange: []
   entitiesToRemove: []
-  grounded: 1
   explosion: {fileID: 1836462675323446, guid: af62a3b165ba8574bba86158f51fe73d, type: 2}
   explosionBig: {fileID: 1836462675323446, guid: f4f08b07aa289694d9e51e0d620c6bb4,
     type: 2}
   body02Mat: {fileID: 2100000, guid: d9c2f23deedfdc64faddaa0e5c2d5169, type: 2}
-  overheatDOT: -15
+  overheatDOT: -5
   overheatSpeedMultiplier: 1.5
   overheatLerpDuration: 1
   overheatColor: {r: 1, g: 0.6413793, b: 0, a: 1}
@@ -3725,7 +3724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 885d683af1797504fb9a85b69e9232c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handForce: 3000
+  handForce: 200
   explosion: {fileID: 1836462675323446, guid: af62a3b165ba8574bba86158f51fe73d, type: 2}
   drillstage: 1
   maxHealth: 100
@@ -3780,7 +3779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 885d683af1797504fb9a85b69e9232c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handForce: 3000
+  handForce: 200
   explosion: {fileID: 1836462675323446, guid: af62a3b165ba8574bba86158f51fe73d, type: 2}
   drillstage: 1
   maxHealth: 100
@@ -3961,7 +3960,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.33000016, y: 1.2212453e-17, z: 0}
+  m_ConnectedAnchor: {x: -0.33000016, y: -0.000000059604645, z: 0}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -4003,7 +4002,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.3265872, y: 0.000000059604645, z: 1.0842021e-21}
+  m_ConnectedAnchor: {x: -0.32658803, y: 0.000000059604645, z: 0.00000071525574}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -4045,7 +4044,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.32658714, y: 0.000000029802322, z: -1.0769009e-21}
+  m_ConnectedAnchor: {x: -0.32658762, y: 0.000000029802322, z: 0.00000071525596}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -4087,7 +4086,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.12, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0.120000556, y: 0, z: 0.0000005066395}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -4129,7 +4128,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000014901161, y: 0.19000006, z: 0}
+  m_ConnectedAnchor: {x: 0, y: 0.19000006, z: 0}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -4171,7 +4170,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.12, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -0.120000556, y: 0, z: -0.0000005066395}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -4213,7 +4212,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.20499806, y: 1.05424235e-16, z: -0.0000000022109674}
+  m_ConnectedAnchor: {x: -0.20499927, y: 1.05424235e-16, z: 0.0000009238564}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -4255,7 +4254,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.20499702, y: -0.00000017881393, z: 0.0000000011636292}
+  m_ConnectedAnchor: {x: -0.20499845, y: -0.00000017881393, z: 0.000001166577}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -4297,7 +4296,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.34979203, y: 0, z: 7.10543e-17}
+  m_ConnectedAnchor: {x: -0.34979203, y: -0.0000005364418, z: 0.0000005066395}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -4339,7 +4338,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.19384003, y: 0.26772407, z: 0}
+  m_ConnectedAnchor: {x: -0.19384003, y: 0.2677237, z: 0.0000005066395}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -4381,7 +4380,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.19383842, y: -0.26772365, z: 0}
+  m_ConnectedAnchor: {x: -0.19383842, y: -0.2677238, z: -0.0000005066395}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -4423,7 +4422,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.3497919, y: 0, z: 7.105427e-17}
+  m_ConnectedAnchor: {x: -0.3497919, y: 0.00000059604645, z: -0.0000005066395}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -4510,7 +4509,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 534144667
+  randomSeed: -1422735514
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6512,7 +6511,7 @@ ParticleSystem:
       minMaxState: 1
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 3
     type: 1
     collisionMode: 0
@@ -6562,7 +6561,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     m_Bounce:
-      scalar: 1
+      scalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6644,11 +6643,11 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 4294966783
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 1
   TriggerModule:
@@ -17431,7 +17430,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 1564388151
+  randomSeed: -806562313
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -19433,7 +19432,7 @@ ParticleSystem:
       minMaxState: 1
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 3
     type: 1
     collisionMode: 0
@@ -19483,7 +19482,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     m_Bounce:
-      scalar: 1
+      scalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19565,11 +19564,11 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 4294966783
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 1
   TriggerModule:

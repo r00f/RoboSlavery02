@@ -176,6 +176,11 @@ public class FlameImpLogic : PlayerLogic {
 
         if (fused)
         {
+
+            if (rePlayer.GetButtonDown("R2"))
+            {
+                steamGolem.Dash();
+            }
             animator.SetFloat("Angle", 0f); animator.SetFloat("Direction", 0f);
             //Handle Fused Input
 
@@ -295,7 +300,7 @@ public void FireProjectile()
 
     public bool IsDashing()
     {
-        return stateInfo.fullPathHash == m_DashId || transInfo.fullPathHash == m_IdleDashTransId || transInfo.fullPathHash == m_LocoDashTransId;
+        return baseStateInfo.fullPathHash == m_DashId || baseTransInfo.fullPathHash == m_IdleDashTransId || baseTransInfo.fullPathHash == m_LocoDashTransId;
     }
 
     public bool IsFused()
