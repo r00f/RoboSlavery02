@@ -133,6 +133,7 @@ public class ThirdPersonCamera : MonoBehaviour
             case CamStates.Target:
 
                 wideScreen = true;
+                curLookDir = followXForm.forward;
                 targetPosition = characterOffset + followXForm.up * distanceUp - followXForm.forward * distanceAway;
                 break;
 
