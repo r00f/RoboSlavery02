@@ -153,7 +153,7 @@ public class LivingEntity : MonoBehaviour {
             //if damage is higher than 10, set GetHit Trigger (hitStun)
             if (healthAmount <= -10)
             {
-                PlaySFX("GetHit", 0.77f, 0.83f);
+                PlaySFX("GetHit", 0.5f, 0.6f);
                 animator.SetTrigger("GetHit");
                 animator.SetFloat("GetHitRandom", Random.Range(0, 2));
             }

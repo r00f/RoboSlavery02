@@ -21,6 +21,7 @@ public class RepairPanelLogic : MonoBehaviour {
     Text repairCostText;
 
     HoloArmLogic holoArm;
+    SteamGolemLogic steamGolem;
 
     Camera cam;
 
@@ -30,24 +31,51 @@ public class RepairPanelLogic : MonoBehaviour {
     {
         repairCostText = GetComponentInChildren<Text>();
         //slider = GetComponentInChildren<Slider>();
-        
-        holoArm = follow.GetComponent<HoloArmLogic>();
+
+        if (follow.GetComponent<HoloArmLogic>())
+            holoArm = follow.GetComponent<HoloArmLogic>();
+        else
+            steamGolem = follow.GetComponent<SteamGolemLogic>();
+
         //slider.maxValue = holoArm.repairCost;
         if (cam == null)
             cam = GameObject.FindGameObjectWithTag("Cam" + canvasNumber).GetComponent<Camera>();
 
     }
+
     void Update()
     {
-        repairCostText.text = "" + (int)holoArm.CurrentRepairCost();
-        circleSlider.fillAmount =  holoArm.CurrentRepair() / holoArm.repairCost;
+
+        if(holoArm)
+        {
+            repairCostText.text = "" + (int)holoArm.CurrentRepairCost();
+            circleSlider.fillAmount = holoArm.CurrentRepair() / holoArm.repairCost;
+
+        }
+        else
+        {
+            repairCostText.text = "" + (int)steamGolem.CurrentRepairCost();
+            circleSlider.fillAmount = steamGolem.CurrentRepair() / steamGolem.MaxHealth();
+        }
+
+
+
         //slider.value = holoArm.CurrentRepair();
     }
 
     void LateUpdate()
     {
-        transform.GetChild(0).gameObject.SetActive(follow.gameObject.activeSelf);
-        transform.GetChild(1).gameObject.SetActive(follow.gameObject.activeSelf);
+        if(holoArm)
+        {
+            transform.GetChild(0).gameObject.SetActive(follow.gameObject.activeSelf);
+            transform.GetChild(1).gameObject.SetActive(follow.gameObject.activeSelf);
+        }
+        else
+        {
+            transform.GetChild(0).gameObject.SetActive(follow.GetComponent<SteamGolemLogic>().holoTorso.activeSelf);
+            transform.GetChild(1).gameObject.SetActive(follow.GetComponent<SteamGolemLogic>().holoTorso.activeSelf);
+        }
+
 
         //scale Target with distance to camera
         transform.localScale = new Vector3(scaleMultiplier / Vector3.SqrMagnitude(follow.position - cam.transform.position), scaleMultiplier / Vector3.SqrMagnitude(follow.position - cam.transform.position), 1);

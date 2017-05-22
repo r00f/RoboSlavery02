@@ -41,8 +41,8 @@ Camera:
   m_GameObject: {fileID: 1084727107394182}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.49264705, g: 0.49264705, b: 0.49264705, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -213,10 +213,10 @@ MonoBehaviour:
   playerNumber: 1
   distanceAway: 3.7
   distanceUp: 0.9
-  camXRotation: 30
+  camXRotation: 25
   camPosSmooth: 0.25
   camRotSmooth: 0.25
-  distanceFromWall: 0.3
+  distanceFromWall: 0.1
   sphereCastRadius: 1
   sphereCastMaxDistance: 1
   cameraHittingWall: 0
@@ -241,8 +241,8 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1084727107394182}
-  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: 0, y: 0, z: -4.73}
+  m_LocalRotation: {x: 0.30070576, y: -0, z: -0, w: 0.953717}
+  m_LocalPosition: {x: 0, y: 0, z: -4.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

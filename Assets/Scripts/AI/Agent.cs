@@ -57,11 +57,23 @@ public class Agent : LivingEntity {
                 agent.enabled = true;
                 SetDestination();
             }
+
+            else if(Time.timeScale == 0)
+            {
+                //print("stopAgent");
+                if (agent.enabled)
+                    agent.isStopped = true;
+
+                stopped = true;
+            }
+
         }
         else if(!stopped)
         {
             //print("stopAgent");
-            agent.Stop();
+            if(agent.enabled)
+                agent.isStopped = true;
+
             stopped = true;
         }
 
@@ -101,11 +113,10 @@ public class Agent : LivingEntity {
             {
                 agent.destination = goal.position;
 
-                if (stopped)
+                if (agent.isStopped)
                 {
                     print("resumeAgent");
-                    agent.Resume();
-                    stopped = false;
+                    agent.isStopped = false;
                 }
 
 
@@ -122,11 +133,10 @@ public class Agent : LivingEntity {
 
         }
 
-        else if (!stopped)
+        else if (agent.isStopped)
         {
-           //print("stopAgent");
-            agent.Stop();
-            stopped = true;
+            //print("stopAgent");
+            agent.isStopped = true;
         }
 
 
@@ -161,10 +171,10 @@ public class Agent : LivingEntity {
 
     void OnAnimatorMove()
     {
-        if (animator.deltaPosition / Time.deltaTime != Vector3.zero)
+        if (animator.deltaPosition / Time.deltaTime != Vector3.zero && Time.deltaTime != 0)
         {
-            agent.velocity = animator.deltaPosition / Time.deltaTime;
-            transform.rotation = animator.rootRotation;
+                agent.velocity = animator.deltaPosition / Time.deltaTime;
+                transform.rotation = animator.rootRotation;
         }
     }
 
@@ -187,6 +197,4 @@ public class Agent : LivingEntity {
     }
 
     #endregion
-
-
 }

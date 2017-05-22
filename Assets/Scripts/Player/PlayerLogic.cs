@@ -42,6 +42,13 @@ public class PlayerLogic : LivingEntity
     [SerializeField]
     List<LivingEntity> entitiesToRemove = new List<LivingEntity>();
 
+    //Hash IDs
+    int m_DashId;
+    int m_IdleDashTransId;
+    int m_LocoDashTransId;
+    int m_DashIdleTransId;
+    int m_DashLocoTransId;
+
     #endregion
 
     #region Protected Variables
@@ -131,6 +138,11 @@ public class PlayerLogic : LivingEntity
     public override void Initialize()
     {
         base.Initialize();
+        m_IdleDashTransId = Animator.StringToHash("Base Layer.Idle -> Base Layer.Dash");
+        m_LocoDashTransId = Animator.StringToHash("Base Layer.Locomotion -> Base Layer.Dash");
+        m_DashIdleTransId = Animator.StringToHash("Base Layer.Dash -> Base Layer.Idle");
+        m_DashLocoTransId = Animator.StringToHash("Base Layer.Dash -> Base Layer.Locomotion");
+        m_DashId = Animator.StringToHash("Base Layer.Dash");
         InstanciateTarget(playerNumber);
         rePlayer = ReInput.players.GetPlayer(playerNumber-1);
         gameObject.tag = "Player" + playerNumber;
@@ -364,6 +376,16 @@ public class PlayerLogic : LivingEntity
             baseStateInfo.fullPathHash == m_LocomotionPivotLId ||
             baseTransInfo.fullPathHash == m_LocomotionPivotRTransId ||
             baseTransInfo.fullPathHash == m_LocomotionPivotLTransId;
+    }
+
+    public bool IsDashing()
+    {
+        return baseStateInfo.fullPathHash == m_DashId || baseTransInfo.fullPathHash == m_IdleDashTransId || baseTransInfo.fullPathHash == m_LocoDashTransId;
+    }
+
+    public bool IsDashOutTransition()
+    {
+        return baseTransInfo.fullPathHash == m_DashIdleTransId || baseTransInfo.fullPathHash == m_DashLocoTransId;
     }
 
     public void RemoveEntityFromList(LivingEntity enitity)

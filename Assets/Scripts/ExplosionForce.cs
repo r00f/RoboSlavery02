@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class ExplosionForce : MonoBehaviour
 {
-    public float explosionForce = 4;
+    [SerializeField]
+    float explosionForce = 4;
+    [SerializeField]
+    float explosionUp = 0.5f;
     [SerializeField]
     float radius = 1;
 
@@ -15,21 +18,31 @@ public class ExplosionForce : MonoBehaviour
         // be pushed by physics force
         yield return null;
 
-        float multiplier = 1;
-
         float r = radius;
         var cols = Physics.OverlapSphere(transform.position, r);
-        var rigidbodies = new List<Rigidbody>();
+        var enemyRigidbodies = new List<Rigidbody>();
+        var playerRigidbodies = new List<Rigidbody>();
+
         foreach (var col in cols)
         {
-            if (col.attachedRigidbody != null && !rigidbodies.Contains(col.attachedRigidbody) && !col.transform.GetComponentInParent<PlayerLogic>())
+            if (col.attachedRigidbody != null && !enemyRigidbodies.Contains(col.attachedRigidbody))
             {
-                rigidbodies.Add(col.attachedRigidbody);
+                if (!col.transform.GetComponentInParent<PlayerLogic>())
+                    enemyRigidbodies.Add(col.attachedRigidbody);
+                else
+                    playerRigidbodies.Add(col.attachedRigidbody);
             }
         }
-        foreach (var rb in rigidbodies)
+
+        foreach (var rb in enemyRigidbodies)
         {
-            rb.AddExplosionForce(explosionForce * multiplier, transform.position, r, 0, ForceMode.Impulse);
+            rb.AddExplosionForce(explosionForce / enemyRigidbodies.Count, transform.position, r, explosionUp, ForceMode.Impulse);
+        }
+
+        foreach (var rb in playerRigidbodies)
+        {
+            if(rb.transform.GetComponentInParent<PlayerLogic>().IsDead())
+                rb.AddExplosionForce(explosionForce / playerRigidbodies.Count, transform.position, r, explosionUp, ForceMode.Impulse);
         }
     }
 }

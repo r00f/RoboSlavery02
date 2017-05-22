@@ -29,10 +29,6 @@ public class FlameImpLogic : PlayerLogic {
     public bool launched;
     public bool controllingMachine;
 
-    int m_DashId;
-    int m_IdleDashTransId;
-    int m_LocoDashTransId;
-
     void Start () {
 
         Initialize();
@@ -76,9 +72,14 @@ public class FlameImpLogic : PlayerLogic {
                 steamGolem.Jump();
             }
 
-            if (rePlayer.GetButton("Bottom Button"))
+            if (rePlayer.GetButton("Bottom Button") && !steamGolem.grounded)
             {
                 steamGolem.Hover();
+                steamGolem.EmitFootFlameParticles(rePlayer.GetButton("Bottom Button"));
+            }
+            else
+            {
+                steamGolem.EmitFootFlameParticles(false);
             }
 
         }
@@ -143,15 +144,6 @@ public class FlameImpLogic : PlayerLogic {
 
     }
 
-    public override void Initialize()
-    {
-        base.Initialize();
-        m_IdleDashTransId = Animator.StringToHash("Base Layer.Idle -> Base Layer.Dash");
-        m_LocoDashTransId = Animator.StringToHash("Base Layer.Locomotion -> Base Layer.Dash");
-        m_DashId = Animator.StringToHash("Base Layer.Dash");
-
-    }
-
     public override void Die()
     {
         base.Die();
@@ -181,6 +173,7 @@ public class FlameImpLogic : PlayerLogic {
             {
                 steamGolem.Dash();
             }
+
             animator.SetFloat("Angle", 0f); animator.SetFloat("Direction", 0f);
             //Handle Fused Input
 
@@ -211,11 +204,20 @@ public class FlameImpLogic : PlayerLogic {
             }
             else if (steamGolem.IsHeavyPunch())
             {
-
                 foreach (SphereCollider sphereCol in steamGolem.hitSpheres)
                 {
                     sphereCol.GetComponent<HandController>().EmitFlameThrower(rePlayer.GetButton("Bottom Button"));
                 }
+
+                if (rePlayer.GetButton("Bottom Button"))
+                {
+                    steamGolem.SwitchSteamParticles("AfterBurner");
+                }
+                else
+                {
+                    steamGolem.SwitchSteamParticles("Steam");
+                }
+
                 /*
                 if (rePlayer.GetButtonDown("Bottom Button"))
                 {
@@ -238,6 +240,15 @@ public class FlameImpLogic : PlayerLogic {
                 foreach (SphereCollider sphereCol in steamGolem.hitSpheres)
                 {
                     sphereCol.GetComponent<HandController>().EmitFlameThrower(rePlayer.GetButton("Bottom Button"));
+                }
+
+                if (rePlayer.GetButton("Bottom Button"))
+                {
+                    steamGolem.SwitchSteamParticles("AfterBurner");
+                }
+                else
+                {
+                    steamGolem.SwitchSteamParticles("Steam");
                 }
             }
             else
@@ -281,7 +292,7 @@ public class FlameImpLogic : PlayerLogic {
         }
 }
 
-public void FireProjectile()
+    public void FireProjectile()
     {
 
         Instantiate(projectile, transform.position + new Vector3(transform.forward.x, 1, transform.forward.z), transform.rotation);
@@ -296,11 +307,6 @@ public void FireProjectile()
         carryProjectile = go;
         fused = false;
         launched = true;
-    }
-
-    public bool IsDashing()
-    {
-        return baseStateInfo.fullPathHash == m_DashId || baseTransInfo.fullPathHash == m_IdleDashTransId || baseTransInfo.fullPathHash == m_LocoDashTransId;
     }
 
     public bool IsFused()

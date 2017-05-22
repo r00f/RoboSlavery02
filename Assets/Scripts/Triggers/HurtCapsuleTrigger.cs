@@ -41,15 +41,6 @@ public class HurtCapsuleTrigger : MonoBehaviour {
         {
             livingEntity.AddSubtractHealth(-10);
         }
-
-        if (other.GetComponent<FlameImpLogic>() && isGolemHurtCapsule)
-        {
-            if (other.GetComponent<FlameImpLogic>().IsDashing())
-            {
-                Instantiate(explosion, transform.position + new Vector3(0, .9f, 0), Quaternion.identity);
-            }
-        }
-
     }
 
     void OnTriggerStay(Collider other)

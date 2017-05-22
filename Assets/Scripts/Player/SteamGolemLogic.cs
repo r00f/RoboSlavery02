@@ -10,6 +10,10 @@ public class SteamGolemLogic : PlayerLogic
     #region SerializeFields
 
     [SerializeField]
+    public GameObject holoTorso;
+    [SerializeField]
+    float hoverForce;
+    [SerializeField]
     GameObject explosion;
     [SerializeField]
     GameObject explosionBig;
@@ -31,6 +35,8 @@ public class SteamGolemLogic : PlayerLogic
     GameObject flameBeamPrefab;
     [SerializeField]
     float repBeamTime;
+    [SerializeField]
+    float hoverTopSpeed = 10;
     #endregion
 
     #region Private Variables
@@ -40,6 +46,7 @@ public class SteamGolemLogic : PlayerLogic
     bool overheatMode;
     Slider handLHealthBar;
     Slider handRHealthBar;
+    List<ParticleSystem> footFlameParticleSystems = new List<ParticleSystem>();
 
     bool onetime;
     float t;
@@ -61,6 +68,11 @@ public class SteamGolemLogic : PlayerLogic
     void Start()
     {
         Initialize();
+        foreach(ParticleSystem ps in particleSystems)
+        {
+            if (ps.CompareTag("FootFlame"))
+                footFlameParticleSystems.Add(ps);
+        }
         flameImp = FindObjectOfType<FlameImpLogic>();
         healthBar = canvases[0].transform.GetChild(2).GetChild(0).GetComponent<Slider>();
         handLHealthBar = canvases[0].transform.GetChild(2).GetChild(1).GetComponent<Slider>();
@@ -91,6 +103,11 @@ public class SteamGolemLogic : PlayerLogic
 
         HandleEntititesInRange();
 
+        if(IsDashOutTransition())
+        {
+            SwitchSteamParticles("Steam");
+        }
+
         //make sure all Hit Spheres are disabled if we are not in one of the attack substates
         if (!animator.GetBool("Attacking") && IsHitSphereEnabled())
         {
@@ -112,33 +129,6 @@ public class SteamGolemLogic : PlayerLogic
                 ragdollColliders[randInt].GetComponent<Rigidbody>().AddExplosionForce(3000, ragdollColliders[randInt].transform.position - Vector3.up, 10);
             }
 
-        }
-
-
-        if (LeftPunch())
-        {
-            if (IsHitSphereEnabled() && ChainedAction == "Explosion")
-            {
-                print("Instantiate Explosion at hitSpheres[0]");
-                Instantiate(explosion, hitSpheres[0].transform.position, Quaternion.identity);
-            }
-            ChainedAction = "";
-        }
-        else if(RightPunch())
-        {
-            if (IsHitSphereEnabled() && ChainedAction == "Explosion")
-            {
-                print("Instantiate Explosion at hitSpheres[1]");
-                Instantiate(explosion, hitSpheres[1].transform.position, Quaternion.identity);
-            }
-            ChainedAction = "";
-
-        }
-        if (IsHitSphereEnabled() && ChainedAction == "Big Bang")
-        {
-            print("Kaboom");
-            Instantiate(explosionBig, hitSpheres[0].transform.position, Quaternion.identity);
-            ChainedAction = "";
         }
 
     }
@@ -218,11 +208,6 @@ public class SteamGolemLogic : PlayerLogic
         return baseStateInfo.fullPathHash == m_HeavyPunchL || baseStateInfo.fullPathHash == m_HeavyPunchR;
     }
 
-    public void ActiveFlameThrower()
-    {
-        //FlameThrowerlogic
-    }
-
     public bool IsSpinning()
     {
         return baseStateInfo.fullPathHash == m_Spin;
@@ -269,6 +254,32 @@ public class SteamGolemLogic : PlayerLogic
                 movementSpeed = 0.8f * overheatSpeedMultiplier;
         }
 
+        if (LeftPunch())
+        {
+            if (IsHitSphereEnabled() && ChainedAction == "Explosion")
+            {
+                print("Instantiate Explosion at hitSpheres[0]");
+                Instantiate(explosion, hitSpheres[0].transform.position, Quaternion.identity);
+            }
+            ChainedAction = "";
+        }
+        else if (RightPunch())
+        {
+            if (IsHitSphereEnabled() && ChainedAction == "Explosion")
+            {
+                print("Instantiate Explosion at hitSpheres[1]");
+                Instantiate(explosion, hitSpheres[1].transform.position, Quaternion.identity);
+            }
+            ChainedAction = "";
+
+        }
+        if (IsHitSphereEnabled() && ChainedAction == "Big Bang")
+        {
+            print("Kaboom");
+            Instantiate(explosionBig, hitSpheres[0].transform.position, Quaternion.identity);
+            ChainedAction = "";
+        }
+
     }
 
     public override void AddSubtractHealth(float healthAmount)
@@ -285,35 +296,44 @@ public class SteamGolemLogic : PlayerLogic
         }
     }
 
+    public override void Die()
+    {
+        base.Die();
+        if(overheatMode)
+        {
+            Instantiate(explosionBig, transform.position + new Vector3(0, .9f, 0), Quaternion.identity);
+        }
+    }
+
     void HandleOverheating()
     {
         //Change _EmissionColor to orange if in OverheatMode and back to black if not
         if (overheatMode)
         {
             AddSubtractHealth(Time.deltaTime * overheatDOT);
+
             if (!onetime)
             {
                 t = 0;
                 attackSpeed *= overheatSpeedMultiplier;
                 movementSpeed *= overheatSpeedMultiplier;
-
                 foreach (ParticleSystem p in particleSystems)
                 {
                     if (p.CompareTag("Steam"))
                     {
+                        ParticleSystem.MainModule main = p.main;
                         ParticleSystem.EmissionModule em = p.emission;
-                        em.enabled = false;
-                    }
-
-                    else if (p.CompareTag("AfterBurner"))
-                    {
-                        ParticleSystem.EmissionModule em = p.emission;
-                        em.enabled = true;
+                        main.simulationSpeed = 6;
+                        main.startSpeed = 0.5f;
+                        main.startSizeMultiplier = 0.6f;
+                        main.startLifetime = 2f;
+                        em.rateOverTime = 10;
                     }
 
                 }
-
+                Instantiate(explosionBig, transform.position + new Vector3(0, .9f, 0), Quaternion.identity);
                 onetime = true;
+
             }
 
             if (body02Mat.GetColor("_EmissionColor") != overheatColor)
@@ -341,22 +361,22 @@ public class SteamGolemLogic : PlayerLogic
             {
                 t = 0;
                 attackSpeed /= overheatSpeedMultiplier;
+                movementSpeed /= overheatSpeedMultiplier;
+                SwitchSteamParticles("Steam");
                 foreach (ParticleSystem p in particleSystems)
                 {
                     if (p.CompareTag("Steam"))
                     {
+                        ParticleSystem.MainModule main = p.main;
                         ParticleSystem.EmissionModule em = p.emission;
-                        em.enabled = true;
-                    }
-                    else if (p.CompareTag("AfterBurner"))
-                    {
-                        ParticleSystem.EmissionModule em = p.emission;
-                        em.enabled = false;
+                        main.simulationSpeed = 4;
+                        main.startSizeMultiplier = 0.4f;
+                        main.startSpeed = .1f;
+                        main.startLifetime = 8f;
+                        em.rateOverTime = 2;
                     }
 
                 }
-
-                movementSpeed /= overheatSpeedMultiplier;
                 onetime = false;
             }
 
@@ -384,66 +404,113 @@ public class SteamGolemLogic : PlayerLogic
         FindObjectOfType<FlameImpLogic>().RemoveEntityFromList(FindObjectOfType<SteamGolemLogic>());
     }
 
-    public void HandleArmDisplay()
+    public void SwitchSteamParticles(string patricleTag)
     {
-        //if both arms are destoryed 
-        if (!leftArms[0].gameObject.activeSelf && !rightArms[0].gameObject.activeSelf)
+        foreach (ParticleSystem p in particleSystems)
         {
-            //if imp targets golem
-            if (isTargetLocked)
+
+            if (p.CompareTag("AfterBurner") || p.CompareTag("Steam"))
             {
-                //if imp does not use Right stick HorizontalAxis display left HoloArm
-                if(FindObjectOfType<FlameImpLogic>().rePlayer.GetAxis("Right Horizontal") == 0f)
+
+                if (p.CompareTag(patricleTag))
                 {
-                    if (!leftArms[1].gameObject.activeSelf && !rightArms[1].gameObject.activeSelf)
-                    {
-                        leftArms[1].gameObject.SetActive(true);
-                    }
+                    ParticleSystem.EmissionModule em = p.emission;
+                    em.enabled = true;
                 }
-                //else Switch between HoloArms
+
                 else
                 {
-                    if(FindObjectOfType<FlameImpLogic>().rePlayer.GetAxis("Right Horizontal") > 0.8f)
+                    ParticleSystem.EmissionModule em = p.emission;
+                    em.enabled = false;
+                }
+            }
+        }
+
+    }
+
+    public void HandleArmDisplay()
+    {
+
+        if(!IsOverheated() && !dead)
+        {
+            //if both arms are destoryed 
+            if (!leftArms[0].gameObject.activeSelf && !rightArms[0].gameObject.activeSelf)
+            {
+                holoTorso.gameObject.SetActive(false);
+                //if imp targets golem
+                if (isTargetLocked)
+                {
+                    //if imp does not use Right stick HorizontalAxis display left HoloArm
+                    if (FindObjectOfType<FlameImpLogic>().rePlayer.GetAxis("Right Horizontal") == 0f)
                     {
-                        leftArms[1].gameObject.SetActive(false);
-                        rightArms[1].gameObject.SetActive(true);
+                        if (!leftArms[1].gameObject.activeSelf && !rightArms[1].gameObject.activeSelf)
+                        {
+                            leftArms[1].gameObject.SetActive(true);
+                        }
                     }
-                    else if(FindObjectOfType<FlameImpLogic>().rePlayer.GetAxis("Right Horizontal") < -0.8f)
+                    //else Switch between HoloArms
+                    else
                     {
-                        leftArms[1].gameObject.SetActive(true);
-                        rightArms[1].gameObject.SetActive(false);
+                        if (FindObjectOfType<FlameImpLogic>().rePlayer.GetAxis("Right Horizontal") > 0.8f)
+                        {
+                            leftArms[1].gameObject.SetActive(false);
+                            rightArms[1].gameObject.SetActive(true);
+                        }
+                        else if (FindObjectOfType<FlameImpLogic>().rePlayer.GetAxis("Right Horizontal") < -0.8f)
+                        {
+                            leftArms[1].gameObject.SetActive(true);
+                            rightArms[1].gameObject.SetActive(false);
+                        }
+
                     }
 
                 }
-                    
+                //else disable both holoarms
+                else
+                {
+                    leftArms[1].gameObject.SetActive(false);
+                    rightArms[1].gameObject.SetActive(false);
+                }
             }
-            //else disable both holoarms
+
+            //if only left arm is destroyed and Imp targets Golem, display HoloArm
+            else if (!leftArms[0].gameObject.activeSelf)
+            {
+                if (isTargetLocked)
+                    leftArms[1].gameObject.SetActive(true);
+                else
+                    leftArms[1].gameObject.SetActive(false);
+            }
+
+            //if only right arm is destroyed and Imp targets Golem, display HoloArm
+
+            else if (!rightArms[0].gameObject.activeSelf)
+            {
+                holoTorso.gameObject.SetActive(false);
+                if (isTargetLocked)
+                    rightArms[1].gameObject.SetActive(true);
+                else
+                    rightArms[1].gameObject.SetActive(false);
+            }
+            //if no arm is destroyed and the torso is damaged, display HoloTorso
             else
             {
-                leftArms[1].gameObject.SetActive(false);
-                rightArms[1].gameObject.SetActive(false);
+                holoTorso.gameObject.SetActive(false);
+                if (currentHealth < maxHealth && isTargetLocked)
+                    holoTorso.gameObject.SetActive(true);
+                else
+                    holoTorso.gameObject.SetActive(false);
             }
         }
-
-        //if only left arm is destroyed and Imp targets Golem, display HoloArm
-        else if (!leftArms[0].gameObject.activeSelf)
+        else
         {
-            if(isTargetLocked)
-                leftArms[1].gameObject.SetActive(true);
-            else
-                leftArms[1].gameObject.SetActive(false);
-        }
-
-        //if only right arm is destroyed and Imp targets Golem, display HoloArm
-
-        else if (!rightArms[0].gameObject.activeSelf)
-        {
-            if (isTargetLocked)
-                rightArms[1].gameObject.SetActive(true);
-            else
-                rightArms[1].gameObject.SetActive(false);
+            //disable both holoarms and torso
+            leftArms[1].gameObject.SetActive(false);
+            rightArms[1].gameObject.SetActive(false);
+            holoTorso.gameObject.SetActive(false);
         }
     }
+
 
     public void RepairArm()
     {
@@ -472,18 +539,64 @@ public class SteamGolemLogic : PlayerLogic
 
             rightArms[1].GetComponent<HoloArmLogic>().RepairArm();
         }
+
+       else if(holoTorso.activeSelf)
+        {
+            curRepBeamTime -= Time.deltaTime * 30;
+            if (curRepBeamTime <= 0)
+            {
+                GameObject repairBeam = Instantiate(flameBeamPrefab, flameImp.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+                repairBeam.GetComponent<RepairBeamLogic>().target = holoTorso.transform.GetChild(0);
+                curRepBeamTime = repBeamTime;
+            }
+            RepairTorso();
+
+
+        }
+    }
+
+    public void RepairTorso()
+    {
+        if (currentHealth < maxHealth && gameController)
+        {
+            if (gameController.GetMetalAmount() > 0)
+            {
+                gameController.AddSubstractMetal(-Time.deltaTime * 20);
+                AddSubtractHealth(Time.deltaTime * 20);
+            }
+        }
+    }
+
+    public float MaxHealth()
+    {
+        return maxHealth;
+    }
+
+    public float CurrentRepair()
+    {
+        return currentHealth;
+    }
+
+    public float CurrentRepairCost()
+    {
+        return maxHealth - currentHealth;
     }
 
     public void Dash()
     {
+        SwitchSteamParticles("AfterBurner");
         animator.SetTrigger("Dash");
     }
 
     public void Hover()
     {
-        if(!grounded && rigid.velocity.y <= 0)
+        if(!grounded)
         {
-            rigid.AddForce(new Vector3(0, 1000, 0));
+            rigid.AddForce(new Vector3(transform.forward.x * hoverForce / 3, hoverForce, transform.forward.z * hoverForce / 3) * Time.deltaTime);
+
+            if (rigid.velocity.magnitude > hoverTopSpeed)
+                rigid.velocity = rigid.velocity.normalized * hoverTopSpeed;
+
         }
 
     }
@@ -498,6 +611,15 @@ public class SteamGolemLogic : PlayerLogic
             StartCoroutine(PropellForward());
         }
 
+    }
+
+    public void EmitFootFlameParticles(bool emit)
+    {
+        foreach (ParticleSystem ps in footFlameParticleSystems)
+        {
+            ParticleSystem.EmissionModule em = ps.emission;
+            em.enabled = emit;
+        }
     }
 
     IEnumerator PropellForward()
