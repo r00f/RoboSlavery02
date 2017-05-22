@@ -77,13 +77,11 @@ public class ThirdPersonCamera : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player" + playerNumber).GetComponent<PlayerLogic>();
         followXForm = player.transform.GetChild(1);
-
         Vector3 characterOffset = followXForm.position + new Vector3(0, distanceUp, 0);
         lookDir = Vector3.Lerp(followXForm.right * (player.HorizontalL < 0 ? 1f : 0f), followXForm.forward * (player.VerticalL < 0 ? -1f : 0f), Mathf.Abs(Vector3.Dot(this.transform.forward, followXForm.forward)));
         curLookDir = Vector3.Normalize(characterOffset - this.transform.position);
         curLookDir.y = 0;
         curLookDir = Vector3.SmoothDamp(curLookDir, lookDir, ref velocityLookDir, lookDirDampTime);
-
     }
 
     // Update is called once per frame

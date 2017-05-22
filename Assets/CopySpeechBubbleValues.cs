@@ -28,8 +28,10 @@ public class CopySpeechBubbleValues : MonoBehaviour {
 	void LateUpdate () {
 
         bubbleText.text = originalBubbleText.text;
-        portraitName.text = originalPortraitName.text;
-        bubblePanel.SetActive(originalBubblePanel.activeSelf);
-		
+
+        if(originalPortraitName)
+            portraitName.text = originalPortraitName.text;
+        if(originalBubblePanel)
+            bubblePanel.SetActive(originalBubblePanel.activeSelf);
 	}
 }

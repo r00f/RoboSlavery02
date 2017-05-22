@@ -430,75 +430,87 @@ public class SteamGolemLogic : PlayerLogic
 
     public void HandleArmDisplay()
     {
-        //if both arms are destoryed 
-        if (!leftArms[0].gameObject.activeSelf && !rightArms[0].gameObject.activeSelf)
+
+        if(!IsOverheated() && !dead)
         {
-            holoTorso.gameObject.SetActive(false);
-            //if imp targets golem
-            if (isTargetLocked)
+            //if both arms are destoryed 
+            if (!leftArms[0].gameObject.activeSelf && !rightArms[0].gameObject.activeSelf)
             {
-                //if imp does not use Right stick HorizontalAxis display left HoloArm
-                if(FindObjectOfType<FlameImpLogic>().rePlayer.GetAxis("Right Horizontal") == 0f)
+                holoTorso.gameObject.SetActive(false);
+                //if imp targets golem
+                if (isTargetLocked)
                 {
-                    if (!leftArms[1].gameObject.activeSelf && !rightArms[1].gameObject.activeSelf)
+                    //if imp does not use Right stick HorizontalAxis display left HoloArm
+                    if (FindObjectOfType<FlameImpLogic>().rePlayer.GetAxis("Right Horizontal") == 0f)
                     {
-                        leftArms[1].gameObject.SetActive(true);
+                        if (!leftArms[1].gameObject.activeSelf && !rightArms[1].gameObject.activeSelf)
+                        {
+                            leftArms[1].gameObject.SetActive(true);
+                        }
                     }
+                    //else Switch between HoloArms
+                    else
+                    {
+                        if (FindObjectOfType<FlameImpLogic>().rePlayer.GetAxis("Right Horizontal") > 0.8f)
+                        {
+                            leftArms[1].gameObject.SetActive(false);
+                            rightArms[1].gameObject.SetActive(true);
+                        }
+                        else if (FindObjectOfType<FlameImpLogic>().rePlayer.GetAxis("Right Horizontal") < -0.8f)
+                        {
+                            leftArms[1].gameObject.SetActive(true);
+                            rightArms[1].gameObject.SetActive(false);
+                        }
+
+                    }
+
                 }
-                //else Switch between HoloArms
+                //else disable both holoarms
                 else
                 {
-                    if(FindObjectOfType<FlameImpLogic>().rePlayer.GetAxis("Right Horizontal") > 0.8f)
-                    {
-                        leftArms[1].gameObject.SetActive(false);
-                        rightArms[1].gameObject.SetActive(true);
-                    }
-                    else if(FindObjectOfType<FlameImpLogic>().rePlayer.GetAxis("Right Horizontal") < -0.8f)
-                    {
-                        leftArms[1].gameObject.SetActive(true);
-                        rightArms[1].gameObject.SetActive(false);
-                    }
-
+                    leftArms[1].gameObject.SetActive(false);
+                    rightArms[1].gameObject.SetActive(false);
                 }
-                    
             }
-            //else disable both holoarms
+
+            //if only left arm is destroyed and Imp targets Golem, display HoloArm
+            else if (!leftArms[0].gameObject.activeSelf)
+            {
+                if (isTargetLocked)
+                    leftArms[1].gameObject.SetActive(true);
+                else
+                    leftArms[1].gameObject.SetActive(false);
+            }
+
+            //if only right arm is destroyed and Imp targets Golem, display HoloArm
+
+            else if (!rightArms[0].gameObject.activeSelf)
+            {
+                holoTorso.gameObject.SetActive(false);
+                if (isTargetLocked)
+                    rightArms[1].gameObject.SetActive(true);
+                else
+                    rightArms[1].gameObject.SetActive(false);
+            }
+            //if no arm is destroyed and the torso is damaged, display HoloTorso
             else
             {
-                leftArms[1].gameObject.SetActive(false);
-                rightArms[1].gameObject.SetActive(false);
+                holoTorso.gameObject.SetActive(false);
+                if (currentHealth < maxHealth && isTargetLocked)
+                    holoTorso.gameObject.SetActive(true);
+                else
+                    holoTorso.gameObject.SetActive(false);
             }
         }
-
-        //if only left arm is destroyed and Imp targets Golem, display HoloArm
-        else if (!leftArms[0].gameObject.activeSelf)
-        {
-            if(isTargetLocked)
-                leftArms[1].gameObject.SetActive(true);
-            else
-                leftArms[1].gameObject.SetActive(false);
-        }
-
-        //if only right arm is destroyed and Imp targets Golem, display HoloArm
-
-        else if (!rightArms[0].gameObject.activeSelf)
-        {
-            holoTorso.gameObject.SetActive(false);
-            if (isTargetLocked)
-                rightArms[1].gameObject.SetActive(true);
-            else
-                rightArms[1].gameObject.SetActive(false);
-        }
-        //if no arm is destroyed and the torso is damaged, display HoloTorso
         else
         {
+            //disable both holoarms and torso
+            leftArms[1].gameObject.SetActive(false);
+            rightArms[1].gameObject.SetActive(false);
             holoTorso.gameObject.SetActive(false);
-            if (currentHealth < maxHealth && isTargetLocked)
-                holoTorso.gameObject.SetActive(true);
-            else
-                holoTorso.gameObject.SetActive(false);
         }
     }
+
 
     public void RepairArm()
     {
