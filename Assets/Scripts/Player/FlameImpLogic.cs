@@ -334,6 +334,15 @@ public class FlameImpLogic : PlayerLogic {
             renderer.enabled = !renderer.enabled;
         }
     }
-
+    public void SwitchCamera()
+    {
+        gameCam.camState = ThirdPersonCamera.CamStates.Behind;
+        gameCam.GetComponent<ThirdPersonCamera>().fixedCamPos = new Vector3 (0,0,0);
+    }
+    public void SwitchCamera(Vector3 inPos)
+    {
+        gameCam.GetComponent<ThirdPersonCamera>().fixedCamPos = inPos;
+        gameCam.camState = ThirdPersonCamera.CamStates.Fixed;
+    }
 }
 

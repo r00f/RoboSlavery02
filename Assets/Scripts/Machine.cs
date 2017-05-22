@@ -8,9 +8,11 @@ public class Machine : MonoBehaviour {
 
     #region Variables
     [SerializeField]
-    int NumberOfCams;
+    GameObject PositionMainCam;
     [SerializeField]
-    GameObject[] Cameras = new GameObject[4];
+    int NumberOfAdditionalCams;
+    [SerializeField]
+    GameObject[] Cameras = new GameObject[3];
     [SerializeField]
     MachineTrigger Trigger;
     public bool isActive = false;
@@ -38,9 +40,22 @@ public class Machine : MonoBehaviour {
     public void Activate()
     {
         isActive = true;
-        for (int i = NumberOfCams-1; i>=0; i--)
+        FindObjectOfType<FlameImpLogic>().SwitchCamera(PositionMainCam.transform.position);
+
+        for (int i = NumberOfAdditionalCams-1; i>=0; i--)
         {
-            Cameras[i].SetActive(true);
+            Cameras[i].GetComponent<MachineCamera>().SwitchCamState();
+        }
+        //make things in a list Glow
+    }
+    public void Deactivate()
+    {
+        isActive = false;
+        FindObjectOfType<FlameImpLogic>().SwitchCamera();
+
+        for (int i = NumberOfAdditionalCams - 1; i >= 0; i--)
+        {
+            Cameras[i].GetComponent<MachineCamera>().SwitchCamState();
         }
         //make things in a list Glow
     }

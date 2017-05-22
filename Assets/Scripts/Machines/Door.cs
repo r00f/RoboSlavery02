@@ -52,6 +52,7 @@ public class Door : Machine {
         go.SwitchRenderers();
         go.controllingMachine = false;
         isActive = false;
+        Deactivate();
 
     }
 

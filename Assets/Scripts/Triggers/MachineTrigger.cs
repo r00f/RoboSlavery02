@@ -24,10 +24,10 @@ public class MachineTrigger : MonoBehaviour {
             {
                 other.GetComponent<FlameImpLogic>().SwitchColliders();
                 other.GetComponent<FlameImpLogic>().SwitchRenderers();
-                ReferenceMachine.isActive = true;
                 //setactive call when camera logic is done
                 other.GetComponent<FlameImpLogic>().ReferenceMachine = ReferenceMachine;
                 other.GetComponent<FlameImpLogic>().controllingMachine = true;
+                ReferenceMachine.Activate();
 
             }
         }

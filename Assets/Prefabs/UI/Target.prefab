@@ -111,6 +111,7 @@ MonoBehaviour:
   targetYOffset: 1.2
   follow: {fileID: 0}
   scaleMultiplier: 20
+  canvasNumber: 0
 --- !u!114 &114383444334615898
 MonoBehaviour:
   m_ObjectHideFlags: 1
