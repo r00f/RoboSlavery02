@@ -208,14 +208,13 @@ public class ThirdPersonCamera : MonoBehaviour
         if (hitColliders.Length > 0 && sphereCastMaxDistance <= 4.5f)
         {
             //print(hitColliders[0].ClosestPointOnBounds(transform.position));
-            toTarget = new Vector3(hitColliders[0].ClosestPointOnBounds(transform.position).x, toTarget.y, hitColliders[0].ClosestPointOnBounds(transform.position).z) + new Vector3(transform.forward.x * distanceFromWall, 0, transform.forward.z * distanceFromWall);
+            toTarget = new Vector3(hitColliders[0].ClosestPointOnBounds(transform.position).x + transform.forward.x * distanceFromWall, toTarget.y, hitColliders[0].ClosestPointOnBounds(transform.position).z + transform.forward.z * distanceFromWall);
             cameraHittingWall = true;
         }
 
         else
         {
             cameraHittingWall = false;
-
         }
 
     }

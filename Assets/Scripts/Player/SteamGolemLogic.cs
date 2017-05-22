@@ -10,6 +10,8 @@ public class SteamGolemLogic : PlayerLogic
     #region SerializeFields
 
     [SerializeField]
+    public GameObject holoTorso;
+    [SerializeField]
     float hoverForce;
     [SerializeField]
     GameObject explosion;
@@ -33,6 +35,8 @@ public class SteamGolemLogic : PlayerLogic
     GameObject flameBeamPrefab;
     [SerializeField]
     float repBeamTime;
+    [SerializeField]
+    float hoverTopSpeed = 10;
     #endregion
 
     #region Private Variables
@@ -69,7 +73,7 @@ public class SteamGolemLogic : PlayerLogic
             if (ps.CompareTag("FootFlame"))
                 footFlameParticleSystems.Add(ps);
         }
-        
+        flameImp = FindObjectOfType<FlameImpLogic>();
         healthBar = canvases[0].transform.GetChild(2).GetChild(0).GetComponent<Slider>();
         handLHealthBar = canvases[0].transform.GetChild(2).GetChild(1).GetComponent<Slider>();
         handRHealthBar = canvases[0].transform.GetChild(2).GetChild(2).GetComponent<Slider>();
@@ -292,6 +296,15 @@ public class SteamGolemLogic : PlayerLogic
         }
     }
 
+    public override void Die()
+    {
+        base.Die();
+        if(overheatMode)
+        {
+            Instantiate(explosionBig, transform.position + new Vector3(0, .9f, 0), Quaternion.identity);
+        }
+    }
+
     void HandleOverheating()
     {
         //Change _EmissionColor to orange if in OverheatMode and back to black if not
@@ -420,6 +433,7 @@ public class SteamGolemLogic : PlayerLogic
         //if both arms are destoryed 
         if (!leftArms[0].gameObject.activeSelf && !rightArms[0].gameObject.activeSelf)
         {
+            holoTorso.gameObject.SetActive(false);
             //if imp targets golem
             if (isTargetLocked)
             {
@@ -469,10 +483,20 @@ public class SteamGolemLogic : PlayerLogic
 
         else if (!rightArms[0].gameObject.activeSelf)
         {
+            holoTorso.gameObject.SetActive(false);
             if (isTargetLocked)
                 rightArms[1].gameObject.SetActive(true);
             else
                 rightArms[1].gameObject.SetActive(false);
+        }
+        //if no arm is destroyed and the torso is damaged, display HoloTorso
+        else
+        {
+            holoTorso.gameObject.SetActive(false);
+            if (currentHealth < maxHealth && isTargetLocked)
+                holoTorso.gameObject.SetActive(true);
+            else
+                holoTorso.gameObject.SetActive(false);
         }
     }
 
@@ -503,6 +527,47 @@ public class SteamGolemLogic : PlayerLogic
 
             rightArms[1].GetComponent<HoloArmLogic>().RepairArm();
         }
+
+       else if(holoTorso.activeSelf)
+        {
+            curRepBeamTime -= Time.deltaTime * 30;
+            if (curRepBeamTime <= 0)
+            {
+                GameObject repairBeam = Instantiate(flameBeamPrefab, flameImp.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+                repairBeam.GetComponent<RepairBeamLogic>().target = holoTorso.transform.GetChild(0);
+                curRepBeamTime = repBeamTime;
+            }
+            RepairTorso();
+
+
+        }
+    }
+
+    public void RepairTorso()
+    {
+        if (currentHealth < maxHealth && gameController)
+        {
+            if (gameController.GetMetalAmount() > 0)
+            {
+                gameController.AddSubstractMetal(-Time.deltaTime * 20);
+                AddSubtractHealth(Time.deltaTime * 20);
+            }
+        }
+    }
+
+    public float MaxHealth()
+    {
+        return maxHealth;
+    }
+
+    public float CurrentRepair()
+    {
+        return currentHealth;
+    }
+
+    public float CurrentRepairCost()
+    {
+        return maxHealth - currentHealth;
     }
 
     public void Dash()
@@ -513,9 +578,13 @@ public class SteamGolemLogic : PlayerLogic
 
     public void Hover()
     {
-        if(!grounded && rigid.velocity.y <= 0)
+        if(!grounded)
         {
-            rigid.AddForce(new Vector3(transform.forward.x * hoverForce/3, hoverForce, transform.forward.z * hoverForce/3));
+            rigid.AddForce(new Vector3(transform.forward.x * hoverForce / 3, hoverForce, transform.forward.z * hoverForce / 3) * Time.deltaTime);
+
+            if (rigid.velocity.magnitude > hoverTopSpeed)
+                rigid.velocity = rigid.velocity.normalized * hoverTopSpeed;
+
         }
 
     }

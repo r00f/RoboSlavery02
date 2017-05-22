@@ -96,7 +96,7 @@ Material:
       second: 0
     - first:
         name: _Frequency
-      second: 5
+      second: 7
     - first:
         name: _GlossMapScale
       second: 1
@@ -120,7 +120,7 @@ Material:
       second: 1
     - first:
         name: _Octaves
-      second: 4.49
+      second: 4.94
     - first:
         name: _Parallax
       second: 0.02
