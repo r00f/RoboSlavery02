@@ -33,7 +33,9 @@ public class LivingEntity : MonoBehaviour {
     [SerializeField]
     protected AudioClip[] getHitClips;
     [SerializeField]
-    protected AudioClip[] drillClips;
+    protected AudioClip[] attackClips;
+    [SerializeField]
+    protected AudioClip[] dashClips;
 
     #endregion
 
@@ -52,6 +54,7 @@ public class LivingEntity : MonoBehaviour {
     protected Rigidbody rigid;
     protected List<Canvas> canvases = new List<Canvas>();
     protected AudioSource audioSource;
+    protected AudioSource footStepAudioSource;
 
     public bool isTargeted;
     public bool isTargetLocked;
@@ -74,6 +77,7 @@ public class LivingEntity : MonoBehaviour {
         canvases.Add(GameObject.FindGameObjectWithTag("Canvas1").GetComponent<Canvas>());
         canvases.Add(GameObject.FindGameObjectWithTag("Canvas2").GetComponent<Canvas>());
         audioSource = GetComponent<AudioSource>();
+        footStepAudioSource = GetComponentInChildren<AudioSource>();
         rigid = GetComponent<Rigidbody>();
         gameController = FindObjectOfType<GameController>();
         animator = GetComponent<Animator>();
@@ -325,26 +329,44 @@ public class LivingEntity : MonoBehaviour {
 
     public void PlayFootstepSFX()
     {
-        PlaySFX("FootStep", 0.5f, 0.51f);
+        PlaySFX("FootStep", 0.8f, 0.81f);
     }
 
     public void PlaySFX(string sfxName, float pitchMin, float pitchMax)
     {
-        audioSource.pitch = Random.Range(pitchMin, pitchMax);
 
         switch (sfxName)
         {
             case "FootStep":
                 if(footStepClips.Length > 0)
-                    audioSource.PlayOneShot(footStepClips[Random.Range(0, footStepClips.Length)], .05f);
+                {
+                    footStepAudioSource.pitch = Random.Range(pitchMin, pitchMax);
+                    footStepAudioSource.PlayOneShot(footStepClips[Random.Range(0, footStepClips.Length)], .05f);
+                }
                 break;
             case "GetHit":
                 if (getHitClips.Length > 0)
+                {
+                    audioSource.Stop();
+                    audioSource.pitch = Random.Range(pitchMin, pitchMax);
                     audioSource.PlayOneShot(getHitClips[Random.Range(0, getHitClips.Length)], .3f);
+                }
                 break;
             case "Drill":
-                if (drillClips.Length > 0)
-                    audioSource.PlayOneShot(drillClips[Random.Range(0, drillClips.Length)], .3f);
+                if (attackClips.Length > 0)
+                {
+                    audioSource.Stop();
+                    audioSource.pitch = Random.Range(pitchMin, pitchMax);
+                    audioSource.PlayOneShot(attackClips[Random.Range(0, attackClips.Length)], .3f);
+                }
+                break;
+            case "Dash":
+                if (dashClips.Length > 0)
+                {
+                    audioSource.Stop();
+                    audioSource.pitch = Random.Range(pitchMin, pitchMax);
+                    audioSource.PlayOneShot(dashClips[Random.Range(0, dashClips.Length)], .7f);
+                }
                 break;
         }
     }

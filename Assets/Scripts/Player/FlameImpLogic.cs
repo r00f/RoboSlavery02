@@ -67,6 +67,7 @@ public class FlameImpLogic : PlayerLogic {
 
         if (fused)
         {
+            gameCam.camState = ThirdPersonCamera.CamStates.Behind;
             if (rePlayer.GetButtonDown("Bottom Button") && steamGolem.IsInChargeUp())
             {
                 steamGolem.Jump();
