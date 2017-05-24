@@ -8,11 +8,11 @@ public class Machine : MonoBehaviour {
 
     #region Variables
     [SerializeField]
+    protected List<Rigidbody> movingParts = new List<Rigidbody>();
+    [SerializeField]
     GameObject PositionMainCam;
     [SerializeField]
-    int NumberOfAdditionalCams;
-    [SerializeField]
-    GameObject[] Cameras = new GameObject[3];
+    List<MachineCamera> cameras = new List<MachineCamera>();
     [SerializeField]
     MachineTrigger Trigger;
     public bool isActive = false;
@@ -24,13 +24,17 @@ public class Machine : MonoBehaviour {
 
     #endregion
 
-
-    // Use this for initialization
-    void Start () {
-		
-	}
     protected virtual void Initialize()
     {
+        foreach (Rigidbody r in GetComponentsInChildren<Rigidbody>())
+        {
+            movingParts.Add(r);
+        }
+        foreach (MachineCamera c in GetComponentsInChildren<MachineCamera>())
+        {
+            cameras.Add(c);
+        }
+
         Trigger.ReferenceMachine = this.GetComponent<Machine>();
     }
 	
@@ -39,12 +43,17 @@ public class Machine : MonoBehaviour {
     }
     public void Activate()
     {
+        foreach(Rigidbody r in movingParts)
+        {
+            r.isKinematic = false;
+        }
+
         isActive = true;
         FindObjectOfType<FlameImpLogic>().SwitchCamera(PositionMainCam.transform.position);
 
-        for (int i = NumberOfAdditionalCams-1; i>=0; i--)
+        for (int i = cameras.Count -1; i>=0; i--)
         {
-            Cameras[i].GetComponent<MachineCamera>().SwitchCamState();
+            cameras[i].GetComponent<MachineCamera>().SwitchCamState();
         }
         //make things in a list Glow
     }
@@ -53,9 +62,9 @@ public class Machine : MonoBehaviour {
         isActive = false;
         FindObjectOfType<FlameImpLogic>().SwitchCamera();
 
-        for (int i = NumberOfAdditionalCams - 1; i >= 0; i--)
+        for (int i = cameras.Count - 1; i >= 0; i--)
         {
-            Cameras[i].GetComponent<MachineCamera>().SwitchCamState();
+            cameras[i].GetComponent<MachineCamera>().SwitchCamState();
         }
         //make things in a list Glow
     }

@@ -21,9 +21,9 @@ public class MachineCamera : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
         if (focalObject != null)
         {
-            SwitchCamState();
             offset = transform.position - focalObject.transform.position;
         }
 

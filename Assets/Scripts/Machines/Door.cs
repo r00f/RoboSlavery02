@@ -7,18 +7,13 @@ public class Door : Machine {
     [SerializeField]
     GameObject Exit;
     [SerializeField]
-    GameObject MovingPart;
-    [SerializeField]
     float UpForce;
-   // float progress = 0f;
-    Vector3 Startpos;
 
     
 
 	// Use this for initialization
 	void Start () {
-        Initialize();        
-        Startpos = MovingPart.transform.position;
+        Initialize();
 	}
 	
 	// Update is called once per frame
@@ -34,9 +29,9 @@ public class Door : Machine {
     {
         print("Bottom Button Pressed from Machine");
         base.BottomButton();
-        MovingPart.GetComponent<Rigidbody>().AddForce(0, UpForce, 0);
-
+        movingParts[0].AddForce(0, UpForce, 0);
     }
+
     public override void TopButton()
     {
         base.TopButton();
@@ -46,7 +41,6 @@ public class Door : Machine {
         go.controllingMachine = false;
         go.FireImp();
         Deactivate();
-
     }
 
 }
