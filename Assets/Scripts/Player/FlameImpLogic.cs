@@ -109,8 +109,7 @@ public class FlameImpLogic : PlayerLogic {
             }
             else if (controllingMachine)
             {
-                rigid.position = ReferenceMachine.transform.position;
-                rigid.MoveRotation(steamGolem.transform.rotation);
+                rigid.position = ReferenceMachine.transform.GetChild(0).transform.position;
 
             }
             else if (launched)
@@ -302,7 +301,9 @@ public class FlameImpLogic : PlayerLogic {
 
     public void FireImp()
     {
-        steamGolem.SwitchOverheat();
+        if (fused) {
+            steamGolem.SwitchOverheat();
+        }
         GameObject go = Instantiate(impProjectile, transform.position + new Vector3(transform.forward.x, 1, transform.forward.z), transform.rotation);
         go.GetComponent<ProjectileLogic>().isLaunchedImp = true;
         carryProjectile = go;

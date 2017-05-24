@@ -9,7 +9,8 @@ public class Door : Machine {
     [SerializeField]
     GameObject MovingPart;
     [SerializeField]
-    float progress = 0f;
+    float UpForce;
+   // float progress = 0f;
     Vector3 Startpos;
 
     
@@ -22,14 +23,7 @@ public class Door : Machine {
 	
 	// Update is called once per frame
 	void Update () {
-        if (isActive)
-        {
-            MovingPart.transform.position = Startpos + new Vector3(0, progress, 0);
-        }
-        if (progress > 0)
-        {
-            progress -= Time.deltaTime;
-        }
+      
 		
 	}
     protected override void Initialize()
@@ -40,7 +34,7 @@ public class Door : Machine {
     {
         print("Bottom Button Pressed from Machine");
         base.BottomButton();
-        progress += 1f;
+        MovingPart.GetComponent<Rigidbody>().AddForce(0, UpForce, 0);
 
     }
     public override void TopButton()
@@ -48,10 +42,9 @@ public class Door : Machine {
         base.TopButton();
         FlameImpLogic go = FindObjectOfType<FlameImpLogic>();
         go.transform.position = Exit.transform.position;
-        go.SwitchColliders();
-        go.SwitchRenderers();
+        go.transform.rotation = Exit.transform.rotation;
         go.controllingMachine = false;
-        isActive = false;
+        go.FireImp();
         Deactivate();
 
     }
