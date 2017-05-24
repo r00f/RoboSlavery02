@@ -17,7 +17,16 @@ public class TextureOffsetLogic : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        meshRenderer.material.SetVector("_Offset", meshRenderer.material.GetVector("_Offset") + new Vector4(scrollSpeed * Time.deltaTime, 0, 0, 0));
-        meshRenderer.material.color = new Color(1,1,1,0);
+
+        if(meshRenderer.materials.Length > 1)
+        {
+            meshRenderer.materials[1].SetVector("_Offset", meshRenderer.materials[1].GetVector("_Offset") + new Vector4(scrollSpeed * Time.deltaTime, 0, 0, 0));
+        }
+        else
+        {
+            meshRenderer.material.SetVector("_Offset", meshRenderer.material.GetVector("_Offset") + new Vector4(scrollSpeed * Time.deltaTime, 0, 0, 0));
+            meshRenderer.material.color = new Color(1, 1, 1, 0);
+        }
+
     }
 }
