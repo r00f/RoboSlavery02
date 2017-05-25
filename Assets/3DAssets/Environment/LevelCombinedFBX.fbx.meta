@@ -598,6 +598,7 @@ ModelImporter:
     101180: TowerPipe1
     101182: TowerPipe2
     101184: TowerPlatforms
+    101186: LiftMovingPlattform
     400000: group1
     400002: group2
     400004: group3
@@ -1191,6 +1192,7 @@ ModelImporter:
     401180: TowerPipe1
     401182: TowerPipe2
     401184: TowerPlatforms
+    401186: LiftMovingPlattform
     2300000: pCube1
     2300002: pCube10
     2300004: pCube11
@@ -1486,6 +1488,7 @@ ModelImporter:
     2300584: TowerPillarR1
     2300586: TowerPipe1
     2300588: TowerPipe2
+    2300590: LiftMovingPlattform
     3300000: pCube1
     3300002: pCube10
     3300004: pCube11
@@ -1781,6 +1784,7 @@ ModelImporter:
     3300584: TowerPillarR1
     3300586: TowerPipe1
     3300588: TowerPipe2
+    3300590: LiftMovingPlattform
     4300000: Zepp:pCylinder158
     4300002: Zepp:pCylinder157
     4300004: Zepp:pCylinder156
@@ -2076,6 +2080,7 @@ ModelImporter:
     4300584: TowerPipe1
     4300586: Sail
     4300588: Pillar
+    4300590: LiftMovingPlattform
   materials:
     importMaterials: 1
     materialName: 0
