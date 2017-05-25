@@ -2565,7 +2565,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!64 &64170437139018704
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -3201,6 +3201,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2bdb41b7a6a3e6d4a938d569b09b6ac0, type: 3}
   isTargeted: 0
   isTargetLocked: 0
+  inDoorCollider: 0
   jumpPower: 0
   playerNumber: 2
   directionDampTime: 0.25
@@ -12921,7 +12922,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 126, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224535602957374464
@@ -12958,7 +12959,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 126, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224737085239812264

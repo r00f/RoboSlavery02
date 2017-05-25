@@ -70,6 +70,8 @@ public class LivingEntity : MonoBehaviour {
 
     #endregion
 
+    public bool inDoorCollider;
+
     #region Methods
 
     public virtual void Initialize()
@@ -221,7 +223,7 @@ public class LivingEntity : MonoBehaviour {
             if (hitInfo.transform.tag == "Floor")
             {
                 groundNormal = hitInfo.normal;
-                animator.applyRootMotion = true;
+                animator.applyRootMotion = !inDoorCollider;
                 grounded = true;
 
             }
