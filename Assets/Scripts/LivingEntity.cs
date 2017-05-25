@@ -365,7 +365,7 @@ public class LivingEntity : MonoBehaviour {
                 {
                     audioSource.Stop();
                     audioSource.pitch = Random.Range(pitchMin, pitchMax);
-                    audioSource.PlayOneShot(dashClips[Random.Range(0, dashClips.Length)], .7f);
+                    audioSource.PlayOneShot(dashClips[Random.Range(0, dashClips.Length)], .5f);
                 }
                 break;
         }

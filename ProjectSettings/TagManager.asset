@@ -21,6 +21,7 @@ TagManager:
   - Canvas2
   - Fire
   - FootFlame
+  - MainMenu
   layers:
   - Default
   - TransparentFX

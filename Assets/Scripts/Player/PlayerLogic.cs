@@ -161,10 +161,6 @@ public class PlayerLogic : LivingEntity
         }
 
         //buttons
-        if (rePlayer.GetButtonDown("Start"))
-        {
-            gameController.PauseGame();
-        }
         if (rePlayer.GetAxis("L2") > 0.1f)
         {
             animator.SetBool("Strafe", true);

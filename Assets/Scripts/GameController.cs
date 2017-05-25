@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Rewired;
 
 public class GameController : MonoBehaviour {
 
@@ -17,25 +18,19 @@ public class GameController : MonoBehaviour {
     [SerializeField]
     float metal;
 
+    public Player rePlayer;
+
     #region Mono Methods
 
     void Start()
     {
-        Time.timeScale = 1;
-        canvas = GameObject.FindGameObjectWithTag("Canvas1").GetComponent<Canvas>();
-        mainMenu = canvas.transform.GetChild(3).gameObject;
-        mainMenu.SetActive(false);
-
-        // Display.displays[0] is the primary, default display and is always ON.
-        // Check if additional displays are available and activate each.
-        if (Display.displays.Length > 1 && !secDisplayActive)
-        {
-            print("activateSecondDisplay");
-            Display.displays[1].Activate();
-            secDisplayActive = true;
-        }
-
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Update()
+
+    {
+        HandleInput();
     }
 
     void OnEnable()
@@ -52,11 +47,19 @@ public class GameController : MonoBehaviour {
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
+        rePlayer = ReInput.players.GetPlayer(0);
         restarting = false;
         Time.timeScale = 1;
         canvas = GameObject.FindGameObjectWithTag("Canvas1").GetComponent<Canvas>();
-        mainMenu = canvas.transform.GetChild(3).gameObject;
-        mainMenu.SetActive(false);
+        mainMenu = GameObject.FindGameObjectWithTag("MainMenu");
+
+        if(SceneManager.GetActiveScene().buildIndex != 0)
+            mainMenu.SetActive(false);
+        else
+        {
+            
+
+        }
 
         // Display.displays[0] is the primary, default display and is always ON.
         // Check if additional displays are available and activate each.
@@ -65,6 +68,14 @@ public class GameController : MonoBehaviour {
             print("activateSecondDisplay");
             Display.displays[1].Activate();
             secDisplayActive = true;
+        }
+    }
+
+    void HandleInput()
+    {
+        if (rePlayer.GetButtonDown("Start"))
+        {
+            PauseGame();
         }
     }
 
@@ -92,6 +103,7 @@ public class GameController : MonoBehaviour {
         if (!paused)
         {
             mainMenu.SetActive(true);
+            mainMenu.transform.GetChild(0).GetComponent<Button>().Select();
             Time.timeScale = 0;
             paused = true;
         }

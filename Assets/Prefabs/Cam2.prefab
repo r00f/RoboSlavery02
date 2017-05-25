@@ -129,8 +129,8 @@ MonoBehaviour:
   camXRotation: 25
   camPosSmooth: 0.25
   camRotSmooth: 0.25
-  distanceFromWall: 0.01
-  sphereCastRadius: 0.1
+  distanceFromWall: 0.05
+  sphereCastRadius: 0.5
   sphereCastMaxDistance: 1
   cameraHittingWall: 0
   wideScreen: 0

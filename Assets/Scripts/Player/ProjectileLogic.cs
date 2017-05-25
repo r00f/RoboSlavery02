@@ -18,6 +18,7 @@ public class ProjectileLogic : MonoBehaviour {
     GameObject explosionBig;
     public bool isLaunchedImp;
     FlameImpLogic flameImp;
+    AudioSource audioSource;
 
 
     // Use this for initialization
@@ -26,6 +27,8 @@ public class ProjectileLogic : MonoBehaviour {
         flameImp = FindObjectOfType<FlameImpLogic>();
         rigid = GetComponent<Rigidbody>();
         rigid.AddExplosionForce(explosionForce, transform.position - transform.forward * 2, explosionRadius, explosionUp);
+        audioSource = GetComponent<AudioSource>();
+        audioSource.pitch = Random.Range(1f, 1.2f);
 		
 	}
 	

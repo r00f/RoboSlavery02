@@ -164,6 +164,11 @@ public class FlameImpLogic : PlayerLogic {
             steamGolem.RepairArm();
         }
 
+        if (rePlayer.GetButtonDown("R2") && !IsDashing())
+        {
+            PlaySFX("Dash", 1.4f, 1.5f);
+        }
+
 
 
         if (fused)

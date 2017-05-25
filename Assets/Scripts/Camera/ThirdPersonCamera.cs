@@ -106,7 +106,7 @@ public class ThirdPersonCamera : MonoBehaviour
         {
             case CamStates.Behind:
 
-                CompensateForWalls(characterOffset, ref targetPosition);
+
                 wideScreen = false;
 
                 if (player.Speed > player.LocomotionThreshold && player.IsInLocomotion() && !player.IsInPivot())
@@ -121,7 +121,7 @@ public class ThirdPersonCamera : MonoBehaviour
                 //calculate targetPosition
 
                 targetPosition = characterOffset + followXForm.up * distanceUp - Vector3.Normalize(curLookDir) * distanceAway;
-
+                CompensateForWalls(characterOffset, ref targetPosition);
                 //Debug.DrawRay(this.transform.position, lookDir, Color.green);
                 //Debug.DrawRay(follow.position, follow.up * distanceUp, Color.red);
                 //Debug.DrawRay(follow.position, -1 * follow.forward * distanceAway, Color.blue);
@@ -131,10 +131,10 @@ public class ThirdPersonCamera : MonoBehaviour
 
             case CamStates.Target:
 
-                CompensateForWalls(characterOffset, ref targetPosition);
                 wideScreen = true;
                 curLookDir = followXForm.forward;
                 targetPosition = characterOffset + followXForm.up * distanceUp - followXForm.forward * distanceAway;
+                CompensateForWalls(characterOffset, ref targetPosition);
                 break;
 
             case CamStates.Fixed:
