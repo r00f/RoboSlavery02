@@ -6,4 +6,5 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/DualScreenDialogue.unity
+    path: Assets/Scenes/DualScreenCombinedLevel.unity
+    guid: 678dd09a19fff484c849bff84fec5bdc

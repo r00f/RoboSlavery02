@@ -85,9 +85,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3e0e0d8d868069b43b0ef8c313973e14, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9bc6b7f97a602fc4e82597a93c8a6068, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -218,8 +218,8 @@ MonoBehaviour:
   camXRotation: 25
   camPosSmooth: 0.25
   camRotSmooth: 0.25
-  distanceFromWall: 0.1
-  sphereCastRadius: 1
+  distanceFromWall: 0.01
+  sphereCastRadius: 0.1
   sphereCastMaxDistance: 1
   cameraHittingWall: 0
   wideScreen: 0

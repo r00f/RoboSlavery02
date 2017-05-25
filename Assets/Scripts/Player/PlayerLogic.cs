@@ -28,7 +28,7 @@ public class PlayerLogic : LivingEntity
     #region Protected Variables
 
     protected Vector3 lookAtXForm;
-    protected ThirdPersonCamera gameCam;
+    public ThirdPersonCamera gameCam;
     public Player rePlayer;
 
     protected float speed;
@@ -102,25 +102,6 @@ public class PlayerLogic : LivingEntity
     #endregion
 
     #region Mono Methods
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("FixedCamTrigger"))
-        {
-            gameCam.fixedCamPos = other.transform.GetChild(0).transform.position;
-            gameCam.characterInCamTrigger = true;
-        }
-
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("FixedCamTrigger"))
-        {
-            gameCam.characterInCamTrigger = false;
-        }
-
-    }
 
     void OnParticleCollision(GameObject other)
     {

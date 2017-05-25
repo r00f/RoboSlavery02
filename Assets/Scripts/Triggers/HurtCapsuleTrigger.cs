@@ -14,14 +14,16 @@ public class HurtCapsuleTrigger : MonoBehaviour {
     bool isGolemHurtCapsule;
     [SerializeField]
     GameObject explosion;
+    PlayerLogic player;
 
     void Start()
     {
-
+        
         livingEntity = GetComponentInParent<LivingEntity>();
 
         if(GetComponentInParent<PlayerLogic>())
         {
+            player = GetComponentInParent<PlayerLogic>();
             isPlayerHurtCapsule = true;
 
             if (GetComponentInParent<SteamGolemLogic>())
@@ -41,6 +43,11 @@ public class HurtCapsuleTrigger : MonoBehaviour {
         {
             livingEntity.AddSubtractHealth(-10);
         }
+        if (other.CompareTag("FixedCamTrigger") && player)
+        {
+            player.gameCam.fixedCamPos = other.transform.GetChild(0).transform.position;
+            player.gameCam.characterInCamTrigger = true;
+        }
     }
 
     void OnTriggerStay(Collider other)
@@ -59,9 +66,12 @@ public class HurtCapsuleTrigger : MonoBehaviour {
 
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnTriggerExit(Collider other)
     {
+        if (other.CompareTag("FixedCamTrigger") && player)
+        {
+            player.gameCam.characterInCamTrigger = false;
+        }
 
     }
-
 }

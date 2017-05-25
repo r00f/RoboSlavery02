@@ -106,6 +106,7 @@ public class ThirdPersonCamera : MonoBehaviour
         {
             case CamStates.Behind:
 
+                CompensateForWalls(characterOffset, ref targetPosition);
                 wideScreen = false;
 
                 if (player.Speed > player.LocomotionThreshold && player.IsInLocomotion() && !player.IsInPivot())
@@ -130,6 +131,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
             case CamStates.Target:
 
+                CompensateForWalls(characterOffset, ref targetPosition);
                 wideScreen = true;
                 curLookDir = followXForm.forward;
                 targetPosition = characterOffset + followXForm.up * distanceUp - followXForm.forward * distanceAway;
@@ -147,13 +149,12 @@ public class ThirdPersonCamera : MonoBehaviour
         sphereCastMaxDistance = Vector3.Distance(characterOffset, this.transform.position);
 
         //SmoothDamp cameraPosition towards targetPosition
-        CompensateForWalls(characterOffset, ref targetPosition);
         smoothPosition(this.transform.position, targetPosition);
 
 
         //New code that has a fixed camXRotation and only rotates around the y axis
 
-        if (cameraHittingWall)
+        if (cameraHittingWall || camState == CamStates.Fixed)
         {
             Quaternion newRotation = Quaternion.LookRotation(followXForm.position - transform.position, Vector3.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime / camRotSmooth);
@@ -177,25 +178,6 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private void CompensateForWalls(Vector3 fromObject, ref Vector3 toTarget)
     {
-        Debug.DrawLine(fromObject, toTarget, Color.cyan);
-
-        //compensate for walls between cam and character
-        /*
-        RaycastHit wallHit = new RaycastHit();
-        if(Physics.Linecast(fromObject, toTarget, out wallHit))
-        {
-            Debug.DrawRay(wallHit.point, Vector3.left, Color.red);
-            toTarget = new Vector3(wallHit.point.x, toTarget.y, wallHit.point.z) + new Vector3(distanceFromWall * wallHit.normal.x, 0, distanceFromWall * wallHit.normal.z);
-            cameraHittingWall = true;
-        }
-
-        else
-        {
-            cameraHittingWall = false;
-
-        }
-        */
-
         // Cast a sphere wrapping around camera
         // to see if it is about to hit anything.
 
@@ -205,7 +187,6 @@ public class ThirdPersonCamera : MonoBehaviour
 
         if (hitColliders.Length > 0 && sphereCastMaxDistance <= 4.5f)
         {
-            //print(hitColliders[0].ClosestPointOnBounds(transform.position));
             toTarget = new Vector3(hitColliders[0].ClosestPointOnBounds(transform.position).x + transform.forward.x * distanceFromWall, toTarget.y, hitColliders[0].ClosestPointOnBounds(transform.position).z + transform.forward.z * distanceFromWall);
             cameraHittingWall = true;
         }
