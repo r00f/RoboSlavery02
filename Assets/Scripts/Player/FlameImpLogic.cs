@@ -289,6 +289,21 @@ public class FlameImpLogic : PlayerLogic {
 
                 ReferenceMachine.RightButton();
             }
+            if(rePlayer.GetButtonUp("Left Button")) {
+                ReferenceMachine.LeftButtonRelease();
+            }
+            if (rePlayer.GetButtonUp("Right Button"))
+            {
+                ReferenceMachine.RightButtonRelease();
+            }
+            if (rePlayer.GetButtonUp("Bottom Button"))
+            {
+                ReferenceMachine.BottomButtonRelease();
+            }
+            if (rePlayer.GetButtonUp("Up Button"))
+            {
+                ReferenceMachine.TopButtonRelease();
+            }
             ReferenceMachine.Axis_HR = rePlayer.GetAxis("Right Horizontal");
             ReferenceMachine.Axis_HL = rePlayer.GetAxis("Left Horizontal");
             ReferenceMachine.Axis_VR = rePlayer.GetAxis("Right Vertical");

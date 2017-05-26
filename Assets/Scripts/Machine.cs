@@ -10,11 +10,11 @@ public class Machine : MonoBehaviour {
     [SerializeField]
     protected List<Rigidbody> movingParts = new List<Rigidbody>();
     [SerializeField]
-    GameObject PositionMainCam;
+    protected GameObject PositionMainCam;
     [SerializeField]
-    List<MachineCamera> cameras = new List<MachineCamera>();
+    protected List<MachineCamera> cameras = new List<MachineCamera>();
     [SerializeField]
-    MachineTrigger Trigger;
+    protected MachineTrigger Trigger;
     public bool isActive = false;
     public float Axis_HL { get; set; }
     public float Axis_HR { get; set; }
@@ -41,7 +41,7 @@ public class Machine : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
     }
-    public void Activate()
+    public virtual void Activate()
     {
         foreach(Rigidbody r in movingParts)
         {
@@ -57,7 +57,7 @@ public class Machine : MonoBehaviour {
         }
         //make things in a list Glow
     }
-    public void Deactivate()
+    public virtual void Deactivate()
     {
         isActive = false;
         FindObjectOfType<FlameImpLogic>().SwitchCamera();
@@ -66,7 +66,7 @@ public class Machine : MonoBehaviour {
         {
             cameras[i].GetComponent<MachineCamera>().SwitchCamState();
         }
-        //make things in a list Glow
+        //make things in a list notglow
     }
     #region Virtuals
     public virtual void LeftStick()
@@ -85,6 +85,18 @@ public class Machine : MonoBehaviour {
     {
     }
     public virtual void RightButton()
+    {
+    }
+    public virtual void LeftButtonRelease()
+    {
+    }
+    public virtual void BottomButtonRelease()
+    {
+    }
+    public virtual void TopButtonRelease()
+    {
+    }
+    public virtual void RightButtonRelease()
     {
     }
 }

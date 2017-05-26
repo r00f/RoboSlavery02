@@ -21,6 +21,14 @@ public class Door : Machine {
       
 		
 	}
+    public override void Activate()
+    {
+        base.Activate();
+    }
+    public override void Deactivate()
+    {
+        base.Deactivate();
+    }
     protected override void Initialize()
     {
         base.Initialize();
