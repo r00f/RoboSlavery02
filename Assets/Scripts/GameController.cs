@@ -103,7 +103,7 @@ public class GameController : MonoBehaviour {
         if (!paused)
         {
             mainMenu.SetActive(true);
-            mainMenu.transform.GetChild(0).GetComponent<Button>().Select();
+            mainMenu.transform.GetChild(1).GetComponent<Button>().Select();
             Time.timeScale = 0;
             paused = true;
         }
