@@ -73,10 +73,19 @@ public class FlameImpLogic : PlayerLogic {
                 steamGolem.Jump();
             }
 
-            if (rePlayer.GetButton("Bottom Button") && !steamGolem.grounded)
+            if (!steamGolem.grounded)
             {
-                steamGolem.Hover();
-                steamGolem.EmitFootFlameParticles(rePlayer.GetButton("Bottom Button"));
+                if(rePlayer.GetButton("Bottom Button"))
+                {
+                    steamGolem.PlayFireLoop(true);
+                    steamGolem.Hover();
+                    steamGolem.EmitFootFlameParticles(true);
+                }
+                else
+                {
+                    steamGolem.PlayFireLoop(false);
+                    steamGolem.EmitFootFlameParticles(false);
+                }
             }
             else
             {
@@ -159,18 +168,6 @@ public class FlameImpLogic : PlayerLogic {
     public override void HandleInput()
     {
 
-        if(rePlayer.GetButton("Right Button"))
-        {
-            steamGolem.RepairArm();
-        }
-
-        if (rePlayer.GetButtonDown("R2") && !IsDashing())
-        {
-            PlaySFX("Dash", 1.4f, 1.5f);
-        }
-
-
-
         if (fused)
         {
 
@@ -180,6 +177,7 @@ public class FlameImpLogic : PlayerLogic {
             }
 
             animator.SetFloat("Angle", 0f); animator.SetFloat("Direction", 0f);
+
             //Handle Fused Input
 
             if (steamGolem.IsPunching())
@@ -187,13 +185,14 @@ public class FlameImpLogic : PlayerLogic {
                 foreach (SphereCollider sphereCol in steamGolem.hitSpheres)
                 {
                     sphereCol.GetComponent<HandController>().EmitFlameThrower(false);
-
                 }
+
                 if (rePlayer.GetButtonDown("Bottom Button"))
                 {
                     steamGolem.ChainedAction = "Explosion";
                     //explosive punch - alternately release imp
                 }
+
                 if (rePlayer.GetButtonDown("R2"))
                 {
                     //eject Imp
@@ -216,10 +215,12 @@ public class FlameImpLogic : PlayerLogic {
 
                 if (rePlayer.GetButton("Bottom Button"))
                 {
+                    steamGolem.PlayFireLoop(true);
                     steamGolem.SwitchSteamParticles("AfterBurner");
                 }
                 else
                 {
+                    steamGolem.PlayFireLoop(false);
                     steamGolem.SwitchSteamParticles("Steam");
                 }
 
@@ -249,10 +250,12 @@ public class FlameImpLogic : PlayerLogic {
 
                 if (rePlayer.GetButton("Bottom Button"))
                 {
+                    steamGolem.PlayFireLoop(true);
                     steamGolem.SwitchSteamParticles("AfterBurner");
                 }
                 else
                 {
+                    steamGolem.PlayFireLoop(false);
                     steamGolem.SwitchSteamParticles("Steam");
                 }
             }
@@ -294,6 +297,29 @@ public class FlameImpLogic : PlayerLogic {
         else
         {
             base.HandleInput();
+
+            if (steamGolem.isTargetLocked)
+            {
+                if (rePlayer.GetButton("Right Button"))
+                {
+                    steamGolem.RepairArm();
+                    steamGolem.PlayFireLoop(true);
+                }
+                else
+                {
+                    steamGolem.PlayFireLoop(false);
+                }
+            }
+            else
+            {
+                steamGolem.PlayFireLoop(false);
+            }
+
+            if (rePlayer.GetButtonDown("R2") && !IsDashing())
+            {
+                PlaySFX("Dash", 1.4f, 1.5f);
+            }
+
         }
 }
 

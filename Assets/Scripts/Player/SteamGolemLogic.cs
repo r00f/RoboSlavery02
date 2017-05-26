@@ -37,6 +37,8 @@ public class SteamGolemLogic : PlayerLogic
     float repBeamTime;
     [SerializeField]
     float hoverTopSpeed = 10;
+    [SerializeField]
+    AudioSource fireLoopAudioSource;
     #endregion
 
     #region Private Variables
@@ -47,7 +49,6 @@ public class SteamGolemLogic : PlayerLogic
     Slider handLHealthBar;
     Slider handRHealthBar;
     List<ParticleSystem> footFlameParticleSystems = new List<ParticleSystem>();
-
     bool onetime;
     float t;
 
@@ -95,11 +96,11 @@ public class SteamGolemLogic : PlayerLogic
         //handle ColorLerping / Speedincrease if in overheat-Mode
         HandleOverheating();
         //update healthBar
-        healthBar.value = currentHealth / maxHealth;
+        healthBar.value = 1 - currentHealth / maxHealth;
         //handle which arms are being displayed
         HandleArmDisplay();
-        handLHealthBar.value = hitSpheres[0].GetComponent<HandController>().HealthPercentage();
-        handRHealthBar.value = hitSpheres[1].GetComponent<HandController>().HealthPercentage();
+        handLHealthBar.value = 1 - hitSpheres[0].GetComponent<HandController>().HealthPercentage();
+        handRHealthBar.value = 1 - hitSpheres[1].GetComponent<HandController>().HealthPercentage();
 
         HandleEntititesInRange();
 
@@ -539,7 +540,6 @@ public class SteamGolemLogic : PlayerLogic
 
             rightArms[1].GetComponent<HoloArmLogic>().RepairArm();
         }
-
        else if(holoTorso.activeSelf)
         {
             curRepBeamTime -= Time.deltaTime * 30;
@@ -550,8 +550,6 @@ public class SteamGolemLogic : PlayerLogic
                 curRepBeamTime = repBeamTime;
             }
             RepairTorso();
-
-
         }
     }
 
@@ -565,6 +563,7 @@ public class SteamGolemLogic : PlayerLogic
                 AddSubtractHealth(Time.deltaTime * 20);
             }
         }
+
     }
 
     public float MaxHealth()
@@ -627,6 +626,20 @@ public class SteamGolemLogic : PlayerLogic
     {
         yield return new WaitForSeconds(0.05f);
         rigid.AddForce(transform.forward * 10000);
+    }
+
+    public void PlayFireLoop(bool play)
+    {
+        if(play)
+        {
+            if (!fireLoopAudioSource.isPlaying)
+            {
+                fireLoopAudioSource.time = Random.Range(0f, 1f);
+                fireLoopAudioSource.Play();
+            }
+        }
+        else
+            fireLoopAudioSource.Stop();
     }
 
     #endregion
