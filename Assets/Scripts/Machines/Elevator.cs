@@ -63,7 +63,7 @@ public class Elevator : Machine {
     }
     public override void BottomButton()
     {
-        print("Bottom Button Pressed from Machine");
+        //print("Bottom Button Pressed from Machine");
         base.BottomButton();
         movingdown = true;
     }

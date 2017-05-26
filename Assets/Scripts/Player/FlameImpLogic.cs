@@ -269,7 +269,7 @@ public class FlameImpLogic : PlayerLogic {
         }
         else if (controllingMachine && ReferenceMachine != null)
         {
-            print("Im here");
+            //print("Im here");
             if (rePlayer.GetButtonDown("Left Button"))
             {
 
@@ -277,7 +277,7 @@ public class FlameImpLogic : PlayerLogic {
             }
             if (rePlayer.GetButtonDown("Bottom Button"))
             {
-                print("Bottom pressed");
+                //print("Bottom pressed");
                 ReferenceMachine.BottomButton();
             }
             if (rePlayer.GetButtonDown("Up Button"))

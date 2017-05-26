@@ -295,7 +295,7 @@ public class SteamGolemLogic : PlayerLogic
             hitSpheres[0].GetComponent<HandController>().AddSubtractHealth(healthAmount/4);
             hitSpheres[1].GetComponent<HandController>().AddSubtractHealth(healthAmount/4);
         }
-        print("AddSubstract " + healthAmount + " health from golem");
+        //print("AddSubstract " + healthAmount + " health from golem");
     }
 
     public override void Die()

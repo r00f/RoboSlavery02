@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 20080357660049904}
   - component: {fileID: 124443223464676810}
   - component: {fileID: 92906620921085124}
-  - component: {fileID: 81213400445200554}
   - component: {fileID: 114243691739762952}
   m_Layer: 0
   m_Name: Camera
@@ -153,7 +152,6 @@ GameObject:
   - component: {fileID: 20602200697045132}
   - component: {fileID: 124040767748491896}
   - component: {fileID: 92183486526157530}
-  - component: {fileID: 81411075588810236}
   - component: {fileID: 114906391108308002}
   m_Layer: 0
   m_Name: Camera (1)
@@ -345,7 +343,7 @@ GameObject:
   - component: {fileID: 65036124653512290}
   m_Layer: 0
   m_Name: LiftMovingPlattform
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -407,8 +405,8 @@ Transform:
   m_LocalPosition: {x: -62.18, y: 10.65, z: -46.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4358092224914298}
   - {fileID: 4449261771535474}
+  - {fileID: 4358092224914298}
   - {fileID: 4453585171357910}
   - {fileID: 4556181216816768}
   - {fileID: 4711580567901398}
@@ -474,7 +472,7 @@ Transform:
   - {fileID: 4721722881327650}
   - {fileID: 4492945326966784}
   m_Father: {fileID: 4167061392861958}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4419188938122486
 Transform:
@@ -506,7 +504,7 @@ Transform:
   - {fileID: 4261277401907984}
   - {fileID: 4318275237341026}
   m_Father: {fileID: 4167061392861958}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4453585171357910
 Transform:
@@ -646,7 +644,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1695633584589252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.67, y: 5.52, z: -0.6}
+  m_LocalPosition: {x: 1.36, y: 2.13, z: 20.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4167061392861958}
@@ -697,10 +695,10 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1059197929175656}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.49264705, g: 0.49264705, b: 0.49264705, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -733,10 +731,10 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1407495864415856}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.49264705, g: 0.49264705, b: 0.49264705, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1361,20 +1359,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.86, y: 2.47, z: 7.9}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!81 &81213400445200554
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1059197929175656}
-  m_Enabled: 1
---- !u!81 &81411075588810236
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1407495864415856}
-  m_Enabled: 1
 --- !u!92 &92183486526157530
 Behaviour:
   m_ObjectHideFlags: 1
@@ -1440,7 +1424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingParts:
-  - {fileID: 0}
+  - {fileID: 54890223036633184}
   PositionMainCam: {fileID: 1695633584589252}
   cameras: []
   Trigger: {fileID: 114792912642664600}
