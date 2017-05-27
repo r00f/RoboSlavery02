@@ -6,10 +6,52 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Meteor_LavaCube
+    100004: Meteor_Rock1
+    100006: Meteor_Rock2
+    100008: Meteor_Rock3
+    100010: Meteor_Rock4
+    100012: Meteor_Rock5
+    100014: Meteor_Rock6
+    100016: Meteor_Rock7
+    100018: Rocks
     400000: //RootNode
+    400002: Meteor_LavaCube
+    400004: Meteor_Rock1
+    400006: Meteor_Rock2
+    400008: Meteor_Rock3
+    400010: Meteor_Rock4
+    400012: Meteor_Rock5
+    400014: Meteor_Rock6
+    400016: Meteor_Rock7
+    400018: Rocks
     2300000: //RootNode
+    2300002: Meteor_LavaCube
+    2300004: Meteor_Rock1
+    2300006: Meteor_Rock2
+    2300008: Meteor_Rock3
+    2300010: Meteor_Rock4
+    2300012: Meteor_Rock5
+    2300014: Meteor_Rock6
+    2300016: Meteor_Rock7
     3300000: //RootNode
+    3300002: Meteor_LavaCube
+    3300004: Meteor_Rock1
+    3300006: Meteor_Rock2
+    3300008: Meteor_Rock3
+    3300010: Meteor_Rock4
+    3300012: Meteor_Rock5
+    3300014: Meteor_Rock6
+    3300016: Meteor_Rock7
     4300000: pCube1
+    4300002: Meteor_Rock1
+    4300004: Meteor_Rock2
+    4300006: Meteor_Rock3
+    4300008: Meteor_Rock4
+    4300010: Meteor_Rock5
+    4300012: Meteor_Rock6
+    4300014: Meteor_Rock7
+    4300016: Meteor_LavaCube
     9500000: //RootNode
   materials:
     importMaterials: 1

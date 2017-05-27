@@ -6,6 +6,8 @@ public class MeteorLogic : MonoBehaviour {
 
     [SerializeField]
     GameObject explsionPrefab;
+    [SerializeField]
+    GameObject lavaBall;
     Rigidbody rigid;
     [SerializeField]
     float maxHealth = 30;
@@ -15,11 +17,29 @@ public class MeteorLogic : MonoBehaviour {
     bool dead;
     ParticleSystem ps;
     FlameImpLogic flameImp;
+    Collider col;
+    List<Rigidbody> rockRigidBodies = new List<Rigidbody>();
+    List<Collider>rockColliders = new List<Collider>();
 
+    // Use this for initialization
+    void Start () {
 
-	// Use this for initialization
-	void Start () {
+        foreach (Collider c in transform.GetChild(0).GetComponentsInChildren<Collider>())
+        {
+            rockColliders.Add(c);
+        }
 
+        foreach (Rigidbody r in transform.GetChild(0).GetComponentsInChildren<Rigidbody>())
+        {
+            rockRigidBodies.Add(r);
+        }
+
+        foreach (Collider c in rockColliders)
+        {
+            c.enabled = false;
+        }
+
+        col = GetComponent<Collider>();
         flameImp = FindObjectOfType<FlameImpLogic>();
         ps = GetComponentInChildren<ParticleSystem>();
         rigid = GetComponent<Rigidbody>();
@@ -32,10 +52,21 @@ public class MeteorLogic : MonoBehaviour {
 
         if(currentHealth <= 0 && !dead)
         {
+            rigid.isKinematic = true;
+            col.enabled = false;
+            foreach (Collider c in rockColliders)
+            {
+                c.enabled = true;
+            }
+            foreach (Rigidbody r in rockRigidBodies)
+            {
+                r.isKinematic = false;
+            }
             flameImp.inMeteor = false;
             flameImp.LaunchImp();
+            Destroy(lavaBall);
+            Instantiate(explsionPrefab, transform.position, Quaternion.identity);
             dead = true;
-            Destroy(gameObject);
         }
 		
 
