@@ -8,6 +8,8 @@ public class MeteorLogic : MonoBehaviour {
     GameObject explsionPrefab;
     [SerializeField]
     GameObject lavaBall;
+    [SerializeField]
+    GameObject dialougeTrigger;
     Rigidbody rigid;
     [SerializeField]
     float maxHealth = 3;
@@ -44,7 +46,6 @@ public class MeteorLogic : MonoBehaviour {
         ps = GetComponentInChildren<ParticleSystem>();
         rigid = GetComponent<Rigidbody>();
         currentHealth = maxHealth;
-		
 	}
 	
 	// Update is called once per frame
@@ -65,6 +66,7 @@ public class MeteorLogic : MonoBehaviour {
             flameImp.inMeteor = false;
             flameImp.LaunchImp();
             Destroy(lavaBall);
+            Destroy(dialougeTrigger);
             Instantiate(explsionPrefab, transform.position, Quaternion.identity);
             dead = true;
         }

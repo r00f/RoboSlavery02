@@ -40,8 +40,13 @@ public class FlameImpLogic : PlayerLogic {
         renderers = GetComponentsInChildren<Renderer>();
         pointLightIntensity = pointLight.intensity;
         steamGolem = FindObjectOfType<SteamGolemLogic>();
-        SwitchColliders();
-        SwitchRenderers();
+
+        if(inMeteor)
+        {
+            SwitchColliders();
+            SwitchRenderers();
+        }
+
     }
 	
 	void Update () {

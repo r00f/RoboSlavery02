@@ -773,7 +773,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5a627d4e5c82abd44b31e58d37b5c9d2, type: 2}
+  - {fileID: 2100000, guid: 8f02cf4a7dd5b7c4bb88708dc7a7147a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1031,7 +1031,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: f6dda22187b0c8d4488dc79f55d232a5, type: 2}
-  - {fileID: 2100000, guid: 5a627d4e5c82abd44b31e58d37b5c9d2, type: 2}
+  - {fileID: 2100000, guid: 8f02cf4a7dd5b7c4bb88708dc7a7147a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1285,6 +1285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49c45ae838b18d4b91011c2c5ccc110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yVelocity: 0
 --- !u!114 &114323864707860076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1297,9 +1298,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingParts: []
-  PositionMainCam: {fileID: 1067267286351554}
+  positionMainCam: {fileID: 1067267286351554}
   cameras: []
   Trigger: {fileID: 114801613524185686}
+  glowHandlerMat: {fileID: 2100000, guid: 8f02cf4a7dd5b7c4bb88708dc7a7147a, type: 2}
+  overheatColor: {r: 1, g: 0.80689657, b: 0, a: 0}
+  overheatLerpDuration: 0
+  auxiliaryMovingParts: []
   isActive: 0
   Exit: {fileID: 1699650611604032}
   UpForce: 700
