@@ -10,7 +10,7 @@ public class MeteorLogic : MonoBehaviour {
     GameObject lavaBall;
     Rigidbody rigid;
     [SerializeField]
-    float maxHealth = 30;
+    float maxHealth = 3;
     [SerializeField]
     float currentHealth;
     [SerializeField]
@@ -81,20 +81,19 @@ public class MeteorLogic : MonoBehaviour {
             Instantiate(explsionPrefab, transform.position, Quaternion.identity);
         }
 
-        else if (other.collider.CompareTag("PlayerHitBox"))
-        {
-            SubtractHealth(50);
-            Instantiate(explsionPrefab, other.transform.position, Quaternion.identity);
-        }
-
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PlayerHitBox"))
         {
-            SubtractHealth(50);
+            SubtractHealth(1);
             Instantiate(explsionPrefab, other.transform.position, Quaternion.identity);
+
+            if(other.GetComponent<HandController>())
+            {
+                other.GetComponent<HandController>().AddSubtractHealth(-50);
+            }
         }
 
     }
