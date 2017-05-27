@@ -10,17 +10,29 @@ public class Machine : MonoBehaviour {
     [SerializeField]
     protected List<Rigidbody> movingParts = new List<Rigidbody>();
     [SerializeField]
-    protected GameObject PositionMainCam;
+    protected GameObject positionMainCam;
     [SerializeField]
     protected List<MachineCamera> cameras = new List<MachineCamera>();
     [SerializeField]
     protected MachineTrigger Trigger;
+    [SerializeField]
+    protected Material glowHandlerMat;
+    [SerializeField]
+    protected Color overheatColor;
+    [SerializeField]
+    float overheatLerpDuration;
+    [SerializeField]
+    protected List<MachineHelper> auxiliaryMovingParts = new List<MachineHelper>();
+
     public bool isActive = false;
     public float Axis_HL { get; set; }
     public float Axis_HR { get; set; }
     public float Axis_VL { get; set; }
     public float Axis_VR { get; set; }
 
+    protected float t = 1;
+    
+    
 
     #endregion
 
@@ -34,31 +46,34 @@ public class Machine : MonoBehaviour {
         {
             cameras.Add(c);
         }
-
+        foreach(MachineHelper h in GetComponentsInChildren<MachineHelper>())
+        {
+            auxiliaryMovingParts.Add(h);
+        }
         Trigger.ReferenceMachine = this.GetComponent<Machine>();
     }
-	
-	// Update is called once per frame
-	void Update () {
-    }
+
+    // Update is called once per frame
+
     public virtual void Activate()
     {
+        t = 0;
         foreach(Rigidbody r in movingParts)
         {
             r.isKinematic = false;
         }
 
         isActive = true;
-        FindObjectOfType<FlameImpLogic>().SwitchCamera(PositionMainCam.transform.position);
+        FindObjectOfType<FlameImpLogic>().SwitchCamera(positionMainCam.transform.position);
 
         for (int i = cameras.Count -1; i>=0; i--)
         {
             cameras[i].GetComponent<MachineCamera>().SwitchCamState();
         }
-        //make things in a list Glow
     }
     public virtual void Deactivate()
     {
+        t = 0;
         isActive = false;
         FindObjectOfType<FlameImpLogic>().SwitchCamera();
 
@@ -67,6 +82,41 @@ public class Machine : MonoBehaviour {
             cameras[i].GetComponent<MachineCamera>().SwitchCamState();
         }
         //make things in a list notglow
+    }
+    protected void HandlePossessedGlow()
+    {
+        if (isActive)
+        {
+            if (glowHandlerMat.GetColor("_EmissionColor") != overheatColor)
+            {
+                //print("LERP Color to Orange");
+                glowHandlerMat.SetColor("_EmissionColor", Color.Lerp(glowHandlerMat.GetColor("_EmissionColor"), overheatColor, t));
+
+            }
+
+
+            if (t < 1)
+            { // while t below the end limit...
+              // increment it at the desired rate every update:
+                t += Time.deltaTime / overheatLerpDuration;
+            }
+        }
+        else
+        {
+            if (glowHandlerMat.GetColor("_EmissionColor") != Color.black)
+            {
+                //print("LERP Color to Orange");
+                glowHandlerMat.SetColor("_EmissionColor", Color.Lerp(glowHandlerMat.GetColor("_EmissionColor"), Color.black, t));
+
+            }
+
+
+            if (t < 1)
+            { // while t below the end limit...
+              // increment it at the desired rate every update:
+                t += Time.deltaTime / overheatLerpDuration;
+            }
+        }
     }
     #region Virtuals
     public virtual void LeftStick()

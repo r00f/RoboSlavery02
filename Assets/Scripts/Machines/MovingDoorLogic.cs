@@ -6,7 +6,7 @@ public class MovingDoorLogic : MonoBehaviour {
 
     Rigidbody rigid;
     Machine machine;
-    float yVelocity;
+    public float yVelocity;
 
     void Start()
     {

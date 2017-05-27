@@ -18,7 +18,11 @@ public class Door : Machine {
 	
 	// Update is called once per frame
 	void Update () {
-      
+        HandlePossessedGlow();
+        foreach (MachineHelper h in auxiliaryMovingParts)
+        {
+            h.direction = movingParts[0].velocity.y;
+        }
 		
 	}
     public override void Activate()

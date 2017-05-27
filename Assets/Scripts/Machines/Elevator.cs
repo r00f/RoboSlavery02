@@ -21,32 +21,54 @@ public class Elevator : Machine {
     // Update is called once per frame
     void Update()
     {
+        HandlePossessedGlow();
         if (movingdown && !movingup)
         {
             if (progresss > 0f)
             {
+                foreach (MachineHelper h in auxiliaryMovingParts)
+                {
+                    h.direction = 1f;
+                }
                 movingParts[0].transform.position -= new Vector3(0, Time.deltaTime, 0);
                 progresss -= Time.deltaTime;
+            }
+            else {
+                foreach (MachineHelper h in auxiliaryMovingParts)
+                {
+                    h.direction = 0f;
+                }
             }
         }
         if (!movingdown && movingup)
         {
             if (progresss < cap)
             {
+                foreach (MachineHelper h in auxiliaryMovingParts)
+                {
+                    h.direction = -1f;
+                }
                 movingParts[0].transform.position += new Vector3(0, Time.deltaTime, 0);
                 progresss += Time.deltaTime;
+            }
+            else {
+                foreach (MachineHelper h in auxiliaryMovingParts)
+                {
+                    h.direction = 0f;
+                }
             }
         }
 
     }
     public override void Activate()
-    {   
+    {
         //foreach (Rigidbody c in movingParts)
         //{
         //    c.isKinematic = false;
         //}
+        t = 0;
         isActive = true;
-        FindObjectOfType<FlameImpLogic>().SwitchCamera(PositionMainCam.transform.position);
+        FindObjectOfType<FlameImpLogic>().SwitchCamera(positionMainCam.transform.position);
 
         for (int i = cameras.Count - 1; i >= 0; i--)
         {
@@ -76,11 +98,19 @@ public class Elevator : Machine {
     }
     public override void BottomButtonRelease()
     {
-        base.BottomButtonRelease();
+        foreach (MachineHelper h in auxiliaryMovingParts)
+        {
+            h.direction = 0f;
+        }
+        base.BottomButtonRelease(); 
         movingdown = false;
     }
     public override void TopButtonRelease()
     {
+        foreach (MachineHelper h in auxiliaryMovingParts)
+        {
+            h.direction = 0f;
+        }
         base.BottomButtonRelease();
         movingup = false;
     }
