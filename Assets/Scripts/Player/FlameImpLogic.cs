@@ -25,6 +25,7 @@ public class FlameImpLogic : PlayerLogic {
     {
         get; set;
     }
+    public bool inMeteor;
     public bool fused;
     public bool launched;
     public bool controllingMachine;
@@ -39,7 +40,8 @@ public class FlameImpLogic : PlayerLogic {
         renderers = GetComponentsInChildren<Renderer>();
         pointLightIntensity = pointLight.intensity;
         steamGolem = FindObjectOfType<SteamGolemLogic>();
-
+        SwitchColliders();
+        SwitchRenderers();
     }
 	
 	void Update () {
@@ -125,6 +127,10 @@ public class FlameImpLogic : PlayerLogic {
             {
                 rigid.position = carryProjectile.transform.position;
             }
+            else if(inMeteor)
+            {   
+                rigid.position = FindObjectOfType<MeteorLogic>().gameObject.transform.position - new Vector3(0, 1, 0);
+            }
             else
             {
                 if (!IsTargeting() && IsInLocomotion() && ((direction >= 0 && horizontalL >= 0) || (direction < 0 && horizontalL < 0)))
@@ -196,7 +202,7 @@ public class FlameImpLogic : PlayerLogic {
                 if (rePlayer.GetButtonDown("R2"))
                 {
                     //eject Imp
-                    FireImp();
+                    LaunchImp();
                     /*
                     transform.position = steamGolem.transform.position + steamGolem.transform.forward * 2;
                     transform.rotation = steamGolem.transform.rotation;
@@ -232,7 +238,7 @@ public class FlameImpLogic : PlayerLogic {
                 */
                 if (rePlayer.GetButtonDown("R2"))
                 {
-                    FireImp();
+                    LaunchImp();
                     /*
                     transform.position = steamGolem.transform.position + steamGolem.transform.forward * 2;
                     transform.rotation = steamGolem.transform.rotation;
@@ -330,7 +336,7 @@ public class FlameImpLogic : PlayerLogic {
                 steamGolem.PlayFireLoop(false);
             }
 
-            if (rePlayer.GetButtonDown("R2") && !IsDashing())
+            if (rePlayer.GetButtonDown("R2"))
             {
                 PlaySFX("Dash", 1.4f, 1.5f);
             }
@@ -345,7 +351,7 @@ public class FlameImpLogic : PlayerLogic {
 
     }
 
-    public void FireImp()
+    public void LaunchImp()
     {
         if (fused) {
             steamGolem.SwitchOverheat();
