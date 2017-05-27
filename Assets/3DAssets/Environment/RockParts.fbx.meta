@@ -15,6 +15,15 @@ ModelImporter:
     100014: polySurface6
     100016: polySurface8
     100018: //RootNode
+    100020: Meteor_LavaCube
+    100022: Meteor_Rock1
+    100024: Meteor_Rock2
+    100026: Meteor_Rock3
+    100028: Meteor_Rock4
+    100030: Meteor_Rock5
+    100032: Meteor_Rock6
+    100034: Meteor_Rock7
+    100036: Rocks
     400000: polySurface10
     400002: polySurface12
     400004: polySurface14
@@ -25,6 +34,15 @@ ModelImporter:
     400014: polySurface6
     400016: polySurface8
     400018: //RootNode
+    400020: Meteor_LavaCube
+    400022: Meteor_Rock1
+    400024: Meteor_Rock2
+    400026: Meteor_Rock3
+    400028: Meteor_Rock4
+    400030: Meteor_Rock5
+    400032: Meteor_Rock6
+    400034: Meteor_Rock7
+    400036: Rocks
     2300000: polySurface10
     2300002: polySurface12
     2300004: polySurface14
@@ -34,6 +52,14 @@ ModelImporter:
     2300012: polySurface4
     2300014: polySurface6
     2300016: polySurface8
+    2300018: Meteor_LavaCube
+    2300020: Meteor_Rock1
+    2300022: Meteor_Rock2
+    2300024: Meteor_Rock3
+    2300026: Meteor_Rock4
+    2300028: Meteor_Rock5
+    2300030: Meteor_Rock6
+    2300032: Meteor_Rock7
     3300000: polySurface10
     3300002: polySurface12
     3300004: polySurface14
@@ -43,6 +69,14 @@ ModelImporter:
     3300012: polySurface4
     3300014: polySurface6
     3300016: polySurface8
+    3300018: Meteor_LavaCube
+    3300020: Meteor_Rock1
+    3300022: Meteor_Rock2
+    3300024: Meteor_Rock3
+    3300026: Meteor_Rock4
+    3300028: Meteor_Rock5
+    3300030: Meteor_Rock6
+    3300032: Meteor_Rock7
     4300000: polySurface2
     4300002: polySurface4
     4300004: polySurface6
@@ -52,6 +86,14 @@ ModelImporter:
     4300012: polySurface14
     4300014: polySurface16
     4300016: polySurface18
+    4300018: Meteor_LavaCube
+    4300020: Meteor_Rock1
+    4300022: Meteor_Rock2
+    4300024: Meteor_Rock3
+    4300026: Meteor_Rock4
+    4300028: Meteor_Rock5
+    4300030: Meteor_Rock6
+    4300032: Meteor_Rock7
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -63,6 +105,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 

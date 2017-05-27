@@ -121,7 +121,7 @@ public class Elevator : Machine {
         go.transform.position = Exit.transform.position;
         go.transform.rotation = Exit.transform.rotation;
         go.controllingMachine = false;
-        go.FireImp();
+        go.LaunchImp();
         Deactivate();
     }
     // Update is called once per frame
