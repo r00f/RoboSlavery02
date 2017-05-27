@@ -397,11 +397,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!23 &64411327 stripped
-MeshRenderer:
-  m_PrefabParentObject: {fileID: 2300000, guid: 2e77cd979c5075c4288ad86d5fd454d2,
-    type: 3}
-  m_PrefabInternal: {fileID: 1358219847}
 --- !u!4 &64411329 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 2e77cd979c5075c4288ad86d5fd454d2, type: 3}
@@ -431,6 +426,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explsionPrefab: {fileID: 1836462675323446, guid: 65fa0c116447cf149b90860f0156d58a,
     type: 2}
+  lavaBall: {fileID: 0}
+  maxHealth: 3
+  currentHealth: 0
+  dead: 0
 --- !u!114 &64411332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2617,56 +2616,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114243691739762952, guid: 1706103cb8d94e04697a1157d1382f73,
-        type: 2}
-      propertyPath: panel
-      value: 
-      objectReference: {fileID: 1226006787}
     - target: {fileID: 114906391108308002, guid: 1706103cb8d94e04697a1157d1382f73,
         type: 2}
       propertyPath: panel
       value: 
       objectReference: {fileID: 866207408}
-    - target: {fileID: 114996044420208958, guid: 1706103cb8d94e04697a1157d1382f73,
+    - target: {fileID: 114243691739762952, guid: 1706103cb8d94e04697a1157d1382f73,
         type: 2}
-      propertyPath: overheatColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114996044420208958, guid: 1706103cb8d94e04697a1157d1382f73,
-        type: 2}
-      propertyPath: overheatColor.g
-      value: 0.6827586
-      objectReference: {fileID: 0}
-    - target: {fileID: 114996044420208958, guid: 1706103cb8d94e04697a1157d1382f73,
-        type: 2}
-      propertyPath: overheatColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114837589617166148, guid: 1706103cb8d94e04697a1157d1382f73,
-        type: 2}
-      propertyPath: zrot
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114850940661584690, guid: 1706103cb8d94e04697a1157d1382f73,
-        type: 2}
-      propertyPath: yrot
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114451325784702160, guid: 1706103cb8d94e04697a1157d1382f73,
-        type: 2}
-      propertyPath: zrot
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114906056009771304, guid: 1706103cb8d94e04697a1157d1382f73,
-        type: 2}
-      propertyPath: zrot
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114948032351837336, guid: 1706103cb8d94e04697a1157d1382f73,
-        type: 2}
-      propertyPath: zrot
-      value: 5
-      objectReference: {fileID: 0}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 1226006787}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1706103cb8d94e04697a1157d1382f73, type: 2}
   m_IsPrefabParent: 0
@@ -2820,12 +2779,12 @@ Prefab:
     - target: {fileID: 224410328395874468, guid: 163e12c23250d52429aac212b6123535,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224410328395874468, guid: 163e12c23250d52429aac212b6123535,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224410328395874468, guid: 163e12c23250d52429aac212b6123535,
         type: 2}
@@ -2835,7 +2794,7 @@ Prefab:
     - target: {fileID: 224410328395874468, guid: 163e12c23250d52429aac212b6123535,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -66.5625
       objectReference: {fileID: 0}
     - target: {fileID: 224410328395874468, guid: 163e12c23250d52429aac212b6123535,
         type: 2}
@@ -6282,7 +6241,7 @@ Prefab:
         type: 2}
       propertyPath: ShapeModule.m_MeshRenderer
       value: 
-      objectReference: {fileID: 64411327}
+      objectReference: {fileID: 0}
     - target: {fileID: 198725551369620732, guid: 2a30e7586b7b79a43bc0863217e294ea,
         type: 2}
       propertyPath: randomSeed

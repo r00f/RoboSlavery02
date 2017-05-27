@@ -1409,7 +1409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xrot: 0
   yrot: 0
-  zrot: 0
+  zrot: 3
 --- !u!114 &114792912642664600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1434,7 +1434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xrot: 0
   yrot: 0
-  zrot: 0
+  zrot: 0.5
 --- !u!114 &114850623333997932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1461,7 +1461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xrot: 0
-  yrot: 0
+  yrot: 3
   zrot: 0
 --- !u!114 &114906056009771304
 MonoBehaviour:
@@ -1476,7 +1476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xrot: 0
   yrot: 0
-  zrot: 0
+  zrot: 3
 --- !u!114 &114906391108308002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1504,7 +1504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xrot: 0
   yrot: 0
-  zrot: 0
+  zrot: 5
 --- !u!114 &114996044420208958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1521,7 +1521,7 @@ MonoBehaviour:
   cameras: []
   Trigger: {fileID: 114792912642664600}
   glowHandlerMat: {fileID: 2100000, guid: 1dc97464c3ba6c247978c235c0bfc9be, type: 2}
-  overheatColor: {r: 0, g: 0, b: 0, a: 0}
+  overheatColor: {r: 1, g: 0.6827586, b: 0, a: 0}
   overheatLerpDuration: 2
   auxiliaryMovingParts: []
   isActive: 0
