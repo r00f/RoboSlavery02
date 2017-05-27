@@ -7,6 +7,8 @@ public class MeteorLogic : MonoBehaviour {
     [SerializeField]
     GameObject explsionPrefab;
     [SerializeField]
+    GameObject explsionMeteorPrefab;
+    [SerializeField]
     GameObject lavaBall;
     [SerializeField]
     GameObject dialougeTrigger;
@@ -22,6 +24,7 @@ public class MeteorLogic : MonoBehaviour {
     Collider col;
     List<Rigidbody> rockRigidBodies = new List<Rigidbody>();
     List<Collider>rockColliders = new List<Collider>();
+    HandController handController;
 
     // Use this for initialization
     void Start () {
@@ -64,10 +67,10 @@ public class MeteorLogic : MonoBehaviour {
                 r.isKinematic = false;
             }
             flameImp.inMeteor = false;
+            Instantiate(explsionMeteorPrefab, handController.transform.position - Vector3.down, Quaternion.identity);
             flameImp.LaunchImp();
             Destroy(lavaBall);
             Destroy(dialougeTrigger);
-            Instantiate(explsionPrefab, transform.position, Quaternion.identity);
             dead = true;
         }
 		
@@ -80,7 +83,7 @@ public class MeteorLogic : MonoBehaviour {
         {
             ParticleSystem.EmissionModule em = ps.emission;
             em.enabled = false;
-            Instantiate(explsionPrefab, transform.position, Quaternion.identity);
+            Instantiate(explsionMeteorPrefab, transform.position, Quaternion.identity);
         }
 
     }
@@ -95,6 +98,7 @@ public class MeteorLogic : MonoBehaviour {
             if(other.GetComponent<HandController>())
             {
                 other.GetComponent<HandController>().AddSubtractHealth(-50);
+                handController = other.GetComponent<HandController>();
             }
         }
 

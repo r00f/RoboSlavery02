@@ -997,6 +997,7 @@ MonoBehaviour:
   explsionPrefab: {fileID: 1836462675323446, guid: 65fa0c116447cf149b90860f0156d58a,
     type: 2}
   lavaBall: {fileID: 1125945036265912}
+  dialougeTrigger: {fileID: 1063717896925016}
   maxHealth: 3
   currentHealth: 0
   dead: 0
