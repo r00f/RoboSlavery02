@@ -3326,7 +3326,7 @@ MonoBehaviour:
   eyes:
   - {fileID: 23864714718177652}
   - {fileID: 23557609805614122}
-  inMeteor: 0
+  inMeteor: 1
   fused: 0
   launched: 0
   controllingMachine: 0
