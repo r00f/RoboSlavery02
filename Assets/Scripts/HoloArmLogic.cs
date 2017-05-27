@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PixelCrushers.DialogueSystem;
 
 public class HoloArmLogic : MonoBehaviour {
 
@@ -32,6 +33,8 @@ public class HoloArmLogic : MonoBehaviour {
 
         else
         {
+            DialogueLua.SetVariable("ArmsRepaired", DialogueLua.GetVariable("ArmsRepaired").AsInt + 1);
+            print("Number of Arms Repaired: " + DialogueLua.GetVariable("ArmsRepaired").AsInt);
             realArm.SetActive(true);
             realArm.GetComponentInChildren<HandController>().SetDead(false);
             realArm.GetComponentInChildren<HandController>().RestoreHealthToFull();
