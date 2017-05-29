@@ -50,10 +50,11 @@ public class GameController : MonoBehaviour {
         rePlayer = ReInput.players.GetPlayer(0);
         restarting = false;
         Time.timeScale = 1;
-        canvas = GameObject.FindGameObjectWithTag("Canvas1").GetComponent<Canvas>();
+        if(GameObject.FindGameObjectWithTag("Canvas1"))
+            canvas = GameObject.FindGameObjectWithTag("Canvas1").GetComponent<Canvas>();
         mainMenu = GameObject.FindGameObjectWithTag("MainMenu");
 
-        if(SceneManager.GetActiveScene().buildIndex != 0)
+        if(SceneManager.GetActiveScene().buildIndex != 0 && mainMenu)
             mainMenu.SetActive(false);
         else
         {

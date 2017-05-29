@@ -177,178 +177,185 @@ public class FlameImpLogic : PlayerLogic {
     public override void HandleInput()
     {
 
-        if (fused)
+        if(!dead && !inMeteor)
         {
-
-            if (rePlayer.GetButtonDown("R2"))
+            if (fused)
             {
-                steamGolem.Dash();
-            }
 
-            animator.SetFloat("Angle", 0f); animator.SetFloat("Direction", 0f);
-
-            //Handle Fused Input
-
-            if (steamGolem.IsPunching())
-            {
-                foreach (SphereCollider sphereCol in steamGolem.hitSpheres)
+                if (rePlayer.GetButtonDown("R2"))
                 {
-                    sphereCol.GetComponent<HandController>().EmitFlameThrower(false);
+                    steamGolem.Dash();
                 }
 
+                animator.SetFloat("Angle", 0f); animator.SetFloat("Direction", 0f);
+
+                //Handle Fused Input
+
+                if (steamGolem.IsPunching())
+                {
+                    foreach (SphereCollider sphereCol in steamGolem.hitSpheres)
+                    {
+                        sphereCol.GetComponent<HandController>().EmitFlameThrower(false);
+                    }
+
+                    if (rePlayer.GetButtonDown("Bottom Button"))
+                    {
+                        steamGolem.ChainedAction = "Explosion";
+                        //explosive punch - alternately release imp
+                    }
+
+                    if (rePlayer.GetButtonDown("R2"))
+                    {
+                        //eject Imp
+                        LaunchImp();
+                        /*
+                        transform.position = steamGolem.transform.position + steamGolem.transform.forward * 2;
+                        transform.rotation = steamGolem.transform.rotation;
+                        SwitchColliders();
+                        SwitchRenderers();
+                        */
+                    }
+
+                }
+                else if (steamGolem.IsHeavyPunch())
+                {
+                    foreach (SphereCollider sphereCol in steamGolem.hitSpheres)
+                    {
+                        sphereCol.GetComponent<HandController>().EmitFlameThrower(rePlayer.GetButton("Bottom Button"));
+                    }
+
+                    if (rePlayer.GetButton("Bottom Button"))
+                    {
+                        steamGolem.PlayFireLoop(true);
+                        steamGolem.SwitchSteamParticles("AfterBurner");
+                    }
+                    else
+                    {
+                        steamGolem.PlayFireLoop(false);
+                        steamGolem.SwitchSteamParticles("Steam");
+                    }
+
+                    /*
+                    if (rePlayer.GetButtonDown("Bottom Button"))
+                    {
+                        steamGolem.ChainedAction = "Big Bang";
+                    }
+                    */
+                    if (rePlayer.GetButtonDown("R2"))
+                    {
+                        LaunchImp();
+                        /*
+                        transform.position = steamGolem.transform.position + steamGolem.transform.forward * 2;
+                        transform.rotation = steamGolem.transform.rotation;
+                        SwitchColliders();
+                        SwitchRenderers();
+                        */
+                    }
+                }
+                else if (steamGolem.IsSpinning())
+                {
+                    foreach (SphereCollider sphereCol in steamGolem.hitSpheres)
+                    {
+                        sphereCol.GetComponent<HandController>().EmitFlameThrower(rePlayer.GetButton("Bottom Button"));
+                    }
+
+                    if (rePlayer.GetButton("Bottom Button"))
+                    {
+                        steamGolem.PlayFireLoop(true);
+                        steamGolem.SwitchSteamParticles("AfterBurner");
+                    }
+                    else
+                    {
+                        steamGolem.PlayFireLoop(false);
+                        steamGolem.SwitchSteamParticles("Steam");
+                    }
+                }
+                else
+                {
+                    foreach (SphereCollider sphereCol in steamGolem.hitSpheres)
+                    {
+                        sphereCol.GetComponent<HandController>().EmitFlameThrower(false);
+                    }
+                }
+            }
+            else if (controllingMachine && ReferenceMachine != null)
+            {
+                //print("Im here");
+                if (rePlayer.GetButtonDown("Left Button"))
+                {
+
+                    ReferenceMachine.LeftButton();
+                }
                 if (rePlayer.GetButtonDown("Bottom Button"))
                 {
-                    steamGolem.ChainedAction = "Explosion";
-                    //explosive punch - alternately release imp
+                    //print("Bottom pressed");
+                    ReferenceMachine.BottomButton();
+                }
+                if (rePlayer.GetButtonDown("Up Button"))
+                {
+                    ReferenceMachine.TopButton();
+                }
+                if (rePlayer.GetButtonDown("Right Button"))
+                {
+
+                    ReferenceMachine.RightButton();
+                }
+                if (rePlayer.GetButtonUp("Left Button"))
+                {
+                    ReferenceMachine.LeftButtonRelease();
+                }
+                if (rePlayer.GetButtonUp("Right Button"))
+                {
+                    ReferenceMachine.RightButtonRelease();
+                }
+                if (rePlayer.GetButtonUp("Bottom Button"))
+                {
+                    ReferenceMachine.BottomButtonRelease();
+                }
+                if (rePlayer.GetButtonUp("Up Button"))
+                {
+                    ReferenceMachine.TopButtonRelease();
+                }
+                if (rePlayer.GetButton("R2"))
+                {
+                    ReferenceMachine.R2();
+                }
+                ReferenceMachine.Axis_HR = rePlayer.GetAxis("Right Horizontal");
+                ReferenceMachine.Axis_HL = rePlayer.GetAxis("Left Horizontal");
+                ReferenceMachine.Axis_VR = rePlayer.GetAxis("Right Vertical");
+                ReferenceMachine.Axis_VL = rePlayer.GetAxis("Left Vertical");
+            }
+            else
+            {
+                base.HandleInput();
+
+                if (steamGolem.isTargetLocked)
+                {
+                    if (rePlayer.GetButton("Right Button"))
+                    {
+                        steamGolem.RepairArm();
+                        steamGolem.PlayFireLoop(true);
+                    }
+                    else
+                    {
+                        steamGolem.PlayFireLoop(false);
+                    }
+                }
+                else
+                {
+                    steamGolem.PlayFireLoop(false);
                 }
 
                 if (rePlayer.GetButtonDown("R2"))
                 {
-                    //eject Imp
-                    LaunchImp();
-                    /*
-                    transform.position = steamGolem.transform.position + steamGolem.transform.forward * 2;
-                    transform.rotation = steamGolem.transform.rotation;
-                    SwitchColliders();
-                    SwitchRenderers();
-                    */
+                    PlaySFX("Dash", 1.4f, 1.5f);
                 }
 
-            }
-            else if (steamGolem.IsHeavyPunch())
-            {
-                foreach (SphereCollider sphereCol in steamGolem.hitSpheres)
-                {
-                    sphereCol.GetComponent<HandController>().EmitFlameThrower(rePlayer.GetButton("Bottom Button"));
-                }
-
-                if (rePlayer.GetButton("Bottom Button"))
-                {
-                    steamGolem.PlayFireLoop(true);
-                    steamGolem.SwitchSteamParticles("AfterBurner");
-                }
-                else
-                {
-                    steamGolem.PlayFireLoop(false);
-                    steamGolem.SwitchSteamParticles("Steam");
-                }
-
-                /*
-                if (rePlayer.GetButtonDown("Bottom Button"))
-                {
-                    steamGolem.ChainedAction = "Big Bang";
-                }
-                */
-                if (rePlayer.GetButtonDown("R2"))
-                {
-                    LaunchImp();
-                    /*
-                    transform.position = steamGolem.transform.position + steamGolem.transform.forward * 2;
-                    transform.rotation = steamGolem.transform.rotation;
-                    SwitchColliders();
-                    SwitchRenderers();
-                    */
-                }
-            }
-            else if (steamGolem.IsSpinning())
-            {
-                foreach (SphereCollider sphereCol in steamGolem.hitSpheres)
-                {
-                    sphereCol.GetComponent<HandController>().EmitFlameThrower(rePlayer.GetButton("Bottom Button"));
-                }
-
-                if (rePlayer.GetButton("Bottom Button"))
-                {
-                    steamGolem.PlayFireLoop(true);
-                    steamGolem.SwitchSteamParticles("AfterBurner");
-                }
-                else
-                {
-                    steamGolem.PlayFireLoop(false);
-                    steamGolem.SwitchSteamParticles("Steam");
-                }
-            }
-            else
-            {
-                foreach (SphereCollider sphereCol in steamGolem.hitSpheres)
-                {
-                    sphereCol.GetComponent<HandController>().EmitFlameThrower(false);
-                }
-            }
-        }
-        else if (controllingMachine && ReferenceMachine != null)
-        {
-            //print("Im here");
-            if (rePlayer.GetButtonDown("Left Button"))
-            {
-
-                ReferenceMachine.LeftButton();
-            }
-            if (rePlayer.GetButtonDown("Bottom Button"))
-            {
-                //print("Bottom pressed");
-                ReferenceMachine.BottomButton();
-            }
-            if (rePlayer.GetButtonDown("Up Button"))
-            {
-                ReferenceMachine.TopButton();
-            }
-            if (rePlayer.GetButtonDown("Right Button"))
-            {
-
-                ReferenceMachine.RightButton();
-            }
-            if(rePlayer.GetButtonUp("Left Button")) {
-                ReferenceMachine.LeftButtonRelease();
-            }
-            if (rePlayer.GetButtonUp("Right Button"))
-            {
-                ReferenceMachine.RightButtonRelease();
-            }
-            if (rePlayer.GetButtonUp("Bottom Button"))
-            {
-                ReferenceMachine.BottomButtonRelease();
-            }
-            if (rePlayer.GetButtonUp("Up Button"))
-            {
-                ReferenceMachine.TopButtonRelease();
-            }
-            if (rePlayer.GetButton("R2"))
-            {
-                ReferenceMachine.R2();
-            }
-            ReferenceMachine.Axis_HR = rePlayer.GetAxis("Right Horizontal");
-            ReferenceMachine.Axis_HL = rePlayer.GetAxis("Left Horizontal");
-            ReferenceMachine.Axis_VR = rePlayer.GetAxis("Right Vertical");
-            ReferenceMachine.Axis_VL = rePlayer.GetAxis("Left Vertical");
-        }
-        else
-        {
-            base.HandleInput();
-
-            if (steamGolem.isTargetLocked)
-            {
-                if (rePlayer.GetButton("Right Button"))
-                {
-                    steamGolem.RepairArm();
-                    steamGolem.PlayFireLoop(true);
-                }
-                else
-                {
-                    steamGolem.PlayFireLoop(false);
-                }
-            }
-            else
-            {
-                steamGolem.PlayFireLoop(false);
-            }
-
-            if (rePlayer.GetButtonDown("R2"))
-            {
-                PlaySFX("Dash", 1.4f, 1.5f);
             }
 
         }
+
+       
 }
 
     public void FireProjectile()
