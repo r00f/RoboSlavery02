@@ -45,7 +45,6 @@ public class SteamGolemLogic : PlayerLogic
     public string ChainedAction;
     float curRepBeamTime;
     FlameImpLogic flameImp;
-    bool overheatMode;
     Slider handLHealthBar;
     Slider handRHealthBar;
     List<ParticleSystem> footFlameParticleSystems = new List<ParticleSystem>();
@@ -123,7 +122,7 @@ public class SteamGolemLogic : PlayerLogic
         //else set overHeatMode to false, start RestartScene coroutine and make ragdoll Spaz around if user presses Fire2
         else
         {
-            overheatMode = false;
+            fused = false;
             if (Input.GetButtonDown("Fire2"))
             {
                 int randInt = Random.Range(0, ragdollColliders.Length);
@@ -186,7 +185,7 @@ public class SteamGolemLogic : PlayerLogic
 
     public bool IsOverheated()
     {
-        return overheatMode;
+        return fused;
     }
 
     public bool IsPunching()
@@ -221,7 +220,7 @@ public class SteamGolemLogic : PlayerLogic
         base.HandleInput();
 
         animator.SetBool("Grounded", grounded);
-        animator.SetBool("OverheatMode", overheatMode);
+        animator.SetBool("OverheatMode", fused);
 
         if (!grounded)
         {
@@ -234,7 +233,7 @@ public class SteamGolemLogic : PlayerLogic
             {
                 animator.SetBool("Blocking", true);
 
-                if (!overheatMode)
+                if (!fused)
                     movementSpeed = 0.5f;
                 else
                     movementSpeed = 0.5f * overheatSpeedMultiplier;
@@ -249,7 +248,7 @@ public class SteamGolemLogic : PlayerLogic
         else
         {
             animator.SetBool("Blocking", false);
-            if (!overheatMode)
+            if (!fused)
                 movementSpeed = 0.8f;
             else
                 movementSpeed = 0.8f * overheatSpeedMultiplier;
@@ -301,7 +300,7 @@ public class SteamGolemLogic : PlayerLogic
     public override void Die()
     {
         base.Die();
-        if(overheatMode)
+        if(fused)
         {
             Instantiate(explosionBig, transform.position + new Vector3(0, .9f, 0), Quaternion.identity);
         }
@@ -310,7 +309,7 @@ public class SteamGolemLogic : PlayerLogic
     void HandleOverheating()
     {
         //Change _EmissionColor to orange if in OverheatMode and back to black if not
-        if (overheatMode)
+        if (fused)
         {
             AddSubtractHealth(Time.deltaTime * overheatDOT);
 
@@ -401,7 +400,7 @@ public class SteamGolemLogic : PlayerLogic
 
     public void SwitchOverheat()
     {
-        overheatMode = !overheatMode;
+        fused = !fused;
         RemoveEntityFromList(FindObjectOfType<FlameImpLogic>());
         FindObjectOfType<FlameImpLogic>().RemoveEntityFromList(FindObjectOfType<SteamGolemLogic>());
     }

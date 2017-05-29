@@ -40,6 +40,8 @@ public class ThirdPersonCamera : MonoBehaviour
 
     public Vector3 fixedCamPos;
 
+    ThirdPersonCamera masterCam;
+
     Vector3 velocityCamSmooth = Vector3.zero;
     Vector3 velocityLookDir = Vector3.zero;
 
@@ -69,12 +71,18 @@ public class ThirdPersonCamera : MonoBehaviour
     {
         Behind,
         Target,
-        Fixed
+        Fixed,
+        Slaved
     }
 
     // Use this for initialization
     void Start()
     {
+        if(tag == "Cam2")
+        {
+            masterCam = GameObject.FindGameObjectsWithTag("Cam1")[0].GetComponent<ThirdPersonCamera>();
+
+        }
         player = GameObject.FindGameObjectWithTag("Player" + playerNumber).GetComponent<PlayerLogic>();
         followXForm = player.transform.GetChild(1);
         Vector3 characterOffset = followXForm.position + new Vector3(0, distanceUp, 0);
@@ -96,9 +104,19 @@ public class ThirdPersonCamera : MonoBehaviour
         Vector3 characterOffset = followXForm.position + new Vector3(0, distanceUp, 0);
 
 
-        if(characterInCamTrigger)
+        if (characterInCamTrigger)
         {
             camState = CamStates.Fixed;
+        }
+        else if (player.fused) {
+            if (masterCam != null)
+            {
+                camState = CamStates.Slaved;
+            }
+        }
+        else if (camState != CamStates.Fixed || camState != CamStates.Target)
+        {
+            camState = CamStates.Behind;
         }
 
 
@@ -141,6 +159,13 @@ public class ThirdPersonCamera : MonoBehaviour
 
                 wideScreen = false;
                 targetPosition = fixedCamPos;
+                break;
+
+            case CamStates.Slaved:
+                targetPosition = masterCam.targetPosition;
+                break;
+
+            default:
                 break;
         }
 

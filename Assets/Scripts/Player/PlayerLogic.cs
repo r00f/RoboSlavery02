@@ -30,6 +30,7 @@ public class PlayerLogic : LivingEntity
     protected Vector3 lookAtXForm;
     public ThirdPersonCamera gameCam;
     public Player rePlayer;
+    public bool fused;
 
     protected float speed;
     protected float direction;

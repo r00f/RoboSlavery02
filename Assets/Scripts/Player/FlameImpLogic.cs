@@ -26,7 +26,6 @@ public class FlameImpLogic : PlayerLogic {
         get; set;
     }
     public bool inMeteor;
-    public bool fused;
     public bool launched;
     public bool controllingMachine;
 
