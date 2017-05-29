@@ -124,8 +124,7 @@ public class FlameImpLogic : PlayerLogic {
             }
             else if (controllingMachine)
             {
-                rigid.position = ReferenceMachine.transform.GetChild(0).transform.position;
-
+                rigid.position = ReferenceMachine.pipeTransforms[0].position;
             }
             else if (launched)
             {

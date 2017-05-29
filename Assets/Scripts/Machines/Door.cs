@@ -18,7 +18,12 @@ public class Door : Machine {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if(!exitedPipe)
+            MoveImpThroughPipe();
+
         HandlePossessedGlow();
+
         foreach (MachineHelper h in auxiliaryMovingParts)
         {
             h.direction = movingParts[0].velocity.y;
@@ -48,10 +53,8 @@ public class Door : Machine {
     {
         base.TopButton();
         FlameImpLogic go = FindObjectOfType<FlameImpLogic>();
-        go.transform.position = Exit.transform.position;
-        go.transform.rotation = Exit.transform.rotation;
+        exitedPipe = false;
         go.controllingMachine = false;
-        go.LaunchImp();
         Deactivate();
     }
 

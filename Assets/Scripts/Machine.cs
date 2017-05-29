@@ -23,6 +23,8 @@ public class Machine : MonoBehaviour {
     float overheatLerpDuration;
     [SerializeField]
     protected List<MachineHelper> auxiliaryMovingParts = new List<MachineHelper>();
+    protected FlameImpLogic flameImp;
+    protected bool exitedPipe = true;
 
     public bool isActive = false;
     public float Axis_HL { get; set; }
@@ -31,13 +33,20 @@ public class Machine : MonoBehaviour {
     public float Axis_VR { get; set; }
 
     protected float t = 1;
-    
-    
+
+    [SerializeField]
+    public List<Transform> pipeTransforms = new List<Transform>();
+    [SerializeField]
+    Transform nextPipeTransform;
+    [SerializeField]
+    float pipeSpeed;
 
     #endregion
 
     protected virtual void Initialize()
     {
+        flameImp = FindObjectOfType<FlameImpLogic>();
+
         foreach (Rigidbody r in GetComponentsInChildren<Rigidbody>())
         {
             movingParts.Add(r);
@@ -64,18 +73,19 @@ public class Machine : MonoBehaviour {
         }
 
         isActive = true;
-        FindObjectOfType<FlameImpLogic>().SwitchCamera(positionMainCam.transform.position);
+        flameImp.SwitchCamera(positionMainCam.transform.position);
 
         for (int i = cameras.Count -1; i>=0; i--)
         {
             cameras[i].GetComponent<MachineCamera>().SwitchCamState();
         }
+
     }
     public virtual void Deactivate()
     {
         t = 0;
         isActive = false;
-        FindObjectOfType<FlameImpLogic>().SwitchCamera();
+        flameImp.SwitchCamera();
 
         for (int i = cameras.Count - 1; i >= 0; i--)
         {
@@ -118,6 +128,39 @@ public class Machine : MonoBehaviour {
             }
         }
     }
+
+    protected void MoveImpThroughPipe()
+    {
+
+        for (int i = 0; i < pipeTransforms.Count; i++)
+        {
+            if (flameImp.transform.position == pipeTransforms[i].position)
+            {
+                print("Reached " + pipeTransforms[i].position);
+
+                if (i < pipeTransforms.Count - 1)
+                    nextPipeTransform = pipeTransforms[i + 1];
+                else
+                    nextPipeTransform = null;
+            }
+        }
+
+        if(nextPipeTransform)
+        {
+            exitedPipe = false;
+            flameImp.transform.position = Vector3.MoveTowards(flameImp.transform.position, nextPipeTransform.position, pipeSpeed * Time.deltaTime);
+        }
+
+        else
+        {
+            flameImp.transform.rotation = pipeTransforms[pipeTransforms.Count-1].transform.rotation;
+            flameImp.LaunchImp();
+            exitedPipe = true;
+        }
+
+
+    }
+
     #region Virtuals
     public virtual void LeftStick()
     {
