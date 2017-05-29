@@ -35,6 +35,8 @@ public class Machine : MonoBehaviour {
     protected float t = 1;
 
     [SerializeField]
+    Transform pipeTransformParent;
+
     public List<Transform> pipeTransforms = new List<Transform>();
     [SerializeField]
     Transform nextPipeTransform;
@@ -46,6 +48,13 @@ public class Machine : MonoBehaviour {
     protected virtual void Initialize()
     {
         flameImp = FindObjectOfType<FlameImpLogic>();
+
+        foreach (Transform t in pipeTransformParent.GetComponentsInChildren<Transform>())
+        {
+            pipeTransforms.Add(t);
+        }
+        pipeTransforms.Remove(pipeTransformParent);
+
 
         foreach (Rigidbody r in GetComponentsInChildren<Rigidbody>())
         {
@@ -129,6 +138,12 @@ public class Machine : MonoBehaviour {
         }
     }
 
+    protected void HandleInPipeBool()
+    {
+
+
+    }
+
     protected void MoveImpThroughPipe()
     {
 
@@ -161,7 +176,7 @@ public class Machine : MonoBehaviour {
 
     }
 
-    #region Virtuals
+    #region Virtualss
     public virtual void LeftStick()
     {
     }
@@ -192,6 +207,12 @@ public class Machine : MonoBehaviour {
     public virtual void RightButtonRelease()
     {
     }
+    public void R2()
+    {
+        exitedPipe = false;
+        flameImp.controllingMachine = false;
+        Deactivate();
+    }
+    #endregion
 }
 
-#endregion

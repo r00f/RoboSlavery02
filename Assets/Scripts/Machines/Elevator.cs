@@ -21,6 +21,9 @@ public class Elevator : Machine {
     // Update is called once per frame
     void Update()
     {
+        if (!exitedPipe)
+            MoveImpThroughPipe();
+
         HandlePossessedGlow();
         if (movingdown && !movingup)
         {
@@ -117,12 +120,6 @@ public class Elevator : Machine {
     public override void LeftButton()
     {
         base.LeftButton();
-        FlameImpLogic go = FindObjectOfType<FlameImpLogic>();
-        go.transform.position = Exit.transform.position;
-        go.transform.rotation = Exit.transform.rotation;
-        go.controllingMachine = false;
-        go.LaunchImp();
-        Deactivate();
     }
     // Update is called once per frame
 }

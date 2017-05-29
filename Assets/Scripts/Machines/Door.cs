@@ -52,10 +52,7 @@ public class Door : Machine {
     public override void TopButton()
     {
         base.TopButton();
-        FlameImpLogic go = FindObjectOfType<FlameImpLogic>();
-        exitedPipe = false;
-        go.controllingMachine = false;
-        Deactivate();
+
     }
 
 }

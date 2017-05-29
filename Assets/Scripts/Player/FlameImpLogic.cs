@@ -313,6 +313,10 @@ public class FlameImpLogic : PlayerLogic {
             {
                 ReferenceMachine.TopButtonRelease();
             }
+            if (rePlayer.GetButton("R2"))
+            {
+                ReferenceMachine.R2();
+            }
             ReferenceMachine.Axis_HR = rePlayer.GetAxis("Right Horizontal");
             ReferenceMachine.Axis_HL = rePlayer.GetAxis("Left Horizontal");
             ReferenceMachine.Axis_VR = rePlayer.GetAxis("Right Vertical");
@@ -381,7 +385,7 @@ public class FlameImpLogic : PlayerLogic {
         }
 
         rigid.isKinematic = !rigid.isKinematic;
-
+        transform.rotation = Quaternion.identity;
     }
 
     public void SwitchRenderers()
