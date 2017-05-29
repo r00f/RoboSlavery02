@@ -114,7 +114,7 @@ public class ThirdPersonCamera : MonoBehaviour
                 camState = CamStates.Slaved;
             }
         }
-        else if (camState != CamStates.Fixed || camState != CamStates.Target)
+        else if (camState != CamStates.Fixed && camState != CamStates.Target)
         {
             camState = CamStates.Behind;
         }
