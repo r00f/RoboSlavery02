@@ -48,7 +48,7 @@ public class Machine : MonoBehaviour {
     protected virtual void Initialize()
     {
         flameImp = FindObjectOfType<FlameImpLogic>();
-
+        pipeTransforms.Clear();
         foreach (Transform t in pipeTransformParent.GetComponentsInChildren<Transform>())
         {
             pipeTransforms.Add(t);
@@ -177,6 +177,17 @@ public class Machine : MonoBehaviour {
             exitedPipe = true;
         }
 
+
+    }
+
+    public void RemoveFromExitchain(int inRemoveAmount)
+    {
+        int happylittleint = pipeTransforms.Count - 1;
+        for (int i = 0; i < inRemoveAmount; i++)
+        {
+            pipeTransforms.Remove(pipeTransforms[happylittleint - i]);
+
+        }
 
     }
 

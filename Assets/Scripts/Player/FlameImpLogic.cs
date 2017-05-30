@@ -320,7 +320,7 @@ public class FlameImpLogic : PlayerLogic {
                 {
                     ReferenceMachine.TopButtonRelease();
                 }
-                if (rePlayer.GetButton("R2"))
+                if (rePlayer.GetButtonDown("R2"))
                 {
                     ReferenceMachine.R2();
                 }
