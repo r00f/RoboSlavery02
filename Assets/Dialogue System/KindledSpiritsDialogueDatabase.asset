@@ -452,8 +452,8 @@ MonoBehaviour:
           PublicKeyToken=null
       canvasRect:
         serializedVersion: 2
-        x: 86
-        y: 111
+        x: 77
+        y: 105
         width: 160
         height: 30
     - id: 2
@@ -521,8 +521,8 @@ MonoBehaviour:
           PublicKeyToken=null
       canvasRect:
         serializedVersion: 2
-        x: 86
-        y: 181
+        x: 79
+        y: 174
         width: 160
         height: 30
   - id: 2
@@ -710,8 +710,8 @@ MonoBehaviour:
           PublicKeyToken=null
       canvasRect:
         serializedVersion: 2
-        x: 95
-        y: 117
+        x: 103
+        y: 103
         width: 160
         height: 30
     - id: 2
@@ -785,8 +785,8 @@ MonoBehaviour:
           PublicKeyToken=null
       canvasRect:
         serializedVersion: 2
-        x: 96
-        y: 190
+        x: 98
+        y: 164
         width: 160
         height: 30
     - id: 3
@@ -860,8 +860,8 @@ MonoBehaviour:
           PublicKeyToken=null
       canvasRect:
         serializedVersion: 2
-        x: 99
-        y: 250
+        x: 104
+        y: 240
         width: 160
         height: 30
     - id: 4
@@ -927,8 +927,8 @@ MonoBehaviour:
           PublicKeyToken=null
       canvasRect:
         serializedVersion: 2
-        x: 106
-        y: 316
+        x: 95
+        y: 301
         width: 160
         height: 30
   - id: 3

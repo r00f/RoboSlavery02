@@ -7,6 +7,10 @@ public class FlameImpLogic : PlayerLogic {
 
     [SerializeField]
     GameObject projectile;
+
+    [SerializeField]
+    ParticleSystem pipeParticle;
+
     [SerializeField]
     GameObject impProjectile;
     [SerializeField]
@@ -36,7 +40,7 @@ public class FlameImpLogic : PlayerLogic {
         colliders = GetComponentsInChildren<Collider>();
         pointLight = GetComponentInChildren<Light>();
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
-        renderers = GetComponentsInChildren<Renderer>();
+        renderers = transform.GetChild(0).GetComponentsInChildren<Renderer>();
         pointLightIntensity = pointLight.intensity;
         steamGolem = FindObjectOfType<SteamGolemLogic>();
 
@@ -402,15 +406,25 @@ public class FlameImpLogic : PlayerLogic {
             renderer.enabled = !renderer.enabled;
         }
     }
+
     public void SwitchCamera()
     {
         gameCam.camState = ThirdPersonCamera.CamStates.Behind;
         gameCam.GetComponent<ThirdPersonCamera>().fixedCamPos = new Vector3 (0,0,0);
     }
+
     public void SwitchCamera(Vector3 inPos)
     {
         gameCam.GetComponent<ThirdPersonCamera>().fixedCamPos = inPos;
         gameCam.camState = ThirdPersonCamera.CamStates.Fixed;
+    }
+
+    public void EmitPipeParticle(bool emit)
+    {
+        ParticleSystem.EmissionModule em = pipeParticle.emission;
+        if(em.enabled != emit)
+            em.enabled = emit;
+
     }
 }
 
