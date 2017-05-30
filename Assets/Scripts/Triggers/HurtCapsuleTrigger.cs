@@ -71,6 +71,13 @@ public class HurtCapsuleTrigger : MonoBehaviour {
         if (other.CompareTag("FixedCamTrigger") && player)
         {
             player.gameCam.characterInCamTrigger = false;
+            if (isGolemHurtCapsule)
+            {
+                if (GetComponent<SteamGolemLogic>().fused)
+                {
+                    FindObjectOfType<FlameImpLogic>().gameCam.characterInCamTrigger = false;
+                }
+            }
         }
 
     }
