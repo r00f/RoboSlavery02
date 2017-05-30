@@ -64,7 +64,7 @@ public class Machine : MonoBehaviour {
         {
             cameras.Add(c);
         }
-        foreach(MachineHelper h in GetComponentsInChildren<MachineHelper>())
+        foreach (MachineHelper h in GetComponentsInChildren<MachineHelper>())
         {
             auxiliaryMovingParts.Add(h);
         }
@@ -76,7 +76,7 @@ public class Machine : MonoBehaviour {
     public virtual void Activate()
     {
         t = 0;
-        foreach(Rigidbody r in movingParts)
+        foreach (Rigidbody r in movingParts)
         {
             r.isKinematic = false;
         }
@@ -84,7 +84,7 @@ public class Machine : MonoBehaviour {
         isActive = true;
         flameImp.SwitchCamera(positionMainCam.transform.position);
 
-        for (int i = cameras.Count -1; i>=0; i--)
+        for (int i = cameras.Count - 1; i >= 0; i--)
         {
             cameras[i].GetComponent<MachineCamera>().SwitchCamState();
         }
@@ -160,7 +160,7 @@ public class Machine : MonoBehaviour {
             }
         }
 
-        if(nextPipeTransform)
+        if (nextPipeTransform)
         {
             exitedPipe = false;
             flameImp.transform.position = Vector3.MoveTowards(flameImp.transform.position, nextPipeTransform.position, pipeSpeed * Time.deltaTime);
@@ -168,13 +168,22 @@ public class Machine : MonoBehaviour {
 
         else
         {
-            flameImp.transform.rotation = pipeTransforms[pipeTransforms.Count-1].transform.rotation;
+            flameImp.transform.rotation = pipeTransforms[pipeTransforms.Count - 1].transform.rotation;
             flameImp.LaunchImp();
             exitedPipe = true;
         }
 
 
     }
+    public void RemoveFromExitchain(int inRemoveAmount){
+        int happylittleint = pipeTransforms.Count-1;
+        for (int i = 0; i < inRemoveAmount; i++)
+        {
+            pipeTransforms.Remove(pipeTransforms[happylittleint - i]);
+
+        }
+
+        }
 
     #region Virtualss
     public virtual void LeftStick()
