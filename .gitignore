@@ -28,3 +28,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/3DAssets/Characters/SteamGolem/Materials/Body_02.mat
+Assets/Prefabs/UI/CalmRenderPanel.prefab
+Assets/Prefabs/UI/CalmRenderPanel.prefab
+Assets/Materials/GlowMatLift.mat

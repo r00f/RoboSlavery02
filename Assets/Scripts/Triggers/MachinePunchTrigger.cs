@@ -8,6 +8,8 @@ public class MachinePunchTrigger : MonoBehaviour {
     [SerializeField]
     GameObject explosion;
     [SerializeField]
+    GameObject objectToDestroy;
+    [SerializeField]
     ParticleSystem particle;
     [SerializeField]
     int timesToHit;
@@ -44,6 +46,8 @@ public class MachinePunchTrigger : MonoBehaviour {
                     ParticleSystem.EmissionModule em = particle.emission;
                     em.enabled = false;
                     oneshot = false;
+                    if (objectToDestroy != null)
+                        Destroy(objectToDestroy.gameObject);
                 }
             }
         }

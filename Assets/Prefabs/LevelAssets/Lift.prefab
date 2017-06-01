@@ -609,6 +609,7 @@ GameObject:
   - component: {fileID: 4607373258842918}
   - component: {fileID: 33925815000771860}
   - component: {fileID: 23109155612062596}
+  - component: {fileID: 64530182823883824}
   m_Layer: 0
   m_Name: polySurface1
   m_TagString: Untagged
@@ -880,7 +881,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1630025555325546}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.19, y: 21.7, z: -14.09}
+  m_LocalPosition: {x: 25.78, y: 20.81, z: -16.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4511935913859134}
@@ -1423,13 +1424,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1789895760412570}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.028651135, y: 0.88138247, z: -0.053907633, w: 0.46844214}
   m_LocalPosition: {x: 25.08, y: 23.87, z: -16.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4640291752207124}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 7, y: 124.02, z: 0}
 --- !u!4 &4664486115651636
 Transform:
   m_ObjectHideFlags: 1
@@ -2507,6 +2508,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!64 &64530182823883824
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1727520543669014}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 1dada7bcc11144943a9342bb0fe8dc6d, type: 3}
 --- !u!65 &65036124653512290
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2642,9 +2657,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 1836462675323446, guid: f4f08b07aa289694d9e51e0d620c6bb4, type: 2}
+  objectToDestroy: {fileID: 1590374278549950}
   particle: {fileID: 198073600765944344}
   timesToHit: 3
-  howManyThingsToRemove: 3
+  howManyThingsToRemove: 6
 --- !u!114 &114492316927273184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2790,7 +2806,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.5
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198073600765944344
 ParticleSystem:
@@ -2849,7 +2865,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 772993977
+  randomSeed: -1149854894
   InitialModule:
     serializedVersion: 3
     enabled: 1
