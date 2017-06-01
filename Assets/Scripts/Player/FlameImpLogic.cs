@@ -185,12 +185,6 @@ public class FlameImpLogic : PlayerLogic {
         {
             if (fused)
             {
-
-                if (rePlayer.GetButtonDown("R2"))
-                {
-                    steamGolem.Dash();
-                }
-
                 animator.SetFloat("Angle", 0f); animator.SetFloat("Direction", 0f);
 
                 //Handle Fused Input
@@ -276,7 +270,11 @@ public class FlameImpLogic : PlayerLogic {
                 }
                 else
                 {
-                    foreach (SphereCollider sphereCol in steamGolem.hitSpheres)
+                    if (rePlayer.GetButtonDown("R2"))
+                    {
+                        steamGolem.Dash();
+                    }
+                        foreach (SphereCollider sphereCol in steamGolem.hitSpheres)
                     {
                         sphereCol.GetComponent<HandController>().EmitFlameThrower(false);
                     }

@@ -24,6 +24,8 @@ public class Machine : MonoBehaviour {
     [SerializeField]
     protected List<MachineHelper> auxiliaryMovingParts = new List<MachineHelper>();
     protected FlameImpLogic flameImp;
+
+    [SerializeField]
     protected bool exitedPipe = true;
 
     public bool isActive = false;

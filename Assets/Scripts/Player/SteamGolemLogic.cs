@@ -583,9 +583,13 @@ public class SteamGolemLogic : PlayerLogic
 
     public void Dash()
     {
-        SwitchSteamParticles("AfterBurner");
-        animator.SetTrigger("Dash");
-        PlaySFX("Dash", 1.2f, 1.22f);
+        if(!IsDashing())
+        {
+            SwitchSteamParticles("AfterBurner");
+            animator.SetTrigger("Dash");
+            PlaySFX("Dash", 1.2f, 1.22f);
+        }
+
     }
 
     public void Hover()
