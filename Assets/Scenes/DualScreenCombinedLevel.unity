@@ -22065,7 +22065,7 @@ Prefab:
     - target: {fileID: 114850642009444448, guid: 163e12c23250d52429aac212b6123535,
         type: 2}
       propertyPath: inMeteor
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 163e12c23250d52429aac212b6123535, type: 2}
