@@ -71,7 +71,7 @@ public class FlameImpLogic : PlayerLogic {
         if(pointLightFlickerTime == 0)
          pointLight.intensity = currentHealth / maxHealth * pointLightIntensity + Random.Range(-0.2f, 0.2f);
 
-        if(IsDashing())
+        if(IsDashing() && !controllingMachine)
         {
             AddSubtractHealth(-10 * Time.deltaTime);
         }

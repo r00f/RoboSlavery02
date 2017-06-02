@@ -74,9 +74,14 @@ public class GameController : MonoBehaviour {
 
     void HandleInput()
     {
+
+
         if (rePlayer.GetButtonDown("Start"))
         {
-            PauseGame();
+            if(SceneManager.GetActiveScene().buildIndex == 1)
+                LoadNextScene();
+            else
+                PauseGame();
         }
     }
 
