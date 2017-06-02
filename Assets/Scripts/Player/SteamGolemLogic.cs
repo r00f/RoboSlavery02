@@ -259,6 +259,7 @@ public class SteamGolemLogic : PlayerLogic
             if (IsHitSphereEnabled() && ChainedAction == "Explosion")
             {
                 print("Instantiate Explosion at hitSpheres[0]");
+                hitSpheres[0].GetComponent<HandController>().AddSubtractHealth(-5);
                 Instantiate(explosion, hitSpheres[0].transform.position, Quaternion.identity);
             }
             ChainedAction = "";
@@ -268,6 +269,7 @@ public class SteamGolemLogic : PlayerLogic
             if (IsHitSphereEnabled() && ChainedAction == "Explosion")
             {
                 print("Instantiate Explosion at hitSpheres[1]");
+                hitSpheres[1].GetComponent<HandController>().AddSubtractHealth(-5);
                 Instantiate(explosion, hitSpheres[1].transform.position, Quaternion.identity);
             }
             ChainedAction = "";
@@ -559,8 +561,8 @@ public class SteamGolemLogic : PlayerLogic
         {
             if (gameController.GetMetalAmount() > 0)
             {
-                gameController.AddSubstractMetal(-Time.deltaTime * 20);
-                AddSubtractHealth(Time.deltaTime * 20);
+                gameController.AddSubstractMetal(-Time.deltaTime * flameImp.repairSpeed);
+                AddSubtractHealth(Time.deltaTime * flameImp.repairSpeed);
             }
         }
 

@@ -11,9 +11,12 @@ public class HoloArmLogic : MonoBehaviour {
     GameController gameController;
     [SerializeField]
     GameObject realArm;
+    float repairSpeed = 30;
+    FlameImpLogic flameImp;
 
     void Start()
     {
+        flameImp = FindObjectOfType<FlameImpLogic>();
         gameController = FindObjectOfType<GameController>();
         currentRepairCost = repairCost;
     }
@@ -24,9 +27,9 @@ public class HoloArmLogic : MonoBehaviour {
         {
             if(gameController.GetMetalAmount() > 0)
             {
-                gameController.AddSubstractMetal(-Time.deltaTime * 20);
-                currentRepair += Time.deltaTime * 20;
-                currentRepairCost -= Time.deltaTime * 20;
+                gameController.AddSubstractMetal(-flameImp.repairSpeed * Time.deltaTime);
+                currentRepair += Time.deltaTime * flameImp.repairSpeed;
+                currentRepairCost -= Time.deltaTime * flameImp.repairSpeed;
             }
 
         }

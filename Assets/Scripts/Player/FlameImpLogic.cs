@@ -32,6 +32,7 @@ public class FlameImpLogic : PlayerLogic {
     public bool inMeteor;
     public bool launched;
     public bool controllingMachine;
+    public float repairSpeed = 30;
 
     void Start () {
 
@@ -70,6 +71,11 @@ public class FlameImpLogic : PlayerLogic {
         if(pointLightFlickerTime == 0)
          pointLight.intensity = currentHealth / maxHealth * pointLightIntensity + Random.Range(-0.2f, 0.2f);
 
+        if(IsDashing())
+        {
+            AddSubtractHealth(-10 * Time.deltaTime);
+        }
+
     }
 
     void FixedUpdate()
@@ -77,6 +83,7 @@ public class FlameImpLogic : PlayerLogic {
 
         if (fused)
         {
+
             gameCam.camState = ThirdPersonCamera.CamStates.Behind;
             if (rePlayer.GetButtonDown("Bottom Button") && steamGolem.IsInChargeUp())
             {
@@ -185,6 +192,7 @@ public class FlameImpLogic : PlayerLogic {
         {
             if (fused)
             {
+                AddSubtractHealth(20 * Time.deltaTime);
                 animator.SetFloat("Angle", 0f); animator.SetFloat("Direction", 0f);
 
                 //Handle Fused Input
@@ -224,6 +232,7 @@ public class FlameImpLogic : PlayerLogic {
 
                     if (rePlayer.GetButton("Bottom Button"))
                     {
+                        steamGolem.hitSpheres[Random.Range(0, 2)].GetComponent<HandController>().AddSubtractHealth(-10 * Time.deltaTime);
                         steamGolem.PlayFireLoop(true);
                         steamGolem.SwitchSteamParticles("AfterBurner");
                     }
@@ -259,6 +268,7 @@ public class FlameImpLogic : PlayerLogic {
 
                     if (rePlayer.GetButton("Bottom Button"))
                     {
+                        steamGolem.hitSpheres[Random.Range(0, 2)].GetComponent<HandController>().AddSubtractHealth(-10 * Time.deltaTime);
                         steamGolem.PlayFireLoop(true);
                         steamGolem.SwitchSteamParticles("AfterBurner");
                     }
@@ -285,7 +295,6 @@ public class FlameImpLogic : PlayerLogic {
                 //print("Im here");
                 if (rePlayer.GetButtonDown("Left Button"))
                 {
-
                     ReferenceMachine.LeftButton();
                 }
                 if (rePlayer.GetButtonDown("Bottom Button"))
@@ -299,7 +308,6 @@ public class FlameImpLogic : PlayerLogic {
                 }
                 if (rePlayer.GetButtonDown("Right Button"))
                 {
-
                     ReferenceMachine.RightButton();
                 }
                 if (rePlayer.GetButtonUp("Left Button"))
@@ -362,7 +370,7 @@ public class FlameImpLogic : PlayerLogic {
 
     public void FireProjectile()
     {
-
+        AddSubtractHealth(-10);
         Instantiate(projectile, transform.position + new Vector3(transform.forward.x, 1, transform.forward.z), transform.rotation);
 
     }

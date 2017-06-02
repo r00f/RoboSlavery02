@@ -9,6 +9,7 @@ public class HandController : MonoBehaviour {
     [SerializeField]
     GameObject explosion;
 
+    ParticleSystem[] particleSystems;
     ParticleSystem sparkPs;
     ParticleSystem drillPs;
     ParticleSystem drillPs2;
@@ -29,6 +30,7 @@ public class HandController : MonoBehaviour {
 
     void Start () {
 
+        particleSystems = GetComponentsInChildren<ParticleSystem>();
         //if this hand belongs to a Player
         if (GetComponentInParent<PlayerLogic>())
         {
@@ -83,6 +85,7 @@ public class HandController : MonoBehaviour {
         {
             Instantiate(explosion, transform.parent.position, transform.parent.rotation);
             transform.parent.gameObject.SetActive(false);
+            StopAllEmission();
             dead = true;
         }
 
@@ -216,6 +219,16 @@ public class HandController : MonoBehaviour {
         yield return new WaitForSeconds(stopTime);
         emissionModule.enabled = false;
         emissionModule2.enabled = false;
+
+    }
+
+    void StopAllEmission()
+    {
+        foreach(ParticleSystem p in particleSystems)
+        {
+            ParticleSystem.EmissionModule em = p.emission;
+            em.enabled = false;
+        }
 
     }
 
