@@ -2613,7 +2613,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.1, y: 2.33, z: 5.1}
+  m_Size: {x: 6, y: 2.33, z: 6}
   m_Center: {x: -2.26, y: 0.57, z: 1.15}
 --- !u!92 &92183486526157530
 Behaviour:
@@ -2832,6 +2832,7 @@ MonoBehaviour:
   overheatColor: {r: 1, g: 0.6827586, b: 0, a: 0}
   overheatLerpDuration: 3
   auxiliaryMovingParts: []
+  exitedPipe: 1
   isActive: 0
   pipeTransformParent: {fileID: 4640291752207124}
   pipeTransforms: []
