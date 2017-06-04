@@ -2,10 +2,10 @@ Initialize engine version: 5.6.1f1 (2860b30f0b54)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce 820M (ID=0x1140)
+    Renderer: NVIDIA GeForce GTX 660 Ti (ID=0x1183)
     Vendor:   NVIDIA
-    VRAM:     1999 MB
-    Driver:   21.21.13.7654
+    VRAM:     2016 MB
+    Driver:   21.21.13.7653
 Begin MonoManager ReloadAssembly
 Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\UnityEngine.dll (this message is harmless)
 Loading C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\UnityEngine.dll into Unity Child Domain
@@ -29,181 +29,93 @@ Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Rewired_Co
 Loading C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Rewired_Core.dll into Unity Child Domain
 Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Rewired_Windows_Lib.dll (this message is harmless)
 Loading C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Rewired_Windows_Lib.dll into Unity Child Domain
-- Completed reload, in  0.059 seconds
+- Completed reload, in  0.117 seconds
 Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\System.dll (this message is harmless)
-desktop: 1920x1080 60Hz; virtual: 3520x1200 at 0,0
+desktop: 1920x1080 60Hz; virtual: 3600x1080 at 0,0
 <RI> Initializing input.
-XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 2.878969 ms
-Non platform assembly: data-123FA058 (this message is harmless)
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-123FA058.dll
-Non platform assembly: data-124D96D8 (this message is harmless)
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-124D96D8.dll
-Non platform assembly: data-137CF020 (this message is harmless)
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-137CF020.dll
+UnloadTime: 1.457424 ms
+Non platform assembly: data-0F4C3008 (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-0F4C3008.dll
+Non platform assembly: data-0F5BF008 (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-0F5BF008.dll
+Non platform assembly: data-14319020 (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-14319020.dll
 Rewired: Searching for compatible XInput library...
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_3.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_3.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_3.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_2.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_2
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_2.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_2.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_2.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_1.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_1
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_1.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_1.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_1.dll
 Rewired: Found Xinput1_4.dll.
 Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\System.Xml.dll (this message is harmless)
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_3.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_3.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_3.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_2.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_2
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_2.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_2.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_2.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_1.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_1
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_1.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_1.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_1.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_3.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_3.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_3.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_2.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_2
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_2.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_2.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_2.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_1.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_1
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_1.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_1.dll
-Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_1.dll
 activateSecondDisplay
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Setting up 2 worker threads for Enlighten.
-  Thread -> id: 4394 -> priority: 1 
-  Thread -> id: 2380 -> priority: 1 
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 368c -> priority: 1 
+  Thread -> id: 42b4 -> priority: 1 
+  Thread -> id: 2f54 -> priority: 1 
+  Thread -> id: 1f04 -> priority: 1 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 6.404552 ms
+UnloadTime: 5.570701 ms
 
-Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 804.
-Total: 13.082672 ms (FindLiveObjects: 0.073030 ms CreateObjectMapping: 0.071056 ms MarkObjects: 12.877398 ms  DeleteObjects: 0.060792 ms)
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 805.
+Total: 15.160431 ms (FindLiveObjects: 0.065132 ms CreateObjectMapping: 0.057086 ms MarkObjects: 14.971548 ms  DeleteObjects: 0.064748 ms)
 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.587399 ms
+UnloadTime: 0.503815 ms
 
-Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4859.
-Total: 15.901638 ms (FindLiveObjects: 0.300805 ms CreateObjectMapping: 0.154745 ms MarkObjects: 14.222338 ms  DeleteObjects: 1.222960 ms)
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 4979.
+Total: 20.630753 ms (FindLiveObjects: 0.264742 ms CreateObjectMapping: 0.119153 ms MarkObjects: 15.953125 ms  DeleteObjects: 4.292582 ms)
 
 Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Bottom Button Pressed from Machine
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Bottom Button Pressed from Machine
+Reached (-31.2, 3.2, -38.1) Distance: 1.206313E-05
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-29.5, 3.2, -39.7) Distance: 0.001727684
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-29.1, 6.7, -39.2) Distance: 9.536743E-06
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-28.3, 7.8, -38.0) Distance: 0.003634268
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-28.1, 7.1, -35.9) Distance: 7.629395E-06
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-29.2, 6.0, -34.4) Distance: 0.006277806
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-31.2, 3.2, -38.1) Distance: 7.8642E-06
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-29.5, 3.2, -39.7) Distance: 0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-29.1, 6.7, -39.2) Distance: 9.536743E-06
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-28.3, 7.8, -38.0) Distance: 7.878642E-06
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-28.1, 7.1, -35.9) Distance: 0.007014838
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-29.2, 6.0, -34.4) Distance: 0.009596284
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
@@ -328,78 +240,10 @@ Bottom Button Pressed from Machine
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Bottom Button Pressed from Machine
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Bottom Button Pressed from Machine
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
@@ -416,62 +260,6 @@ Bottom Button Pressed from Machine
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Bottom Button Pressed from Machine
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
@@ -496,82 +284,6 @@ Bottom Button Pressed from Machine
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Bottom Button Pressed from Machine
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-(-0.7, 0.0, -0.7)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
@@ -579,131 +291,131 @@ Bottom Button Pressed from Machine
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Door hits LivingEntity from above with -2.231397 Y Velocity.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-31.2, 3.2, -38.1) Distance: 7.8642E-06
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-29.5, 3.2, -39.7) Distance: 0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-29.1, 6.7, -39.2) Distance: 0.006473967
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-28.3, 7.8, -38.0) Distance: 7.878642E-06
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-28.1, 7.1, -35.9) Distance: 5.394797E-06
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-29.2, 6.0, -34.4) Distance: 1.907349E-06
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-71.4, 13.0, -57.5) Distance: 7.629395E-06
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-72.7, 13.0, -59.7) Distance: 1.907349E-05
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-72.0, 23.7, -58.4) Distance: 4.264961E-06
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-68.2, 27.9, -58.1) Distance: 0.003606514
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-63.5, 29.9, -57.6) Distance: 0.001702647
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-59.9, 29.4, -57.2) Distance: 0.007625009
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-56.9, 32.4, -68.7) Distance: 8.529923E-06
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-(-0.7, 0.0, -0.7)
+Reached (-51.8, 31.7, -70.2) Distance: 0.007230129
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-(-0.7, 0.0, -0.7)
+Reached (-51.0, 33.3, -75.2) Distance: 1.375409E-05
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-(-0.7, 0.0, -0.7)
+Reached (-51.0, 33.9, -81.1) Distance: 0.006746224
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-(-0.7, 0.0, -0.7)
+Reached (-60.7, 33.6, -81.5) Distance: 3.814697E-06
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-66.5, 31.6, -76.2) Distance: 1.705985E-05
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-66.5, 24.9, -76.4) Distance: 0.003519302
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-64.7, 17.2, -66.9) Distance: 0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-71.4, 13.0, -57.5) Distance: 7.629395E-06
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-72.7, 13.0, -59.7) Distance: 1.909731E-05
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-72.0, 23.7, -58.4) Distance: 3.814697E-06
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-68.2, 27.9, -58.1) Distance: 0.004717777
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Bottom Button Pressed from Machine
+Reached (-63.5, 29.9, -57.6) Distance: 0.001303293
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Reached (-31.2, 3.2, -38.1)
+Reached (-59.9, 29.4, -57.2) Distance: 8.74057E-06
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Reached (-29.5, 3.2, -39.7)
+Reached (-56.9, 32.4, -68.7) Distance: 8.529923E-06
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Reached (-29.1, 6.7, -39.2)
+Reached (-51.8, 31.7, -70.2) Distance: 1.716614E-05
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Reached (-28.3, 7.8, -38.0)
+Number of Arms Repaired: 1
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Reached (-28.1, 7.1, -35.9)
+ArmRepaired
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 

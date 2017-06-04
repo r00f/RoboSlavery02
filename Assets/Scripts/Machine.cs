@@ -24,6 +24,7 @@ public class Machine : MonoBehaviour {
     [SerializeField]
     protected List<MachineHelper> auxiliaryMovingParts = new List<MachineHelper>();
     protected FlameImpLogic flameImp;
+    float maxPipeTransformDistance = 0.01f;
 
     [SerializeField]
     protected bool exitedPipe = true;
@@ -153,9 +154,9 @@ public class Machine : MonoBehaviour {
 
         for (int i = 0; i < pipeTransforms.Count; i++)
         {
-            if (flameImp.transform.position == pipeTransforms[i].position)
+            if (Vector3.Distance(flameImp.transform.position, pipeTransforms[i].position) <= maxPipeTransformDistance)
             {
-                print("Reached " + pipeTransforms[i].position);
+                print("Reached " + pipeTransforms[i].position + " Distance: " + Vector3.Distance(flameImp.transform.position, pipeTransforms[i].position));
 
                 if (i < pipeTransforms.Count - 1)
                     nextPipeTransform = pipeTransforms[i + 1];

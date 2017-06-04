@@ -27,10 +27,14 @@ public class MachineTrigger : MonoBehaviour {
         {
             if (other.GetComponent<FlameImpLogic>().IsDashing() && (!other.GetComponent<FlameImpLogic>().fused || !other.GetComponent<FlameImpLogic>().controllingMachine) && !ReferenceMachine.isActive)
             {
-                if(DialogueLua.GetVariable("ArmsRepaired").AsInt >= 1)
+                if(conversationTrigger)
                 {
-                    DialogueLua.SetVariable("InFirstMachine", true);
-                    conversationTrigger.enabled = true;
+                    if (DialogueLua.GetVariable("ArmsRepaired").AsInt >= 1)
+                    {
+                        DialogueLua.SetVariable("InFirstMachine", true);
+                        conversationTrigger.enabled = true;
+                    }
+
                 }
 
                 other.GetComponent<FlameImpLogic>().SwitchColliders();
