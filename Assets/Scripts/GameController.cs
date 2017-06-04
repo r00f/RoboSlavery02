@@ -46,6 +46,7 @@ public class GameController : MonoBehaviour {
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
+        metal = 0;
         rePlayer = ReInput.players.GetPlayer(0);
         restarting = false;
         Time.timeScale = 1;
