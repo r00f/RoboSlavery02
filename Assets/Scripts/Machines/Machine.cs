@@ -16,8 +16,6 @@ public class Machine : MonoBehaviour {
     [SerializeField]
     protected MachineTrigger Trigger;
     [SerializeField]
-    protected Material glowHandlerMat;
-    [SerializeField]
     protected Color overheatColor;
     [SerializeField]
     float overheatLerpDuration;
@@ -25,6 +23,8 @@ public class Machine : MonoBehaviour {
     protected List<MachineHelper> auxiliaryMovingParts = new List<MachineHelper>();
     protected FlameImpLogic flameImp;
     float maxPipeTransformDistance = 0.01f;
+    protected MeshRenderer[] meshRenderers;
+    protected List<Material> glowMats = new List<Material>();
 
     [SerializeField]
     protected bool exitedPipe = true;
@@ -50,6 +50,18 @@ public class Machine : MonoBehaviour {
 
     protected virtual void Initialize()
     {
+        meshRenderers = GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer r in meshRenderers)
+        {
+            foreach (Material m in r.materials)
+            {
+                if (m.name == "GlowMatMachine (Instance)")
+                {
+                    glowMats.Add(m);
+                }
+            }
+        }
+
         flameImp = FindObjectOfType<FlameImpLogic>();
         pipeTransforms.Clear();
         foreach (Transform t in pipeTransformParent.GetComponentsInChildren<Transform>())
@@ -111,12 +123,16 @@ public class Machine : MonoBehaviour {
     {
         if (isActive)
         {
-            if (glowHandlerMat.GetColor("_EmissionColor") != overheatColor)
-            {
-                //print("LERP Color to Orange");
-                glowHandlerMat.SetColor("_EmissionColor", Color.Lerp(glowHandlerMat.GetColor("_EmissionColor"), overheatColor, t));
 
+            foreach (Material m in glowMats)
+            { 
+                if (m.GetColor("_EmissionColor") != overheatColor)
+                {
+                    //print("LERP Color to Orange");
+                    m.SetColor("_EmissionColor", Color.Lerp(m.GetColor("_EmissionColor"), overheatColor, t));
+                }
             }
+
 
 
             if (t < 1)
@@ -127,13 +143,15 @@ public class Machine : MonoBehaviour {
         }
         else
         {
-            if (glowHandlerMat.GetColor("_EmissionColor") != Color.black)
+
+            foreach (Material m in glowMats)
             {
-                //print("LERP Color to Orange");
-                glowHandlerMat.SetColor("_EmissionColor", Color.Lerp(glowHandlerMat.GetColor("_EmissionColor"), Color.black, t));
-
+                if (m.GetColor("_EmissionColor") != Color.black)
+                {
+                    //print("LERP Color to Orange");
+                    m.SetColor("_EmissionColor", Color.Lerp(m.GetColor("_EmissionColor"), Color.black, t));
+                }
             }
-
 
             if (t < 1)
             { // while t below the end limit...
@@ -141,12 +159,6 @@ public class Machine : MonoBehaviour {
                 t += Time.deltaTime / overheatLerpDuration;
             }
         }
-    }
-
-    protected void HandleInPipeBool()
-    {
-
-
     }
 
     protected void MoveImpThroughPipe()

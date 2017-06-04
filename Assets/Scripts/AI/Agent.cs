@@ -42,10 +42,10 @@ public class Agent : LivingEntity {
             SetupAgentLocomotion();
             HandleVariables();
 
-            if (GetHit())
+            if (GetHit() && !dead)
             {
                 animator.ResetTrigger("Punch");
-                print("AgentGetHit");
+                //print("AgentGetHit");
                 agent.enabled = false;
                 rigid.isKinematic = false;
 

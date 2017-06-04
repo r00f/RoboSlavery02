@@ -11,7 +11,6 @@ public class HoloArmLogic : MonoBehaviour {
     GameController gameController;
     [SerializeField]
     GameObject realArm;
-    float repairSpeed = 30;
     FlameImpLogic flameImp;
 
     void Start()

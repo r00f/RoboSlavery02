@@ -18,8 +18,6 @@ public class SteamGolemLogic : PlayerLogic
     [SerializeField]
     GameObject explosionBig;
     [SerializeField]
-    Material body02Mat;
-    [SerializeField]
     float overheatDOT = 2;
     [SerializeField]
     float overheatSpeedMultiplier = 2;
@@ -39,15 +37,22 @@ public class SteamGolemLogic : PlayerLogic
     float hoverTopSpeed = 10;
     [SerializeField]
     AudioSource fireLoopAudioSource;
+
+
+
     #endregion
 
     #region Private Variables
+
+    MeshRenderer[] meshRenderers;
+    List<Material> bodyGlowMats = new List<Material>();
+    List<ParticleSystem> footFlameParticleSystems = new List<ParticleSystem>();
+
     public string ChainedAction;
     float curRepBeamTime;
     FlameImpLogic flameImp;
     Slider handLHealthBar;
     Slider handRHealthBar;
-    List<ParticleSystem> footFlameParticleSystems = new List<ParticleSystem>();
     bool onetime;
     float t;
 
@@ -68,6 +73,19 @@ public class SteamGolemLogic : PlayerLogic
     void Start()
     {
         Initialize();
+        meshRenderers = GetComponentsInChildren<MeshRenderer>();
+
+        foreach(MeshRenderer r in meshRenderers)
+        {
+            foreach(Material m in r.materials)
+            {
+                if (m.name == "Body_02 (Instance)")
+                {
+                    bodyGlowMats.Add(m);
+                }
+            }
+        }
+
         foreach(ParticleSystem ps in particleSystems)
         {
             if (ps.CompareTag("FootFlame"))
@@ -339,11 +357,13 @@ public class SteamGolemLogic : PlayerLogic
 
             }
 
-            if (body02Mat.GetColor("_EmissionColor") != overheatColor)
+            foreach(Material m in bodyGlowMats)
             {
-                //print("LERP Color to Orange");
-                body02Mat.SetColor("_EmissionColor", Color.Lerp(body02Mat.GetColor("_EmissionColor"), overheatColor, t));
-
+                if (m.GetColor("_EmissionColor") != overheatColor)
+                {
+                    //print("LERP Color to Orange");
+                    m.SetColor("_EmissionColor", Color.Lerp(m.GetColor("_EmissionColor"), overheatColor, t));
+                }
             }
 
 
@@ -383,11 +403,15 @@ public class SteamGolemLogic : PlayerLogic
                 onetime = false;
             }
 
-            if (body02Mat.GetColor("_EmissionColor") != Color.black)
+            foreach (Material m in bodyGlowMats)
             {
-                //print("LERP Color to Black");
-                body02Mat.SetColor("_EmissionColor", Color.Lerp(body02Mat.GetColor("_EmissionColor"), Color.black, t));
+                if (m.GetColor("_EmissionColor") != Color.black)
+                {
+                    //print("LERP Color to Black");
+                    m.SetColor("_EmissionColor", Color.Lerp(m.GetColor("_EmissionColor"), Color.black, t));
+                }
             }
+
 
 
             if (t < 1)

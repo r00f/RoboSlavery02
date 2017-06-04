@@ -108,7 +108,7 @@ public class PlayerLogic : LivingEntity
     {
         if(other.CompareTag("Enemy"))
         {
-            print("ParticlePlayerCollision");
+            //print("ParticlePlayerCollision");
             AddSubtractHealth(-2f);
         }
     }

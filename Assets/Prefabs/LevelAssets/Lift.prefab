@@ -1800,7 +1800,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1dc97464c3ba6c247978c235c0bfc9be, type: 2}
+  - {fileID: 2100000, guid: 8f02cf4a7dd5b7c4bb88708dc7a7147a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1866,7 +1866,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 09b50aa569f59d04bb240e4e7487c69d, type: 2}
-  - {fileID: 2100000, guid: 1dc97464c3ba6c247978c235c0bfc9be, type: 2}
+  - {fileID: 2100000, guid: 8f02cf4a7dd5b7c4bb88708dc7a7147a, type: 2}
   - {fileID: 2100000, guid: 5a627d4e5c82abd44b31e58d37b5c9d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -1932,7 +1932,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1dc97464c3ba6c247978c235c0bfc9be, type: 2}
+  - {fileID: 2100000, guid: 8f02cf4a7dd5b7c4bb88708dc7a7147a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2062,7 +2062,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 5a627d4e5c82abd44b31e58d37b5c9d2, type: 2}
-  - {fileID: 2100000, guid: 1dc97464c3ba6c247978c235c0bfc9be, type: 2}
+  - {fileID: 2100000, guid: 8f02cf4a7dd5b7c4bb88708dc7a7147a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2193,7 +2193,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 5a627d4e5c82abd44b31e58d37b5c9d2, type: 2}
-  - {fileID: 2100000, guid: 1dc97464c3ba6c247978c235c0bfc9be, type: 2}
+  - {fileID: 2100000, guid: 8f02cf4a7dd5b7c4bb88708dc7a7147a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2828,7 +2828,6 @@ MonoBehaviour:
   positionMainCam: {fileID: 1695633584589252}
   cameras: []
   Trigger: {fileID: 114792912642664600}
-  glowHandlerMat: {fileID: 2100000, guid: 1dc97464c3ba6c247978c235c0bfc9be, type: 2}
   overheatColor: {r: 1, g: 0.6827586, b: 0, a: 0}
   overheatLerpDuration: 3
   auxiliaryMovingParts: []
