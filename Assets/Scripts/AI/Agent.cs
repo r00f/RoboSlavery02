@@ -145,7 +145,7 @@ public class Agent : LivingEntity {
 
     public void InstanciateLaserBeam()
     {
-        GameObject laserGO = Instantiate(laserBeamPrefab, laserBeamTransform.position, laserBeamTransform.parent.parent.rotation, laserBeamTransform.parent.parent);
+        GameObject laserGO = Instantiate(laserBeamPrefab, laserBeamTransform.position, laserBeamTransform.rotation, laserBeamTransform.parent);
         laserGO.GetComponent<LaserLogic>().target = goal;
         laserGO.GetComponent<LaserLogic>().agent = this;
     }
