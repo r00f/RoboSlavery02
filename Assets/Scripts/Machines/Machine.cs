@@ -7,6 +7,7 @@ public class Machine : MonoBehaviour {
 
 
     #region Variables
+
     [SerializeField]
     protected List<Rigidbody> movingParts = new List<Rigidbody>();
     [SerializeField]

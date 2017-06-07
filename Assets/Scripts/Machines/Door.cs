@@ -8,13 +8,18 @@ public class Door : Machine {
     GameObject Exit;
     [SerializeField]
     float UpForce;
+    [SerializeField]
+    List<AudioClip> pushClips = new List<AudioClip>();
+    AudioSource audioSource;
+    [SerializeField]
+    AudioSource loopAudioSource;
 
-    
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         Initialize();
-	}
+        audioSource = GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -33,10 +38,12 @@ public class Door : Machine {
     public override void Activate()
     {
         base.Activate();
+        loopAudioSource.Play();
     }
     public override void Deactivate()
     {
         base.Deactivate();
+        loopAudioSource.Stop();
     }
     protected override void Initialize()
     {
@@ -47,6 +54,7 @@ public class Door : Machine {
         print("Bottom Button Pressed from Machine");
         base.BottomButton();
         movingParts[0].AddForce(0, UpForce, 0);
+        audioSource.PlayOneShot(pushClips[Random.Range(0, pushClips.Count)], .2f);
     }
 
     public override void TopButton()

@@ -7,18 +7,40 @@ public class MovingDoorLogic : MonoBehaviour {
     Rigidbody rigid;
     Machine machine;
     public float yVelocity;
+    AudioSource doorAudioSource;
+    [SerializeField]
+    AudioSource doorImpactAudioSource;
 
     void Start()
     {
+        doorAudioSource = GetComponent<AudioSource>();
         machine = GetComponentInParent<Machine>();
         rigid = GetComponent<Rigidbody>();
+    }
+    void Update()
+    {
+        SetYVelocity();
+        if(yVelocity < -1f)
+        {
+            if(!doorAudioSource.isPlaying)
+                doorAudioSource.Play();
+        }
+        else
+        {
+            if (doorAudioSource.isPlaying)
+                doorAudioSource.Stop();
+        }
+
     }
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.collider.CompareTag("Floor") && machine.isActive == false)
+        if (other.collider.CompareTag("Floor") )
         {
-            rigid.isKinematic = true;
+            doorImpactAudioSource.PlayOneShot(doorImpactAudioSource.clip);
+
+            if (machine.isActive == false)
+                rigid.isKinematic = true;
         }
 
         if (other.collider.GetComponent<LivingEntity>())
