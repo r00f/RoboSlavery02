@@ -2,10 +2,10 @@ Initialize engine version: 5.6.1f1 (2860b30f0b54)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GTX 660 Ti (ID=0x1183)
+    Renderer: NVIDIA GeForce 820M (ID=0x1140)
     Vendor:   NVIDIA
-    VRAM:     2016 MB
-    Driver:   21.21.13.7653
+    VRAM:     1999 MB
+    Driver:   21.21.13.7654
 Begin MonoManager ReloadAssembly
 Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\UnityEngine.dll (this message is harmless)
 Loading C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\UnityEngine.dll into Unity Child Domain
@@ -29,9 +29,121 @@ Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Rewired_Co
 Loading C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Rewired_Core.dll into Unity Child Domain
 Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Rewired_Windows_Lib.dll (this message is harmless)
 Loading C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\Rewired_Windows_Lib.dll into Unity Child Domain
-- Completed reload, in  0.038 seconds
+- Completed reload, in  0.041 seconds
 Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\System.dll (this message is harmless)
-desktop: 1920x1080 60Hz; virtual: 3600x1080 at 0,0
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 3.681512 ms
+Non platform assembly: data-11A09200 (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-11A09200.dll
+Non platform assembly: data-11A79008 (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-11A79008.dll
+Non platform assembly: data-15493020 (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/data-15493020.dll
+Rewired: Searching for compatible XInput library...
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_2
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_1
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_1.dll
+Rewired: Found Xinput1_4.dll.
+Platform assembly: C:\UnityProjects\RoboSlavery02\Builds_Data\Managed\System.Xml.dll (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_2
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_1
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_3
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_3
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_3.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_2
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_2
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_2.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\xinput1_1
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/xinput1_1
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/.\libxinput1_1.dll
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/Builds_Data/Mono/libxinput1_1.dll
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: b08 -> priority: 1 
+  Thread -> id: 2bf0 -> priority: 1 
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.279019 ms
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 805.
+Total: 18.257160 ms (FindLiveObjects: 0.102242 ms CreateObjectMapping: 0.118822 ms MarkObjects: 17.972538 ms  DeleteObjects: 0.063161 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.666351 ms
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 5382.
+Total: 20.862560 ms (FindLiveObjects: 0.416864 ms CreateObjectMapping: 0.222643 ms MarkObjects: 15.883479 ms  DeleteObjects: 4.338784 ms)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
