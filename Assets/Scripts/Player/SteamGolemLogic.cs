@@ -37,6 +37,8 @@ public class SteamGolemLogic : PlayerLogic
     float hoverTopSpeed = 10;
     [SerializeField]
     AudioSource fireLoopAudioSource;
+    [SerializeField]
+    RepairPanelLogic repairPanelPrefab;
 
 
 
@@ -55,6 +57,7 @@ public class SteamGolemLogic : PlayerLogic
     Slider handRHealthBar;
     bool onetime;
     float t;
+    Canvas canvas2;
 
     //HashTags
     int m_ChargeId;
@@ -73,6 +76,21 @@ public class SteamGolemLogic : PlayerLogic
     void Start()
     {
         Initialize();
+        canvas2 = GameObject.FindGameObjectWithTag("Canvas2").GetComponent<Canvas>();
+        //Instanciate UI Repair Panels
+
+        RepairPanelLogic repPanelR = Instantiate(repairPanelPrefab, transform.position, Quaternion.identity, canvas2.transform);
+        repPanelR.follow = hitSpheres[0].transform.parent.parent.GetComponentInChildren<HoloArmLogic>().transform;
+        repPanelR.follow.gameObject.SetActive(false);
+
+        RepairPanelLogic repPanelL = Instantiate(repairPanelPrefab, transform.position, Quaternion.identity, canvas2.transform);
+        repPanelL.follow = hitSpheres[1].transform.parent.parent.GetComponentInChildren<HoloArmLogic>().transform;
+        repPanelL.follow.gameObject.SetActive(false);
+
+        RepairPanelLogic repPanelTorso = Instantiate(repairPanelPrefab, transform.position, Quaternion.identity, canvas2.transform);
+        repPanelTorso.follow = transform;
+        repPanelTorso.targetYOffset = 1.2f;
+
         meshRenderers = GetComponentsInChildren<MeshRenderer>();
 
         foreach(MeshRenderer r in meshRenderers)
@@ -92,9 +110,9 @@ public class SteamGolemLogic : PlayerLogic
                 footFlameParticleSystems.Add(ps);
         }
         flameImp = FindObjectOfType<FlameImpLogic>();
-        healthBar = canvases[0].transform.GetChild(2).GetChild(0).GetComponent<Slider>();
-        handLHealthBar = canvases[0].transform.GetChild(2).GetChild(1).GetComponent<Slider>();
-        handRHealthBar = canvases[0].transform.GetChild(2).GetChild(2).GetComponent<Slider>();
+        healthBar = canvases[0].transform.GetChild(0).GetChild(0).GetComponent<Slider>();
+        handLHealthBar = canvases[0].transform.GetChild(0).GetChild(1).GetComponent<Slider>();
+        handRHealthBar = canvases[0].transform.GetChild(0).GetChild(2).GetComponent<Slider>();
         //Hash IDs
         m_PunchL = Animator.StringToHash("Base Layer.PunchSequence.PunchL");
         m_PunchR = Animator.StringToHash("Base Layer.PunchSequence.PunchR");

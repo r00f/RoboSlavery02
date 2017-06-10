@@ -32,10 +32,7 @@ public class ThirdPersonCamera : MonoBehaviour
     [SerializeField]
     bool wideScreen;
 
-    [SerializeField]
     Animator letterBoxTopAnim;
-
-    [SerializeField]
     Animator letterBoxBottomAnim;
 
     public Vector3 fixedCamPos;
@@ -81,8 +78,9 @@ public class ThirdPersonCamera : MonoBehaviour
         if(tag == "Cam2")
         {
             masterCam = GameObject.FindGameObjectsWithTag("Cam1")[0].GetComponent<ThirdPersonCamera>();
-
         }
+        letterBoxTopAnim = GameObject.FindGameObjectWithTag("LetterBoxes" + playerNumber).transform.GetChild(0).GetComponent<Animator>();
+        letterBoxBottomAnim = GameObject.FindGameObjectWithTag("LetterBoxes" + playerNumber).transform.GetChild(1).GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player" + playerNumber).GetComponent<PlayerLogic>();
         followXForm = player.transform.GetChild(1);
         Vector3 characterOffset = followXForm.position + new Vector3(0, distanceUp, 0);

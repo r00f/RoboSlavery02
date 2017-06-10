@@ -22,8 +22,6 @@ public class Agent : LivingEntity {
     [SerializeField]
     bool getHit;
 
-    bool stopped;
-
     #region Mono Methods
 
     void Start () {
@@ -36,26 +34,23 @@ public class Agent : LivingEntity {
 
     void Update()
     {
-
         if(!dead)
         {
-            SetupAgentLocomotion();
             HandleVariables();
 
-            if (GetHit() && !dead)
+            if (GetHit())
             {
+                grounded = false;
                 animator.ResetTrigger("Punch");
                 //print("AgentGetHit");
-                agent.enabled = false;
                 rigid.isKinematic = false;
-
             }
             else if(grounded)
             {
                 knockedUp = false;
                 rigid.isKinematic = true;
-                agent.enabled = true;
                 SetDestination();
+                SetupAgentLocomotion();
             }
 
             else if(Time.timeScale == 0)
@@ -63,19 +58,18 @@ public class Agent : LivingEntity {
                 //print("stopAgent");
                 if (agent.enabled)
                     agent.isStopped = true;
-
-                stopped = true;
             }
 
         }
-        else if(!stopped)
+        else
         {
             //print("stopAgent");
-            if(agent.enabled)
+            if(agent.enabled && !agent.isStopped)
                 agent.isStopped = true;
-
-            stopped = true;
         }
+
+            agent.enabled = grounded;
+
 
     }
 
@@ -107,39 +101,42 @@ public class Agent : LivingEntity {
 
     public void SetDestination()
 	{
-        if(inAggroRange)
+        if(agent.enabled)
         {
-            if (!inHitRange && !dead)
+            if (inAggroRange)
             {
-                agent.destination = goal.position;
-
-                if (agent.isStopped)
+                if (!inHitRange && !dead)
                 {
-                    print("resumeAgent");
-                    agent.isStopped = false;
+                    agent.destination = goal.position;
+
+                    if (agent.isStopped)
+                    {
+                        print("resumeAgent");
+                        agent.isStopped = false;
+                    }
+
+
                 }
 
+                else
+                {
+                    if (!dead)
+                    {
+                        animator.SetTrigger("Punch");
+                    }
+
+                }
 
             }
 
             else
             {
-                if (!dead)
-                {
-                    animator.SetTrigger("Punch");
-                }
-                    
+                //print("stopAgent");
+                if (!agent.isStopped)
+                    agent.isStopped = true;
             }
 
         }
-
-        else if (agent.isStopped)
-        {
-            //print("stopAgent");
-            agent.isStopped = true;
-        }
-
-
 
     }
 

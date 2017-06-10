@@ -220,9 +220,14 @@ public class LivingEntity : MonoBehaviour {
 
         if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, groundCheckDistance))
         {
-            groundNormal = hitInfo.normal;
-            animator.applyRootMotion = !inDoorCollider;
-            grounded = true;
+            if(hitInfo.transform.CompareTag("Floor"))
+            {
+                groundNormal = hitInfo.normal;
+                animator.applyRootMotion = !inDoorCollider;
+                grounded = true;
+
+            }
+
         }
         else
         {

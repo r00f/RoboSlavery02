@@ -11,8 +11,14 @@ public class GameController : MonoBehaviour {
 
     [SerializeField]
     bool restarting;
+    [SerializeField]
+    GameObject playersPrefab;
     public bool paused;
     static bool secDisplayActive;
+    [SerializeField]
+    Vector3 spawnPosition;
+    int lastSceneIndex;
+    FlameImpLogic flameImp;
 
     [SerializeField]
     float metal;
@@ -23,6 +29,7 @@ public class GameController : MonoBehaviour {
 
     void Start()
     {
+        lastSceneIndex = SceneManager.GetActiveScene().buildIndex;
         DontDestroyOnLoad(gameObject);
     }
 
@@ -46,6 +53,30 @@ public class GameController : MonoBehaviour {
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
+        //if we came from IntroCutscene set spawnPosition to 0,7,0
+
+
+        if(SceneManager.GetActiveScene().buildIndex > 1)
+        {
+            if (lastSceneIndex == 1)
+            {
+                spawnPosition = new Vector3(0, 7, 0);
+            }
+
+            if (!FindObjectOfType<PlayerLogic>())
+                Instantiate(playersPrefab, spawnPosition, Quaternion.identity);
+
+            flameImp = FindObjectOfType<FlameImpLogic>();
+
+            if (lastSceneIndex == 1)
+            {
+                flameImp.inMeteor = true;
+            }
+           
+        }
+
+
+
         metal = 0;
         rePlayer = ReInput.players.GetPlayer(0);
         restarting = false;
@@ -54,11 +85,6 @@ public class GameController : MonoBehaviour {
 
         if(SceneManager.GetActiveScene().buildIndex != 0 && mainMenu)
             mainMenu.SetActive(false);
-        else
-        {
-            
-
-        }
 
         // Display.displays[0] is the primary, default display and is always ON.
         // Check if additional displays are available and activate each.
@@ -68,6 +94,8 @@ public class GameController : MonoBehaviour {
             Display.displays[1].Activate();
             secDisplayActive = true;
         }
+
+        lastSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     void HandleInput()
@@ -86,6 +114,11 @@ public class GameController : MonoBehaviour {
     #endregion
 
     #region Methods
+
+    public void SetSpawnPosition(Vector3 inPos = default(Vector3))
+    {
+        spawnPosition = inPos;
+    }
 
     public void LoadScene(int SceneIndex)
     {

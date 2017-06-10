@@ -1255,6 +1255,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Run' has import animation warnings that might
       lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
@@ -1768,7 +1770,7 @@ ModelImporter:
       name: PlantAndTurn180R
       takeName: PlantAndTurn180R
       firstFrame: 0
-      lastFrame: 27
+      lastFrame: 25
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

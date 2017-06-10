@@ -1,0 +1,371 @@
+Initialize engine version: 5.6.1f1 (2860b30f0b54)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 660 Ti (ID=0x1183)
+    Vendor:   NVIDIA
+    VRAM:     2016 MB
+    Driver:   21.21.13.7653
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\DialogueSystem.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\DialogueSystem.dll into Unity Child Domain
+Platform assembly: C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\LuaInterpreter.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\LuaInterpreter.dll into Unity Child Domain
+Platform assembly: C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\Rewired_Core.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\Rewired_Core.dll into Unity Child Domain
+Platform assembly: C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\Rewired_Windows_Lib.dll (this message is harmless)
+Loading C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\Rewired_Windows_Lib.dll into Unity Child Domain
+- Completed reload, in  0.115 seconds
+Platform assembly: C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3600x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.419494 ms
+Non platform assembly: data-0F021E78 (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/KindledSpiritsWindows/KindledSpirits_Data/Mono/data-0F021E78.dll
+Non platform assembly: data-0F0B36D8 (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/KindledSpiritsWindows/KindledSpirits_Data/Mono/data-0F0B36D8.dll
+Non platform assembly: data-13012020 (this message is harmless)
+Fallback handler could not load library C:/UnityProjects/RoboSlavery02/KindledSpiritsWindows/KindledSpirits_Data/Mono/data-13012020.dll
+Rewired: Searching for compatible XInput library...
+Rewired: Found Xinput1_4.dll.
+Platform assembly: C:\UnityProjects\RoboSlavery02\KindledSpiritsWindows\KindledSpirits_Data\Managed\System.Xml.dll (this message is harmless)
+activateSecondDisplay
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 2d94 -> priority: 1 
+  Thread -> id: 21f8 -> priority: 1 
+  Thread -> id: 1edc -> priority: 1 
+  Thread -> id: 1dc4 -> priority: 1 
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.226236 ms
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 1636.
+Total: 15.078057 ms (FindLiveObjects: 0.080074 ms CreateObjectMapping: 0.085437 ms MarkObjects: 14.846266 ms  DeleteObjects: 0.064748 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.554005 ms
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 6277.
+Total: 23.719925 ms (FindLiveObjects: 0.399987 ms CreateObjectMapping: 0.147504 ms MarkObjects: 17.987543 ms  DeleteObjects: 5.183358 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 12.691928 ms
+
+Unloading 179 unused Assets to reduce memory usage. Loaded Objects now: 6033.
+Total: 22.117294 ms (FindLiveObjects: 0.562434 ms CreateObjectMapping: 0.224513 ms MarkObjects: 19.299761 ms  DeleteObjects: 2.028670 ms)
+
+Bottom Button Pressed from Machine
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Bottom Button Pressed from Machine
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Bottom Button Pressed from Machine
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Bottom Button Pressed from Machine
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Bottom Button Pressed from Machine
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Bottom Button Pressed from Machine
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Bottom Button Pressed from Machine
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Bottom Button Pressed from Machine
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Bottom Button Pressed from Machine
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Bottom Button Pressed from Machine
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Bottom Button Pressed from Machine
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Bottom Button Pressed from Machine
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Bottom Button Pressed from Machine
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Bottom Button Pressed from Machine
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Bottom Button Pressed from Machine
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Door hits LivingEntity from above with -3.943993 Y Velocity.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Reached (-31.2, 3.2, -38.1) Distance: 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Reached (-29.5, 3.2, -39.7) Distance: 0.001073578
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Reached (-29.1, 6.7, -39.2) Distance: 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Reached (-28.3, 7.8, -38.0) Distance: 4.768372E-07
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Reached (-28.1, 7.1, -35.9) Distance: 0.001869149
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Reached (-29.2, 6.0, -34.4) Distance: 0.003125781
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+resumeAgent
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+PushBAck
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+PushBAck
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+PushBAck
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+resumeAgent
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+PushBAck
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+PushBAck
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+PushBAck
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+PushBAck
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+PushBAck
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+resumeAgent
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+PushBAck
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Instantiate Explosion at hitSpheres[0]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Number of Arms Repaired: 1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ArmRepaired
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+resumeAgent
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+resumeAgent
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Reached (-71.4, 13.0, -57.5) Distance: 9.536743E-07
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Reached (-72.7, 13.0, -59.7) Distance: 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Reached (-72.0, 23.7, -58.4) Distance: 3.814697E-06
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Reached (-68.2, 27.9, -58.1) Distance: 0.009183042
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Reached (-63.5, 29.9, -57.6) Distance: 5.722046E-06
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Reached (-59.9, 29.4, -57.2) Distance: 4.264961E-06
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Reached (-56.9, 32.4, -68.7) Distance: 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Reached (-51.8, 31.7, -70.2) Distance: 0.00295094
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 9.021932 ms
+
+Unloading 248 unused Assets to reduce memory usage. Loaded Objects now: 6141.
+Total: 20.549147 ms (FindLiveObjects: 0.400753 ms CreateObjectMapping: 0.163213 ms MarkObjects: 17.912449 ms  DeleteObjects: 2.070814 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 8.923850 ms
+
+Unloading 176 unused Assets to reduce memory usage. Loaded Objects now: 6141.
+Total: 20.082495 ms (FindLiveObjects: 0.303055 ms CreateObjectMapping: 0.150569 ms MarkObjects: 18.122404 ms  DeleteObjects: 1.505698 ms)
+

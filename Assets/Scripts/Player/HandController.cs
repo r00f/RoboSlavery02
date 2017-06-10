@@ -65,9 +65,9 @@ public class HandController : MonoBehaviour {
             {
                 if(other.GetComponent<Agent>().GetHit() && !other.GetComponent<Agent>().knockedUp)
                 {
+                    other.GetComponent<Agent>().knockedUp = true;
                     other.GetComponent<Rigidbody>().AddExplosionForce(handForce, transform.position, 1, 0.6f, ForceMode.Impulse);
                     print("PushBAck");
-                    other.GetComponent<Agent>().knockedUp = true;
                 }
 
             }

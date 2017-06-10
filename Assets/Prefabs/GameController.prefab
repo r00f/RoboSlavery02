@@ -52,5 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restarting: 0
+  playersPrefab: {fileID: 1015093545693678, guid: 52da9383cc578aa40a5dac39077f45ff,
+    type: 2}
   paused: 0
+  spawnPosition: {x: 0, y: 7, z: 0}
   metal: 1000

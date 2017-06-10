@@ -22,6 +22,8 @@ TagManager:
   - Fire
   - FootFlame
   - MainMenu
+  - LetterBoxes1
+  - LetterBoxes2
   layers:
   - Default
   - TransparentFX

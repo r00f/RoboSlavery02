@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class RepairPanelLogic : MonoBehaviour {
 
     [SerializeField]
-    float targetYOffset;
+    public float targetYOffset;
 
-    [SerializeField]
-    Transform follow;
+
+    public Transform follow;
 
     [SerializeField]
     float scaleMultiplier;
